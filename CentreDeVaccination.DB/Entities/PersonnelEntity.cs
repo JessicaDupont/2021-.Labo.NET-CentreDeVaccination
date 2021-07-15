@@ -15,7 +15,9 @@ namespace CentreDeVaccination.DB.Entities
         public UtilisateurEntity UtilisateurId { get; set; }
 
         [Required]
-        public CentreVaccinationEntity CentreId { get; set; }
+        public int CentreId { get; set; }
+
+        public CentreVaccinationEntity Centre { get; set; }
 
         [Required]
         [MaxLength(16)]

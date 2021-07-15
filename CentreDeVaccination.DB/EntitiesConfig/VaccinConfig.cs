@@ -16,7 +16,7 @@ namespace CentreDeVaccination.DB.EntitiesConfig
             //RDVs voir RendezVous
             builder.HasMany(x => x.RDVs)
                 .WithOne(x => x.VaccinId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
             //Lots voir Lot
             builder.HasMany(x => x.Lots)
                .WithOne(y => y.VaccinId)

@@ -23,7 +23,7 @@ namespace CentreDeVaccination.DB.EntitiesConfig
             //RDVs
             builder.HasMany(x => x.RDVs)
                 .WithOne(x => x.PersonnelId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
     }

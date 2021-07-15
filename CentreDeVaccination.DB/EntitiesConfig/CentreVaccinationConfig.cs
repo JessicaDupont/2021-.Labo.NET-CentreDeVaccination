@@ -16,6 +16,8 @@ namespace CentreDeVaccination.DB.EntitiesConfig
             //FK
             //Entrepot 1-1
             //Responsable 1-1
+            builder.HasOne(x => x.ResponsableId)
+                .WithOne(x => x.Centre);
             //Horaires dans Horaire
             builder.HasMany(x => x.Horaires)
                 .WithOne(x => x.CentreId)
