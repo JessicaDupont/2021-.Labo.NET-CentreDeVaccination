@@ -24,20 +24,6 @@ namespace CentreDeVaccination.DB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Entrepot",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nom = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    AdresseId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Entrepot", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Utilisateur",
                 columns: table => new
                 {
@@ -71,20 +57,21 @@ namespace CentreDeVaccination.DB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CentreDeVaccination",
+                name: "Entrepot",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EntrepotIdId = table.Column<int>(type: "int", nullable: true)
+                    Nom = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    AdresseIdId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CentreDeVaccination", x => x.Id);
+                    table.PrimaryKey("PK_Entrepot", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CentreDeVaccination_Entrepot_EntrepotIdId",
-                        column: x => x.EntrepotIdId,
-                        principalTable: "Entrepot",
+                        name: "FK_Entrepot_Adresse_AdresseIdId",
+                        column: x => x.AdresseIdId,
+                        principalTable: "Adresse",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -128,6 +115,7 @@ namespace CentreDeVaccination.DB.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumLot = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
                     NbDoses = table.Column<int>(type: "int", nullable: false),
+                    NbDosesRestantes = table.Column<int>(type: "int", nullable: false),
                     VaccinIdId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -140,6 +128,53 @@ namespace CentreDeVaccination.DB.Migrations
                         principalTable: "Vaccin",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CentreDeVaccination",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EntrepotId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CentreDeVaccination", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CentreDeVaccination_Entrepot_EntrepotId",
+                        column: x => x.EntrepotId,
+                        principalTable: "Entrepot",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Transit",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EntrepotIdId = table.Column<int>(type: "int", nullable: false),
+                    LotIdId = table.Column<int>(type: "int", nullable: false),
+                    DateEntree = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateSortie = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transit", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Transit_Entrepot_EntrepotIdId",
+                        column: x => x.EntrepotIdId,
+                        principalTable: "Entrepot",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Transit_Lot_LotIdId",
+                        column: x => x.LotIdId,
+                        principalTable: "Lot",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -211,34 +246,6 @@ namespace CentreDeVaccination.DB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transit",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EntrepotIdId = table.Column<int>(type: "int", nullable: false),
-                    LotIdId = table.Column<int>(type: "int", nullable: false),
-                    DateEntree = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateSortie = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Transit", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Transit_Entrepot_EntrepotIdId",
-                        column: x => x.EntrepotIdId,
-                        principalTable: "Entrepot",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Transit_Lot_LotIdId",
-                        column: x => x.LotIdId,
-                        principalTable: "Lot",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "RendezVous",
                 columns: table => new
                 {
@@ -285,9 +292,14 @@ namespace CentreDeVaccination.DB.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CentreDeVaccination_EntrepotIdId",
+                name: "IX_CentreDeVaccination_EntrepotId",
                 table: "CentreDeVaccination",
-                column: "EntrepotIdId");
+                column: "EntrepotId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Entrepot_AdresseIdId",
+                table: "Entrepot",
+                column: "AdresseIdId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Horaire_CentreIdId",
@@ -401,9 +413,6 @@ namespace CentreDeVaccination.DB.Migrations
                 name: "Lot");
 
             migrationBuilder.DropTable(
-                name: "Adresse");
-
-            migrationBuilder.DropTable(
                 name: "CentreDeVaccination");
 
             migrationBuilder.DropTable(
@@ -414,6 +423,9 @@ namespace CentreDeVaccination.DB.Migrations
 
             migrationBuilder.DropTable(
                 name: "Entrepot");
+
+            migrationBuilder.DropTable(
+                name: "Adresse");
         }
     }
 }

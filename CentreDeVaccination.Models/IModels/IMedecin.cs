@@ -1,6 +1,6 @@
 ﻿namespace CentreDeVaccination.Models.IModels
 {
-    public interface ISoignant : IPersonnel
+    public interface IMedecin : IPersonnel
     {
         public string NumInami { get; set; }
 

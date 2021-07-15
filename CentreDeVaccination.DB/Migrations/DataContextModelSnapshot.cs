@@ -56,12 +56,12 @@ namespace CentreDeVaccination.DB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EntrepotIdId")
+                    b.Property<int?>("EntrepotId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EntrepotIdId");
+                    b.HasIndex("EntrepotId");
 
                     b.ToTable("CentreDeVaccination");
                 });
@@ -73,7 +73,7 @@ namespace CentreDeVaccination.DB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AdresseId")
+                    b.Property<int?>("AdresseIdId")
                         .HasColumnType("int");
 
                     b.Property<string>("Nom")
@@ -82,6 +82,8 @@ namespace CentreDeVaccination.DB.Migrations
                         .HasColumnType("nvarchar(64)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdresseIdId");
 
                     b.ToTable("Entrepot");
                 });
@@ -144,6 +146,9 @@ namespace CentreDeVaccination.DB.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("NbDoses")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NbDosesRestantes")
                         .HasColumnType("int");
 
                     b.Property<string>("NumLot")
@@ -381,11 +386,20 @@ namespace CentreDeVaccination.DB.Migrations
 
             modelBuilder.Entity("CentreDeVaccination.DB.Entities.CentreVaccinationEntity", b =>
                 {
-                    b.HasOne("CentreDeVaccination.DB.Entities.EntrepotEntity", "EntrepotId")
+                    b.HasOne("CentreDeVaccination.DB.Entities.EntrepotEntity", "Entrepot")
                         .WithMany()
-                        .HasForeignKey("EntrepotIdId");
+                        .HasForeignKey("EntrepotId");
 
-                    b.Navigation("EntrepotId");
+                    b.Navigation("Entrepot");
+                });
+
+            modelBuilder.Entity("CentreDeVaccination.DB.Entities.EntrepotEntity", b =>
+                {
+                    b.HasOne("CentreDeVaccination.DB.Entities.AdresseEntity", "AdresseId")
+                        .WithMany()
+                        .HasForeignKey("AdresseIdId");
+
+                    b.Navigation("AdresseId");
                 });
 
             modelBuilder.Entity("CentreDeVaccination.DB.Entities.HoraireEntity", b =>

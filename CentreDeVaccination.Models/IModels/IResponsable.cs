@@ -1,6 +1,6 @@
 ﻿namespace CentreDeVaccination.Models.IModels
 {
-    public interface IResponsable : ISoignant
+    public interface IResponsable : IMedecin
     {
     }
 }

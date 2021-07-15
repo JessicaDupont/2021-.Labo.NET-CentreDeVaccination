@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CentreDeVaccination.Models.IModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace CentreDeVaccination.DAL.Bases
         IRepositoryUpdate<TModel, Tid>, 
         IRepositoryDelete<TModel, Tid>, 
         IRepositorySearch<TModel, Tid>
+        where TModel : IModel
     {
     }
 }

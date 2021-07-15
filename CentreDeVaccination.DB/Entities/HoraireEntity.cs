@@ -33,7 +33,8 @@ namespace CentreDeVaccination.DB.Entities
         public int NbVaccinationParPlage { get; set; }
 
         [Required]
-        public CentreVaccinationEntity CentreId { get; set; }
+        public int CentreId { get; set; }
+        public virtual CentreVaccinationEntity Centre { get; set; }
 
     }
 }
