@@ -20,6 +20,8 @@ namespace CentreDeVaccination.DB.Entities
         [Required]
         public int NbDoses { get; set; }
 
+        public int NbDosesRestantes { get; set; }
+
         [Required]
         public VaccinEntity VaccinId { get; set; }
 

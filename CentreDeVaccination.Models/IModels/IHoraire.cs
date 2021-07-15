@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentreDeVaccination.DAL.IModels
+namespace CentreDeVaccination.Models.IModels
 {
     public interface IHoraire : IModel
     {
@@ -13,7 +13,7 @@ namespace CentreDeVaccination.DAL.IModels
         public DateTime Fermeture { get; set; }
         public DateTime? OuvertureBis { get; set; }
         public DateTime? FermetureBis { get; set; }
-        public int DureePlageVaccination { get; set; }
+        public TimeSpan DureePlageVaccination { get; set; }
         public int NbVaccinationParPlage { get; set; }
     }
 }

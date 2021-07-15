@@ -1,4 +1,4 @@
-﻿namespace CentreDeVaccination.DAL.IModels
+﻿namespace CentreDeVaccination.Models.IModels
 {
     public interface ISoignant : IPersonnel
     {

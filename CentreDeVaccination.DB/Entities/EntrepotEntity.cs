@@ -17,7 +17,7 @@ namespace CentreDeVaccination.DB.Entities
         public string Nom { get; set; }
 
         [Required]
-        public int AdresseId { get; set; }
+        public AdresseEntity AdresseId { get; set; }
 
         public virtual IEnumerable<TransitEntity> Transits { get; set; }
     }

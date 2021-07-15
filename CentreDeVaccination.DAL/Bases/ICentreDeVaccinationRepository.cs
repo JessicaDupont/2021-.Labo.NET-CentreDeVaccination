@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.DAL.Bases
 {
-    public interface IRepositoryUpdate<TModel, Tid>
-        where TModel : IModel
+    public interface ICentreDeVaccinationRepository : 
+        IRepositoryRead<ICentreDeVaccination, int>,
+        IRepositorySearch<ICentreDeVaccination, int>
     {
-        public TModel Update(TModel model);
     }
 }

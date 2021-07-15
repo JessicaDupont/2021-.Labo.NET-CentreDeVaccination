@@ -1,4 +1,4 @@
-﻿using CentreDeVaccination.DAL.IModels;
+﻿using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

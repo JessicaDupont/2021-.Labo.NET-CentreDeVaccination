@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToolIca.Geographie;
 
-namespace CentreDeVaccination.DAL.Bases
+namespace CentreDeVaccination.Models
 {
-    public interface IRepositoryUpdate<TModel, Tid>
-        where TModel : IModel
+    public class Adresse : AdresseBE, IAdresse
     {
-        public TModel Update(TModel model);
+        public int Id { get; set; }
     }
 }

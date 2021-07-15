@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\ToolIca\ToolIca.csproj" />
+    <ProjectReference Include="..\CentreDeVaccination.DB\CentreDeVaccination.DB.csproj" />
+    <ProjectReference Include="..\CentreDeVaccination.Models\CentreDeVaccination.Models.csproj" />
   </ItemGroup>
 
 </Project>

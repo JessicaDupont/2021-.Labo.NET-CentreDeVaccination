@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentreDeVaccination.DAL.Bases
+namespace CentreDeVaccination.Models.IModels
 {
     public interface IChamp
     {

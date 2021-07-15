@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CentreDeVaccination.DAL.IModels
+namespace CentreDeVaccination.Models.IModels
 {
     public interface IEntrepot : IModel
     {

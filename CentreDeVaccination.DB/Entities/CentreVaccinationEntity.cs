@@ -13,7 +13,7 @@ namespace CentreDeVaccination.DB.Entities
         public int Id { get; set; }
 
         [Required]
-        public EntrepotEntity EntrepotId { get; set; }
+        public EntrepotEntity Entrepot { get; set; }
 
 
         [Required]

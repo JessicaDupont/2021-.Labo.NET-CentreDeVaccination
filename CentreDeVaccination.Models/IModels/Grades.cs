@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentreDeVaccination.DAL.IModels
+namespace CentreDeVaccination.Models.IModels
 {
-    public enum Grade
+    public enum Grades
     {
         Medecin,
         Infirmier,
