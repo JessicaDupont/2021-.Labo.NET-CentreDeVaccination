@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.DAL.Bases
 {
-    public interface IRepositorySearch<TModel, Tid>
-        where TModel : IModel
+    public interface IHoraireRepository : 
+        IRepositorySearch<IHoraire, int>
     {
-        public IEnumerable<TModel> Search(IDictionary<string, int> filters);
     }
 }

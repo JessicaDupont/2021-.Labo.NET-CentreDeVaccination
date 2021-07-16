@@ -1,3 +1,6 @@
+using CentreDeVaccination.DAL.Bases;
+using CentreDeVaccination.DAL.Repositories;
+using CentreDeVaccination.DB;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -29,10 +32,15 @@ namespace CentreDeVaccination.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+            services.AddDbContext<DataContext>();
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
 
             services.AddControllers();
+
+            //repositories
+            services.AddScoped<ICentreDeVaccinationRepository, CentreDeVaccinationRepository>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CentreDeVaccination.API", Version = "v1" });
@@ -49,7 +57,7 @@ namespace CentreDeVaccination.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CentreDeVaccination.API v1"));
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

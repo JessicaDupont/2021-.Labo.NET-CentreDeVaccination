@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CentreDeVaccination.DAL.Bases;
+using CentreDeVaccination.DAL.Repositories;
 
 namespace CentreDeVaccination.DAL.Mapping
 {
@@ -20,18 +22,6 @@ namespace CentreDeVaccination.DAL.Mapping
         {
             ICentreDeVaccination result = new Centre();
             result.Id = entity.Id;
-
-            EntrepotMapping eM = new EntrepotMapping();
-            result.Entrepot = eM.Mapping(entity.Entrepot);
-
-            HoraireMapping hM = new HoraireMapping();
-            IList<IHoraire> r = new List<IHoraire>();
-            foreach (HoraireEntity h in entity.Horaires)
-            {
-                r.Add(hM.Mapping(h));
-            }
-            result.Horaire = r;
-
             return result;
         }
     }

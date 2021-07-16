@@ -13,8 +13,13 @@ namespace CentreDeVaccination.DAL.Repositories
 {
     public class CentreDeVaccinationRepository : RepositoryBase, ICentreDeVaccinationRepository
     {
+        private EntrepotRepository entrepotR;
+        private CentreDeVaccinationMapping map;
+
         public CentreDeVaccinationRepository(DataContext db) : base(db)
         {
+            map = new CentreDeVaccinationMapping();
+            entrepotR = new EntrepotRepository(db);
         }
 
         public ICentreDeVaccination Read(int id)
@@ -24,18 +29,8 @@ namespace CentreDeVaccination.DAL.Repositories
 
         public IEnumerable<ICentreDeVaccination> Read()
         {
-            List<ICentreDeVaccination> result = new List<ICentreDeVaccination>();
-            CentreDeVaccinationMapping cvM = new CentreDeVaccinationMapping();
-            foreach (CentreVaccinationEntity cv in db.Centres.ToList())
-            {
-                result.Add(cvM.Mapping(cv));
-            }
-            return result;
+            return db.Centres.Select(map.Mapping);
         }
 
-        public IEnumerable<ICentreDeVaccination> Search(IEnumerable<IChamp> filters)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
