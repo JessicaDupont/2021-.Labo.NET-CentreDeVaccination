@@ -23,7 +23,8 @@ namespace CentreDeVaccination.DB.Entities
         public int NbDosesRestantes { get; set; }
 
         [Required]
-        public VaccinEntity VaccinId { get; set; }
+        public int VaccinId { get; set; }
+        public virtual VaccinEntity Vaccin { get; set; }
 
         public virtual IEnumerable<TransitEntity> Transits { get; set; }
 

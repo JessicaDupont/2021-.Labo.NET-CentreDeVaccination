@@ -32,9 +32,6 @@ namespace CentreDeVaccination.DAL.Mapping
             }
             result.Horaire = r;
 
-            ResponsableMapping rM = new ResponsableMapping();
-            result.Responsable = rM.Mapping(entity.ResponsableId);
-
             return result;
         }
     }

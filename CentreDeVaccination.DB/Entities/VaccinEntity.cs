@@ -21,10 +21,10 @@ namespace CentreDeVaccination.DB.Entities
         public string? Nom { get; set; }
 
         [Required]
-        public TimeSpan IntervalleMinimum { get; set; }
+        public int NbJoursIntervalleMinimum { get; set; }
 
         [Required]
-        public TimeSpan IntervalleMaximum { get; set; }
+        public int NbJoursIntervalleMaximum { get; set; }
 
         public virtual IEnumerable<RendezVousEntity> RDVs { get; set; }
 

@@ -19,7 +19,7 @@ namespace CentreDeVaccination.DAL.Mapping
             result.Nom = entity.Nom;
             //adresse
             AdresseMapping aM = new AdresseMapping();
-            result.Adresse = aM.Mapping(entity.AdresseId);
+            result.Adresse = aM.Mapping(entity.Adresse);
             //liste des vaccins disponibles
             result.Vaccins = null;//TODO
 

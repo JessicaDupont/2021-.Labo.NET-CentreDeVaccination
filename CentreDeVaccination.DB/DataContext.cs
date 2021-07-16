@@ -1,4 +1,5 @@
 ﻿
+using CentreDeVaccination.DB.DataSet;
 using CentreDeVaccination.DB.Entities;
 using CentreDeVaccination.DB.EntitiesConfig;
 using Microsoft.EntityFrameworkCore;
@@ -29,16 +30,36 @@ namespace CentreDeVaccination.DB
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //config
             builder.ApplyConfiguration(new AdresseConfig());
-            builder.ApplyConfiguration(new CentreVaccinationConfig());
             builder.ApplyConfiguration(new EntrepotConfig());
-            builder.ApplyConfiguration(new HoraireConfig());
-            builder.ApplyConfiguration(new LotConfig());
-            builder.ApplyConfiguration(new PatientConfig());
-            builder.ApplyConfiguration(new PersonnelConfig());
-            builder.ApplyConfiguration(new RendezVousConfig());
-            builder.ApplyConfiguration(new UtilisateurConfig());
+
             builder.ApplyConfiguration(new VaccinConfig());
+            builder.ApplyConfiguration(new LotConfig());
+
+            builder.ApplyConfiguration(new TransitConfig());
+
+            builder.ApplyConfiguration(new UtilisateurConfig());
+            builder.ApplyConfiguration(new PatientConfig());
+
+            builder.ApplyConfiguration(new PersonnelConfig());
+            builder.ApplyConfiguration(new CentreVaccinationConfig());
+            builder.ApplyConfiguration(new HoraireConfig());
+
+            builder.ApplyConfiguration(new RendezVousConfig());
+
+            //DataSet
+            builder.ApplyConfiguration(new AdresseDataSet());
+            builder.ApplyConfiguration(new EntrepotDataSet());
+            builder.ApplyConfiguration(new VaccinDataSet());
+            builder.ApplyConfiguration(new LotDataSet());
+            builder.ApplyConfiguration(new TransitDataSet());
+            builder.ApplyConfiguration(new UtilisateurDataSet());
+            builder.ApplyConfiguration(new PatientDataSet());
+            builder.ApplyConfiguration(new PersonnelDataSet());
+            builder.ApplyConfiguration(new CentreDataSet());
+            builder.ApplyConfiguration(new HoraireDataSet());
+            builder.ApplyConfiguration(new RDVDataSet());
         }
     }
 }

@@ -13,10 +13,12 @@ namespace CentreDeVaccination.DB.Entities
         public int Id { get; set; }
 
         [Required]
-        public EntrepotEntity EntrepotId { get; set; }
+        public int EntrepotId { get; set; }
+        public virtual EntrepotEntity Entrepot { get; set; }
 
         [Required]
-        public LotEntity LotId { get; set; }
+        public int LotId { get; set; }
+        public virtual LotEntity Lot { get; set; }
 
         [Required]
         public DateTime DateEntree { get; set; }

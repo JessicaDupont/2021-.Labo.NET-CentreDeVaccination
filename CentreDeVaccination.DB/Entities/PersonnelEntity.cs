@@ -12,12 +12,13 @@ namespace CentreDeVaccination.DB.Entities
         public int Id { get; set; }
 
         [Required]
-        public UtilisateurEntity UtilisateurId { get; set; }
+        public int UtilisateurId { get; set; }
+        public virtual UtilisateurEntity Utilisateur { get; set; }
 
-        [Required]
         public int CentreId { get; set; }
+        public virtual CentreVaccinationEntity Centre { get; set; }
 
-        public CentreVaccinationEntity Centre { get; set; }
+        public bool ResponsableCentre { get; set; }
 
         [Required]
         [MaxLength(16)]

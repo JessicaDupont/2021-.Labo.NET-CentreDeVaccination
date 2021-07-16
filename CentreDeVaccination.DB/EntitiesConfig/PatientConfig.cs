@@ -20,8 +20,8 @@ namespace CentreDeVaccination.DB.EntitiesConfig
             //Personnel voir Personnel
             //RDVs
             builder.HasMany(x => x.RDVs)
-                .WithOne(x => x.PatientId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .WithOne(x => x.Patient)
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
     }

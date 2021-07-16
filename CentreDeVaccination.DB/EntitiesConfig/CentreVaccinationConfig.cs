@@ -15,21 +15,18 @@ namespace CentreDeVaccination.DB.EntitiesConfig
         {
             //FK
             //Entrepot 1-1
-            //Responsable 1-1
-            builder.HasOne(x => x.ResponsableId)
-                .WithOne(x => x.Centre);
             //Horaires dans Horaire
             builder.HasMany(x => x.Horaires)
-                .WithOne(x => x.CentreId)
-                .OnDelete(DeleteBehavior.Cascade);
-            //Personnel dans Personnel
+                .WithOne(x => x.Centre)
+                .OnDelete(DeleteBehavior.NoAction);
+            //Personnel
+            builder.HasMany(x => x.Personnel)
+                .WithOne(x => x.Centre)
+                .OnDelete(DeleteBehavior.NoAction);
+            //RDVs
             builder.HasMany(x => x.RDVs)
-                .WithOne(x => x.CentreId)
-                .OnDelete(DeleteBehavior.SetNull);
-            //RDVs dans RendezVous
-            builder.HasMany(x => x.RDVs)
-                .WithOne(x => x.CentreId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .WithOne(x => x.Centre)
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
     }

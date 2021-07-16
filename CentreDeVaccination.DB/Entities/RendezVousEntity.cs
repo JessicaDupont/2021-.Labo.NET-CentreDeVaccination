@@ -13,20 +13,24 @@ namespace CentreDeVaccination.DB.Entities
         public int Id { get; set; }
 
         [Required]
-        [ForeignKey(nameof(PatientEntity))]
-        public PatientEntity PatientId { get; set; }
+        public int PatientId { get; set; }
+        public virtual PatientEntity Patient { get; set; }
 
         [Required]
-        public CentreVaccinationEntity CentreId { get; set; }
+        public int CentreId { get; set; }
+        public virtual CentreVaccinationEntity Centre { get; set; }
 
         [Required]
-        public VaccinEntity VaccinId { get; set; }
+        public int VaccinId { get; set; }
+        public virtual VaccinEntity Vaccin { get; set; }
 
         [Required]
         public DateTime RendezVous { get; set; }
 
-        public PersonnelEntity PersonnelId { get; set; }
+        public int PersonnelId { get; set; }
+        public virtual PersonnelEntity Personnel { get; set; }
 
-        public LotEntity LotId { get; set; }
+        public int LotId { get; set; }
+        public virtual LotEntity Lot { get; set; }
     }
 }

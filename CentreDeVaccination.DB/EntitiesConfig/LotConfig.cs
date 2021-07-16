@@ -23,13 +23,13 @@ namespace CentreDeVaccination.DB.EntitiesConfig
             
             //transit
             builder.HasMany(x => x.Transits)
-                .WithOne(x => x.LotId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .WithOne(x => x.Lot)
+                .OnDelete(DeleteBehavior.NoAction);
 
             //lot
             builder.HasMany(x => x.RDVs)
-                .WithOne(x => x.LotId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .WithOne(x => x.Lot)
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
     }

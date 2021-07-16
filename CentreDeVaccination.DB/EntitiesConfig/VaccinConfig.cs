@@ -15,12 +15,12 @@ namespace CentreDeVaccination.DB.EntitiesConfig
             //FK
             //RDVs voir RendezVous
             builder.HasMany(x => x.RDVs)
-                .WithOne(x => x.VaccinId)
+                .WithOne(x => x.Vaccin)
                 .OnDelete(DeleteBehavior.NoAction);
             //Lots voir Lot
             builder.HasMany(x => x.Lots)
-               .WithOne(y => y.VaccinId)
-               .OnDelete(DeleteBehavior.Cascade);
+               .WithOne(y => y.Vaccin)
+               .OnDelete(DeleteBehavior.NoAction);
         }
 
     }

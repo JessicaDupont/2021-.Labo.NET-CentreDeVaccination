@@ -15,23 +15,23 @@ namespace CentreDeVaccination.DB.DataSet
         public void Configure(EntityTypeBuilder<HoraireEntity> builder)
         {
             builder.HasData(
-                GetHoraire(1), GetHoraire(2), GetHoraire(3), GetHoraire(4), GetHoraire(5), 
-                GetHoraire(6), GetHoraire(7), GetHoraire(8), GetHoraire(9), GetHoraire(10));
+                GetDonnee(1), GetDonnee(2), GetDonnee(3), GetDonnee(4), GetDonnee(5), 
+                GetDonnee(6), GetDonnee(7), GetDonnee(8), GetDonnee(9), GetDonnee(10));
         }
 
-        private HoraireEntity GetHoraire(int id)
+        private HoraireEntity GetDonnee(int id)
         {
             HoraireEntity result = new HoraireEntity();
             result.Id = id;
 
             List<string> Jours = new List<string> { "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche" };
-            result.Jour = Lorem.IpsumListe(Jours);
+            result.Jour = LoremIpsum.GetListe(Jours);
 
-            result.Ouverture = Lorem.IpsumHeure(6, 12);
-            result.Fermeture = Lorem.IpsumHeure(13, 19);
-            result.DureePlageVaccination = Lorem.IpsumDureeMinutes(1,6 * 60);
+            result.Ouverture = LoremIpsum.GetHeureMinutes(6, 12);
+            result.Fermeture = LoremIpsum.GetHeureMinutes(13, 19);
+            result.DureePlageVaccination = LoremIpsum.GetDureeMinutes(1,6 * 60);
             result.NbVaccinationParPlage = result.DureePlageVaccination.Minutes;
-            result.CentreId = Lorem.IpsumInt(1,10);
+            result.CentreId = LoremIpsum.GetInt(1,2);
             return result;
         }
     }

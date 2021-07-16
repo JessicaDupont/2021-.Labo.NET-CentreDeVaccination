@@ -15,17 +15,18 @@ namespace CentreDeVaccination.DB.DataSet
         public void Configure(EntityTypeBuilder<VaccinEntity> builder)
         {
             builder.HasData(
-                GetVaccin(1), GetVaccin(2), GetVaccin(3), GetVaccin(4), GetVaccin(5));
+                GetDonnee(1), GetDonnee(2), GetDonnee(3)
+                );
         }
 
-        private VaccinEntity GetVaccin(int id)
+        private VaccinEntity GetDonnee(int id)
         {
             VaccinEntity result = new VaccinEntity();
             result.Id = id;
-            result.Fabricant = Lorem.IpsumString(5, 10);
+            result.Fabricant = LoremIpsum.GetString(5, 10, true, false, false);
             result.Nom = result.Fabricant;
-            result.IntervalleMinimum = Lorem.IpsumDureeJours(15, 30);
-            result.IntervalleMaximum = Lorem.IpsumDureeJours(45, 60);
+            result.NbJoursIntervalleMinimum = LoremIpsum.GetInt(15, 30);
+            result.NbJoursIntervalleMaximum = LoremIpsum.GetInt(45, 60);
             return result;
         }
     }

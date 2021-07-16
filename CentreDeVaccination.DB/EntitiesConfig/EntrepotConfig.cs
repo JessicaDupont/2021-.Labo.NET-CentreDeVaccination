@@ -12,8 +12,8 @@ namespace CentreDeVaccination.DB.EntitiesConfig
             //Adresse 1-1
             //Transit
             builder.HasMany(t => t.Transits)
-                .WithOne(i => i.EntrepotId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .WithOne(i => i.Entrepot)
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
     }

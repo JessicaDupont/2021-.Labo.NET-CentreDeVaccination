@@ -1,6 +1,8 @@
 ﻿using CentreDeVaccination.DB.Entities;
+using CentreDeVaccination.Models.IModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace CentreDeVaccination.DB.EntitiesConfig
 {
@@ -8,21 +10,28 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<PersonnelEntity> builder)
         {
-            builder.HasCheckConstraint("CK_Grade",
-                "Grade in ('Medecin', 'Infirmier', 'Sécurité', 'Bénévole')");
+            builder.Property(x => x.ResponsableCentre)
+                .HasDefaultValue(false);
 
-            builder.HasCheckConstraint("CK_NumInami", "NumInami LIKE '_-_-____-__-___'");
+            builder.HasCheckConstraint("CK_Grade",
+                "Grade in ('"+Grades.Medecin+ "', '" 
+                + Grades.Infirmier + "', '" 
+                + Grades.Securite + "', '" 
+                + Grades.Benevole + "')");
+
+            builder.HasCheckConstraint("CK_NumInami", "NumInami LIKE '___________'");//11caractères
 
             //FK
 
-            //Patient 1-1
+            //utilisateur
+
             //builder.HasOne(p => p.CentreId)
             //    .WithMany(c => c.Personnel)
             //    .OnDelete(DeleteBehavior.ClientSetNull);
 
             //RDVs
             builder.HasMany(x => x.RDVs)
-                .WithOne(x => x.PersonnelId)
+                .WithOne(x => x.Personnel)
                 .OnDelete(DeleteBehavior.NoAction);
         }
 

@@ -23,7 +23,5 @@ namespace CentreDeVaccination.DB.Entities
 
         [MaxLength(64)]
         public string? Prenom { get; set; }
-
-        //public virtual PatientEntity? Patient { get; set; }
     }
 }

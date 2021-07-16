@@ -13,12 +13,8 @@ namespace CentreDeVaccination.DB.Entities
         public int Id { get; set; }
 
         [Required]
-        public EntrepotEntity Entrepot { get; set; }
-
-
-        [Required]
-        public PersonnelEntity ResponsableId { get; set; }
-
+        public int EntrepotId { get; set; }
+        public virtual EntrepotEntity Entrepot { get; set; }
 
         public virtual IEnumerable<HoraireEntity> Horaires { get; set; }
 

@@ -10,7 +10,9 @@ namespace CentreDeVaccination.Models.IModels
     {
         public IEntrepot Entrepot { get; set; }
         public IEnumerable<IHoraire> Horaire { get; set; }
-        public IResponsable Responsable { get; set; }
         public IEnumerable<IChamp> ChampsRecherche { get; set; }
+
+        public IResponsable Responsable();
+        public IEnumerable<IVaccin> Vaccins();
     }
 }

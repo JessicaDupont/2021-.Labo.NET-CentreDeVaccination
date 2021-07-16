@@ -11,16 +11,16 @@ namespace CentreDeVaccination.DB.Entities
         [Key]
         public int Id { get; set; }
 
-        //[ForeignKey(nameof(UtilisateurEntity))]
-        public UtilisateurEntity UtilisateurId { get; set; }
+        public int UtilisateurId { get; set; }
+        public virtual UtilisateurEntity Utilisateur { get; set; }
 
         [Required]
         [MaxLength(16)]
         public string NumRegNat { get; set; }
 
         [Required]
-        [ForeignKey(nameof(AdresseEntity))]
-        public AdresseEntity AdresseId { get; set; }
+        public int AdresseId { get; set; }
+        public AdresseEntity Adresse { get; set; }
 
         [MaxLength(16)]
         public string NumTelephone { get; set; }
