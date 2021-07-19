@@ -1,5 +1,6 @@
 ﻿using CentreDeVaccination.DAL.Bases;
 using CentreDeVaccination.DAL.Mapping;
+using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.DB;
 using CentreDeVaccination.DB.Entities;
 using CentreDeVaccination.Models.IModels;
@@ -18,12 +19,40 @@ namespace CentreDeVaccination.DAL.Repositories
         {
         }
 
-        public IEnumerable<IHoraire> Search(IDictionary<string, int> filtres)
+        public IEnumerable<IHoraire> Search(string champ, bool valeur)
         {
-            return db.Horaires
-                .Where(x => x.CentreId == filtres[nameof(x.CentreId)])
-                .Select(map.Mapping);            
+            throw new NotImplementedException();
         }
 
+        public IEnumerable<IHoraire> Search(string champ, int valeur)
+        {
+            if (champ.Equals("CentreId"))
+            {
+                return db.Horaires
+                    .Where(x => x.CentreId == valeur)
+                    .Select(map.Mapping);
+            }
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IHoraire> Search(string champ, string valeur)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IHoraire> Search(string champ, DateTime valeur)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IHoraire> Search(string champ, TimeSpan valeur)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IHoraire> Search(IDictionary<string, object> filtres)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

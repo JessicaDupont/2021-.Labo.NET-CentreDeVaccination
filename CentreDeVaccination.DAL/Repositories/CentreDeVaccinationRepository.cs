@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CentreDeVaccination.DAL.Mapping;
+using CentreDeVaccination.DAL.Repositories.Bases;
 
 namespace CentreDeVaccination.DAL.Repositories
 {

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentreDeVaccination.DAL.Bases
+namespace CentreDeVaccination.Models
 {
-    public interface IHoraireRepository : 
-        IRepositorySearch<IHoraire, int>
+    public class Personnel : IPersonnel
     {
+        public Grades Grade { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.Models
 {
-    public class Responsable : IResponsable
+    public class Transit : ITransit
     {
-        public string NumInami { get; set; }
-        public Grades Grade { get; set; }
+        public ILot Lot { get; set; }
+        public IEntrepot Entrepot { get; set; }
+        public DateTime DateEntree { get; set; }
+        public DateTime? DateSortie { get; set; }
         public int Id { get; set; }
-
-        public bool VerifInami(string num)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

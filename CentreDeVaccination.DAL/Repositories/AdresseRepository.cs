@@ -2,7 +2,6 @@
 using CentreDeVaccination.DAL.Mapping;
 using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.DB;
-using CentreDeVaccination.DB.Entities;
 using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
@@ -12,27 +11,25 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.DAL.Repositories
 {
-    public class EntrepotRepository : RepositoryBase, IEntrepotRepository
+    public class AdresseRepository : RepositoryBase, IAdresseRepository
     {
-        EntrepotMapping map;
-
-        public EntrepotRepository(DataContext db) : base(db)
+        AdresseMapping map;
+        public AdresseRepository(DataContext db) : base(db)
         {
-            map = new EntrepotMapping();
+            map = new AdresseMapping();
         }
 
-        public IEntrepot Read(int id)
+        public IAdresse Read(int id)
         {
-            return db.Entrepots
+            return db.Adresses
                 .Where(x => x.Id == id)
                 .Select(map.Mapping)
                 .FirstOrDefault();
         }
 
-        public IEnumerable<IEntrepot> Read()
+        public IEnumerable<IAdresse> Read()
         {
-            return db.Entrepots
-                .Select(map.Mapping);
+            throw new NotImplementedException();
         }
     }
 }

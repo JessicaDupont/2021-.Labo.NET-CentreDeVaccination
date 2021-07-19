@@ -1,16 +1,18 @@
-﻿using System;
+﻿using CentreDeVaccination.Models.IModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentreDeVaccination.Models.IModels
+namespace CentreDeVaccination.Models
 {
-    public interface ILot : IModel
+    public class Lot : ILot
     {
         public IVaccin Vaccin { get; set; }
         public string NumLot { get; set; }
         public int QtDoses { get; set; }
+        public int Id { get; set; }
         public int QtDosesRestantes { get; set; }
     }
 }

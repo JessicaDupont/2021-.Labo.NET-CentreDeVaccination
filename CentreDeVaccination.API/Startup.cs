@@ -1,5 +1,6 @@
-using CentreDeVaccination.DAL.Bases;
 using CentreDeVaccination.DAL.Repositories;
+using CentreDeVaccination.DAL.Repositories.bases;
+using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.DB;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -39,7 +40,13 @@ namespace CentreDeVaccination.API
             services.AddControllers();
 
             //repositories
+            services.AddScoped<IAdresseRepository, AdresseRepository>();
             services.AddScoped<ICentreDeVaccinationRepository, CentreDeVaccinationRepository>();
+            services.AddScoped<IEntrepotRepository, EntrepotRepository>();
+            services.AddScoped<IHoraireRepository, HoraireRepository>();
+            services.AddScoped<IPersonnelRepository, PersonnelRepository>();
+            services.AddScoped<ITransitRepository, TransitRepository>();
+            services.AddScoped<IVaccinRepository, VaccinRepository>();
 
             services.AddSwaggerGen(c =>
             {

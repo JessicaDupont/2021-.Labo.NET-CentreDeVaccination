@@ -2,6 +2,7 @@
 using CentreDeVaccination.DB.Entities;
 using System;
 using CentreDeVaccination.Models;
+using CentreDeVaccination.DAL.Mapping.Bases;
 
 namespace CentreDeVaccination.DAL.Mapping
 {
@@ -17,12 +18,8 @@ namespace CentreDeVaccination.DAL.Mapping
             IEntrepot result = new Entrepot();
             result.Id = entity.Id;
             result.Nom = entity.Nom;
-            //adresse
-            AdresseMapping aM = new AdresseMapping();
-            result.Adresse = aM.Mapping(entity.Adresse);
-            //liste des vaccins disponibles
-            result.Vaccins = null;//TODO
-
+            result.Adresse = new Adresse();
+            result.Adresse.Id = entity.AdresseId;
             return result;
         }
     }

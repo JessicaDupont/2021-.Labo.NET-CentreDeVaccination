@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CentreDeVaccination.DAL.Bases;
 using CentreDeVaccination.DAL.Repositories;
+using CentreDeVaccination.DAL.Mapping.Bases;
 
 namespace CentreDeVaccination.DAL.Mapping
 {
@@ -22,6 +23,8 @@ namespace CentreDeVaccination.DAL.Mapping
         {
             ICentreDeVaccination result = new Centre();
             result.Id = entity.Id;
+            result.Entrepot = new Entrepot();
+            result.Entrepot.Id = entity.EntrepotId;
             return result;
         }
     }
