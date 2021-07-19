@@ -23,12 +23,17 @@ namespace CentreDeVaccination.DAL.Repositories
 
         public ICentreDeVaccination Read(int id)
         {
-            throw new NotImplementedException();
+            return db.Centres
+                .Where(x => x.Id == id)
+                .Select(map.Mapping)
+                .FirstOrDefault();
         }
 
         public IEnumerable<ICentreDeVaccination> Read()
         {
-            return db.Centres.Select(map.Mapping);
+            return db.Centres
+                .Where(x => x.IsVisible == true)
+                .Select(map.Mapping);
         }
 
     }

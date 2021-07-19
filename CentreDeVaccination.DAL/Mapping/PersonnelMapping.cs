@@ -15,21 +15,10 @@ namespace CentreDeVaccination.DAL.Mapping
 
         public IPersonnel Mapping(PersonnelEntity entity)
         {
-            if (!(entity.NumInami is null))
-            {
-                ISoignant result = new Soignant();
-                result.Id = entity.Id;
-                result.Grade = (Grades)Enum.Parse(typeof(Grades), entity.Grade);
-                result.Inami = entity.NumInami;
-                return result;
-            }
-            else 
-            { 
-                IPersonnel result = new Personnel();
-                result.Id = entity.Id;
-                result.Grade = (Grades)Enum.Parse(typeof(Grades), entity.Grade);
-                return result;
-            }            
+            IPersonnel result = new Personnel();
+            result.Id = entity.Id;
+            result.Grade = (Grades)Enum.Parse(typeof(Grades), entity.Grade);
+            return result;          
         }
     }
 }

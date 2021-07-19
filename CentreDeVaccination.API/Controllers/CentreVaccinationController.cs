@@ -20,6 +20,7 @@ namespace CentreDeVaccination.API.Controllers
         private readonly IEntrepotRepository entrepotRepository;
         private readonly IHoraireRepository horaireRepository;
         private readonly IPersonnelRepository personnelRepository;
+        private readonly ISoignantRepository soignantRepository;
         private readonly IAdresseRepository adresseRepository;
         private readonly ITransitRepository transitRepository;
         private readonly ILotRepository lotRepository;
@@ -28,6 +29,7 @@ namespace CentreDeVaccination.API.Controllers
         public CentreVaccinationController(
             ICentreDeVaccinationRepository repository, 
             IPersonnelRepository personnelRepository,
+            ISoignantRepository soignantRepository,
             IHoraireRepository horaireRepository,
             IEntrepotRepository entrepotRepository,
             IAdresseRepository adresseRepository,
@@ -39,6 +41,7 @@ namespace CentreDeVaccination.API.Controllers
             this.entrepotRepository = entrepotRepository;
             this.horaireRepository = horaireRepository;
             this.personnelRepository = personnelRepository;
+            this.soignantRepository = soignantRepository;
             this.adresseRepository = adresseRepository;
             this.transitRepository = transitRepository;
             this.lotRepository = lotRepository;
@@ -55,20 +58,10 @@ namespace CentreDeVaccination.API.Controllers
         {
             try
             {
-                IEnumerable<ICentreDeVaccination> result = repository.Read();
-                foreach (ICentreDeVaccination c in result)
+                IList<ICentreDeVaccination> result = new List<ICentreDeVaccination>(repository.Read());
+                for(int i=0; i<result.Count(); i++)
                 {
-                    //responsable
-                    IDictionary<string, object> filtres = new Dictionary<string, object>();
-                    filtres.Add("ResponsableCentre", true);
-                    filtres.Add("CentreId", c.Id);
-                    c.Responsable = (ISoignant)personnelRepository.Search(filtres);
-                    //equipe
-                    c.Equipe = personnelRepository.Search("CentreId", c.Id);
-                    //horaire
-                    c.Horaire = horaireRepository.Search("CentreId", c.Id);
-                    //entrepot
-                    c.Entrepot = ObtenirInfosEntrepot(c.Entrepot.Id);                    
+                    result[i] = InfosCentre(result[i]);
                 }
                 return Ok(result);
             }
@@ -80,42 +73,6 @@ namespace CentreDeVaccination.API.Controllers
                         Message = ex.Message
                     });
             }
-        }
-
-        private IEntrepot ObtenirInfosEntrepot(int id)
-        {
-            IEntrepot e = entrepotRepository.Read(id);
-            e.Adresse = adresseRepository.Read(e.Adresse.Id);
-            e.Vaccins = ObtenirVaccins(id);
-            return e;
-        }
-
-        private IEnumerable<IVaccin> ObtenirVaccins(int entrepotId)
-        {
-            IDictionary<string, object> filtres;
-
-            //obtenir tout les transit de l'entrepot dont la date de sortie est toujorus à null
-            filtres = new Dictionary<string, object>();
-            filtres.Add("EntrepotId", entrepotId);
-            filtres.Add("DateSortie", null);
-            IEnumerable<ITransit> resultTransit = transitRepository.Search(filtres);
-
-            //obtenir tout les vaccinId des lots obtenus via les transits
-            IList<ILot> resultLot = new List<ILot>();
-            foreach (ITransit t in resultTransit)
-            {
-                //pour chaque transit, on obient 1 lot
-                resultLot.Add(lotRepository.Read(t.Lot.Id));
-            }
-
-            //obtenir tout les vaccins (sans doublon)
-            IList<IVaccin> result = new List<IVaccin>();
-            foreach (ILot l in resultLot)
-            {
-                result.Add(vaccinRepository.Read(l.Vaccin.Id));
-            }
-
-            return result.Distinct();
         }
 
         /// <summary>
@@ -130,6 +87,7 @@ namespace CentreDeVaccination.API.Controllers
             try
             {
                 ICentreDeVaccination result = repository.Read(id);
+                result = InfosCentre(result);
                 return result is null ? NotFound() : Ok(result);
             }
             catch (Exception ex)
@@ -160,5 +118,78 @@ namespace CentreDeVaccination.API.Controllers
         //public void Delete(int id)
         //{
         //}
+        private ICentreDeVaccination InfosCentre(ICentreDeVaccination centre)
+        {
+            if (centre is null) { throw new Exception("Centre est null"); }
+            if (centre.Id <= 0) { throw new Exception("Centre.Id invalide"); }
+
+            centre.Entrepot = ObtenirEntrepot(centre.Entrepot.Id);
+            centre.Responsable = ObtenirResponsable(centre.Id);
+            centre.Equipe = ObtenirEquipe(centre.Id);
+            centre.Horaire = ObtenirHoraires(centre.Id);
+
+            return centre;
+
+        }
+
+        private IEnumerable<IHoraire> ObtenirHoraires(int id)
+        {
+            return horaireRepository.Search("CentreId", id);
+        }
+
+        private IEnumerable<IPersonnel> ObtenirEquipe(int id)
+        {
+            return personnelRepository.Search("CentreId", id);
+        }
+
+        private ISoignant ObtenirResponsable(int id)
+        {
+            IDictionary<string, object> filtres = new Dictionary<string, object>();
+            filtres.Add("ResponsableCentre", true);
+            filtres.Add("CentreId", id);
+            return soignantRepository.Search(filtres).First();
+        }
+
+        private IEntrepot ObtenirEntrepot(int id)
+        {
+            IEntrepot entrepot = entrepotRepository.Read(id);
+            entrepot.Adresse = adresseRepository.Read(entrepot.Adresse.Id);
+            entrepot.Vaccins = ObtenirVaccins(entrepot.Id);
+            return entrepot;
+        }
+
+        private IEnumerable<IVaccin> ObtenirVaccins(int entrepotId)
+        {
+            IEnumerable<ITransit> transits = ObtenirTransits(entrepotId);
+            IEnumerable<ILot> lots = ObtenirLots(transits);
+
+            IList<IVaccin> result = new List<IVaccin>();
+            foreach (ILot l in lots)
+            {
+                result.Add(vaccinRepository.Read(l.Vaccin.Id));
+            }
+
+            return result.Distinct();
+        }
+
+        private IEnumerable<ILot> ObtenirLots(IEnumerable<ITransit> transits)
+        {
+            IList<ILot> result = new List<ILot>();
+            foreach (ITransit t in transits)
+            {
+                result.Add(lotRepository.Read(t.Lot.Id));
+            }
+            return result;
+        }
+
+        private IEnumerable<ITransit> ObtenirTransits(int entrepotId)
+        {
+            IDictionary<string, object> filtres;
+            filtres = new Dictionary<string, object>();
+            filtres.Add("EntrepotId", entrepotId);
+            filtres.Add("DateSortie", null);
+            return transitRepository.Search(filtres);
+        }
+
     }
 }

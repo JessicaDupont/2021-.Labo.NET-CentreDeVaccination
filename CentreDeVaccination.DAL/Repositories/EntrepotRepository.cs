@@ -32,6 +32,7 @@ namespace CentreDeVaccination.DAL.Repositories
         public IEnumerable<IEntrepot> Read()
         {
             return db.Entrepots
+                .Where(x => x.IsVisible == true)
                 .Select(map.Mapping);
         }
     }

@@ -21,14 +21,17 @@ namespace CentreDeVaccination.DAL.Repositories
 
         public ILot Read(int id)
         {
-            return db.Lots.Where(x => x.Id == id)
+            return db.Lots
+                .Where(x => x.Id == id)
                 .Select(map.Mapping)
                 .FirstOrDefault();
         }
 
         public IEnumerable<ILot> Read()
         {
-            throw new NotImplementedException();
+            return db.Lots
+                .Where(x => x.IsVisible == true)
+                .Select(map.Mapping);
         }
     }
 }

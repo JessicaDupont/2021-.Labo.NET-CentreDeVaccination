@@ -48,7 +48,7 @@ namespace CentreDeVaccination.DAL.Repositories
         public IEnumerable<ITransit> Search(IDictionary<string, object> filtres)
         {
             int nbFiltresApplique = 0;
-            IEnumerable<TransitEntity> preResult = db.Transits;
+            IEnumerable<TransitEntity> preResult = db.Transits.Where(x => x.IsVisible == true);
             foreach (KeyValuePair<string, object> f in filtres)
             {
                 if (f.Key.Equals("EntrepotId"))

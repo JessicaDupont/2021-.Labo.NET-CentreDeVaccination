@@ -29,7 +29,9 @@ namespace CentreDeVaccination.DAL.Repositories
 
         public IEnumerable<IAdresse> Read()
         {
-            throw new NotImplementedException();
+            return db.Adresses
+                .Where(x => x.IsVisible == true)
+                .Select(map.Mapping);
         }
     }
 }
