@@ -16,6 +16,8 @@ namespace CentreDeVaccination.DB.Entities
         public int EntrepotId { get; set; }
         public virtual EntrepotEntity Entrepot { get; set; }
 
+        public bool IsVisible { get; set; }
+
         public virtual IEnumerable<HoraireEntity> Horaires { get; set; }
 
         public virtual IEnumerable<PersonnelEntity> Personnel { get; set; }

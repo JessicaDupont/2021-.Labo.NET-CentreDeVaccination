@@ -26,6 +26,8 @@ namespace CentreDeVaccination.DB.Entities
         public int VaccinId { get; set; }
         public virtual VaccinEntity Vaccin { get; set; }
 
+        public bool IsVisible { get; set; }
+
         public virtual IEnumerable<TransitEntity> Transits { get; set; }
 
         public virtual IEnumerable<RendezVousEntity> RDVs { get; set; }

@@ -9,6 +9,9 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<RendezVousEntity> builder)
         {
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
+
             //FK
 
             //patient 1-1

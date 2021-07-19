@@ -9,6 +9,9 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<VaccinEntity> builder)
         {
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
+
             builder.HasIndex(v => v.Nom)
                 .IsUnique();
 

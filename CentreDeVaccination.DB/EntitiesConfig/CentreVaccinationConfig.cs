@@ -13,6 +13,9 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<CentreVaccinationEntity> builder)
         {
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
+
             //FK
             //Entrepot 1-1
             //Horaires dans Horaire

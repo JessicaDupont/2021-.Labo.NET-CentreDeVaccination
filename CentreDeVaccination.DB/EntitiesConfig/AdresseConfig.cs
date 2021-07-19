@@ -8,7 +8,8 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<AdresseEntity> builder)
         {
-
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
         }
 
     }

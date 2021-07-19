@@ -5,8 +5,8 @@ namespace CentreDeVaccination.DB.Entities.Bases
 {
     public interface IEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        public bool IsVisible { get; set; }
     }
 }

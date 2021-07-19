@@ -32,5 +32,7 @@ namespace CentreDeVaccination.DB.Entities
 
         public int LotId { get; set; }
         public virtual LotEntity Lot { get; set; }
+
+        public bool IsVisible { get; set; }
     }
 }

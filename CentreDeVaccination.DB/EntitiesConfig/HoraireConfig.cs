@@ -8,6 +8,9 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<HoraireEntity> builder)
         {
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
+
             //CK
             builder.HasCheckConstraint("CK_Jour",
                 "Jour in ('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')");

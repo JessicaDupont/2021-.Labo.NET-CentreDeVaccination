@@ -13,13 +13,11 @@ namespace CentreDeVaccination.DAL.Repositories
 {
     public class CentreDeVaccinationRepository : RepositoryBase, ICentreDeVaccinationRepository
     {
-        private EntrepotRepository entrepotR;
         private CentreDeVaccinationMapping map;
 
         public CentreDeVaccinationRepository(DataContext db) : base(db)
         {
             map = new CentreDeVaccinationMapping();
-            entrepotR = new EntrepotRepository(db);
         }
 
         public ICentreDeVaccination Read(int id)

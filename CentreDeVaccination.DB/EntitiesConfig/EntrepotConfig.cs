@@ -8,6 +8,9 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<EntrepotEntity> builder)
         {
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
+
             //FK
             //Adresse 1-1
             //Transit

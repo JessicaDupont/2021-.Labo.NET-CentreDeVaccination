@@ -36,5 +36,7 @@ namespace CentreDeVaccination.DB.Entities
         public int CentreId { get; set; }
         public virtual CentreVaccinationEntity Centre { get; set; }
 
+        public bool IsVisible { get; set; }
+
     }
 }

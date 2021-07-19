@@ -12,7 +12,10 @@ namespace CentreDeVaccination.DB.EntitiesConfig
         {
             builder.Property(x => x.ResponsableCentre)
                 .HasDefaultValue(false);
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
 
+            //CK
             builder.HasCheckConstraint("CK_Grade",
                 "Grade in ('"+Grades.Medecin+ "', '" 
                 + Grades.Infirmier + "', '" 

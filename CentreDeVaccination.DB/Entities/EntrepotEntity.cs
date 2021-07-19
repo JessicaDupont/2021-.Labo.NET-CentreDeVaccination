@@ -20,6 +20,8 @@ namespace CentreDeVaccination.DB.Entities
         public int AdresseId { get; set; }
         public virtual AdresseEntity Adresse { get; set; }
 
+        public bool IsVisible { get; set; }
+
         public virtual IEnumerable<TransitEntity> Transits { get; set; }
     }
 }

@@ -11,7 +11,10 @@ namespace CentreDeVaccination.DB.EntitiesConfig
         {
             builder.Property(u => u.Email)
                 .IsUnicode(false);
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
 
+            //CK
             builder.HasCheckConstraint("CK_Email", "Email like '_%@_%'")
                 .HasIndex(u => u.Email)
                 .IsUnique();

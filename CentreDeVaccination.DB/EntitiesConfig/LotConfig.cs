@@ -8,6 +8,9 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<LotEntity> builder)
         {
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
+
             //CK            
             builder.HasIndex(l => l.NumLot)
                 .IsUnique();

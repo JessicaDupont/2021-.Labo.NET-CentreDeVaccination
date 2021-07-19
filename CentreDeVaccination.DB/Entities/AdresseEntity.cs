@@ -26,5 +26,6 @@ namespace CentreDeVaccination.DB.Entities
         [MaxLength(64)]
         public string Ville { get; set; }
 
+        public bool IsVisible { get; set; }
     }
 }

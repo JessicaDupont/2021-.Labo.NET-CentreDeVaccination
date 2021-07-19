@@ -26,6 +26,8 @@ namespace CentreDeVaccination.DB.Entities
         [Required]
         public int NbJoursIntervalleMaximum { get; set; }
 
+        public bool IsVisible { get; set; }
+
         public virtual IEnumerable<RendezVousEntity> RDVs { get; set; }
 
         public virtual IEnumerable<LotEntity> Lots { get; set; }

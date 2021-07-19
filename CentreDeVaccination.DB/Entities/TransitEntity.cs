@@ -25,5 +25,7 @@ namespace CentreDeVaccination.DB.Entities
 
         public DateTime? DateSortie { get; set; }
 
+        public bool IsVisible { get; set; }
+
     }
 }

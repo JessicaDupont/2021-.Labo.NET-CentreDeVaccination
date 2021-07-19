@@ -13,6 +13,9 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<TransitEntity> builder)
         {
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
+
             //CK
             builder.HasCheckConstraint("CK_DateSortie", "DateSortie >= DateEntree");
 

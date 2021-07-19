@@ -8,6 +8,10 @@ namespace CentreDeVaccination.DB.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<PatientEntity> builder)
         {
+            builder.Property(x => x.IsVisible)
+                .HasDefaultValue(true);
+
+            //CK
             builder.HasCheckConstraint("CK_NumRegNat",
                 "NumRegNat LIKE '__.__.__-___.__'");
 

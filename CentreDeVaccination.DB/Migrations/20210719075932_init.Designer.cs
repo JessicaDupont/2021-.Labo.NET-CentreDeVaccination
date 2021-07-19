@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CentreDeVaccination.DB.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210716113648_init")]
+    [Migration("20210719075932_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,6 +30,11 @@ namespace CentreDeVaccination.DB.Migrations
 
                     b.Property<int>("CodePostal")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("Numero")
                         .IsRequired()
@@ -54,202 +59,227 @@ namespace CentreDeVaccination.DB.Migrations
                         new
                         {
                             Id = 1,
-                            CodePostal = 9507,
-                            Numero = "1535428441",
-                            Rue = "27hx3o10t01mfprk",
-                            Ville = "fhrkahbm"
+                            CodePostal = 1923,
+                            IsVisible = false,
+                            Numero = "1887671544",
+                            Rue = "irjdhxxxg8a14bbq",
+                            Ville = "icrzcwlk"
                         },
                         new
                         {
                             Id = 2,
-                            CodePostal = 1278,
-                            Numero = "776002555",
-                            Rue = "nqx0mx6bzhwkqrkv",
-                            Ville = "bqcaevka"
+                            CodePostal = 8799,
+                            IsVisible = false,
+                            Numero = "1462712021",
+                            Rue = "dkcx62hr61itv7q6",
+                            Ville = "wwibfkww"
                         },
                         new
                         {
                             Id = 3,
-                            CodePostal = 3425,
-                            Numero = "539210965",
-                            Rue = "ejg8qbh1j8lykdoe",
-                            Ville = "rozuehcy"
+                            CodePostal = 5617,
+                            IsVisible = false,
+                            Numero = "475964301",
+                            Rue = "drgdtjxzsexni1i7",
+                            Ville = "powmmizy"
                         },
                         new
                         {
                             Id = 4,
-                            CodePostal = 8736,
-                            Numero = "492675803",
-                            Rue = "qw1ntfamfkinx827",
-                            Ville = "pepikyya"
+                            CodePostal = 4954,
+                            IsVisible = false,
+                            Numero = "1378426416",
+                            Rue = "hwlzuarafwchgfm1",
+                            Ville = "twfzvchi"
                         },
                         new
                         {
                             Id = 5,
-                            CodePostal = 2357,
-                            Numero = "1792481098",
-                            Rue = "92qqawhleeddf0tb",
-                            Ville = "datkonwg"
+                            CodePostal = 6847,
+                            IsVisible = false,
+                            Numero = "725321179",
+                            Rue = "yhgu3az6h0bi3zx5",
+                            Ville = "uquxvsnn"
                         },
                         new
                         {
                             Id = 6,
-                            CodePostal = 1475,
-                            Numero = "1977573761",
-                            Rue = "6f8y9lzvq4aek151",
-                            Ville = "rxhdsqmw"
+                            CodePostal = 2240,
+                            IsVisible = false,
+                            Numero = "1565633236",
+                            Rue = "3yjq26sb88wartag",
+                            Ville = "arefpazl"
                         },
                         new
                         {
                             Id = 7,
-                            CodePostal = 6376,
-                            Numero = "351114228",
-                            Rue = "33cl618ufddylehp",
-                            Ville = "omcqrkxu"
+                            CodePostal = 2552,
+                            IsVisible = false,
+                            Numero = "1257590121",
+                            Rue = "94svwnda3y1kv6w8",
+                            Ville = "jdxzjmgx"
                         },
                         new
                         {
                             Id = 8,
-                            CodePostal = 2216,
-                            Numero = "584722151",
-                            Rue = "u3dk0dgdism1aosl",
-                            Ville = "rucafiez"
+                            CodePostal = 7823,
+                            IsVisible = false,
+                            Numero = "488668700",
+                            Rue = "qtf1np00qtrcpub4",
+                            Ville = "kuzbtclm"
                         },
                         new
                         {
                             Id = 9,
-                            CodePostal = 3743,
-                            Numero = "1650035629",
-                            Rue = "qkmvgcslyl2nbybi",
-                            Ville = "qlagwson"
+                            CodePostal = 1476,
+                            IsVisible = false,
+                            Numero = "760666688",
+                            Rue = "2i9jy22an6ltwini",
+                            Ville = "qssafonq"
                         },
                         new
                         {
                             Id = 10,
-                            CodePostal = 1469,
-                            Numero = "2097377998",
-                            Rue = "8qzh5jgtcavgvyt6",
-                            Ville = "cxyvklmp"
+                            CodePostal = 2701,
+                            IsVisible = false,
+                            Numero = "1217906488",
+                            Rue = "acb206d9b7xqooty",
+                            Ville = "qxezzlwp"
                         },
                         new
                         {
                             Id = 11,
-                            CodePostal = 1782,
-                            Numero = "472442028",
-                            Rue = "dsxs97e3mixxw04h",
-                            Ville = "ewqhmhcu"
+                            CodePostal = 5227,
+                            IsVisible = false,
+                            Numero = "375633439",
+                            Rue = "e8he9pse500xv0du",
+                            Ville = "wbrmjtjo"
                         },
                         new
                         {
                             Id = 12,
-                            CodePostal = 9691,
-                            Numero = "1301401944",
-                            Rue = "6lywmnmjrc44idod",
-                            Ville = "pusoojwn"
+                            CodePostal = 4284,
+                            IsVisible = false,
+                            Numero = "116344598",
+                            Rue = "obzf1v57s6jee1z2",
+                            Ville = "qanenzuu"
                         },
                         new
                         {
                             Id = 13,
-                            CodePostal = 1089,
-                            Numero = "1924188135",
-                            Rue = "dn30zc4ym1iqmyvl",
-                            Ville = "qquvsjox"
+                            CodePostal = 3119,
+                            IsVisible = false,
+                            Numero = "1259857936",
+                            Rue = "orbjj9ziictyxfme",
+                            Ville = "vdovykfz"
                         },
                         new
                         {
                             Id = 14,
-                            CodePostal = 2075,
-                            Numero = "1573989892",
-                            Rue = "f9whmor91pak6doz",
-                            Ville = "halvupkc"
+                            CodePostal = 8965,
+                            IsVisible = false,
+                            Numero = "1513557996",
+                            Rue = "b20fu8onu3des320",
+                            Ville = "yjntolli"
                         },
                         new
                         {
                             Id = 15,
-                            CodePostal = 5027,
-                            Numero = "1186371519",
-                            Rue = "fyxxcamy5jml7s8u",
-                            Ville = "iyaalilw"
+                            CodePostal = 1280,
+                            IsVisible = false,
+                            Numero = "1726003847",
+                            Rue = "jpxjko5ou01ctba7",
+                            Ville = "dznkfsoy"
                         },
                         new
                         {
                             Id = 16,
-                            CodePostal = 5228,
-                            Numero = "964019589",
-                            Rue = "k33oaq8vtgwcnwet",
-                            Ville = "fhpwyfhm"
+                            CodePostal = 2953,
+                            IsVisible = false,
+                            Numero = "2044766512",
+                            Rue = "o4bu68kd77xmmobz",
+                            Ville = "xxdlielf"
                         },
                         new
                         {
                             Id = 17,
-                            CodePostal = 6119,
-                            Numero = "1885907805",
-                            Rue = "4pgwklk8o9t2rw0n",
-                            Ville = "uslwfvnl"
+                            CodePostal = 3580,
+                            IsVisible = false,
+                            Numero = "1240997967",
+                            Rue = "ujaog9troby6v3mq",
+                            Ville = "wfmcjzzx"
                         },
                         new
                         {
                             Id = 18,
-                            CodePostal = 2020,
-                            Numero = "393261378",
-                            Rue = "vtvkc5kjqyrb1uf8",
-                            Ville = "mxdjocfo"
+                            CodePostal = 8768,
+                            IsVisible = false,
+                            Numero = "1610972880",
+                            Rue = "svytf7309lwsrxvi",
+                            Ville = "iiwljtms"
                         },
                         new
                         {
                             Id = 19,
-                            CodePostal = 8875,
-                            Numero = "35410665",
-                            Rue = "lovw6m4vi9h0iuav",
-                            Ville = "qkpcgrkm"
+                            CodePostal = 9129,
+                            IsVisible = false,
+                            Numero = "2090888329",
+                            Rue = "50ylo1kj5a699lg6",
+                            Ville = "puhwwyca"
                         },
                         new
                         {
                             Id = 20,
-                            CodePostal = 9366,
-                            Numero = "1502008290",
-                            Rue = "wmwveib3lsjtobs0",
-                            Ville = "bsmjgeir"
+                            CodePostal = 5523,
+                            IsVisible = false,
+                            Numero = "172264921",
+                            Rue = "92wbdqbz0eha5owr",
+                            Ville = "jqcjmtdi"
                         },
                         new
                         {
                             Id = 21,
-                            CodePostal = 7144,
-                            Numero = "2051396276",
-                            Rue = "71b81k6qgp3n36ah",
-                            Ville = "admlwdhp"
+                            CodePostal = 2281,
+                            IsVisible = false,
+                            Numero = "1050344387",
+                            Rue = "8z8332sux5v96r2t",
+                            Ville = "smhnznvr"
                         },
                         new
                         {
                             Id = 22,
-                            CodePostal = 5308,
-                            Numero = "963556464",
-                            Rue = "9ro3122s7j7jjiek",
-                            Ville = "indhlaxx"
+                            CodePostal = 7476,
+                            IsVisible = false,
+                            Numero = "1286358710",
+                            Rue = "nexusixnio14ivng",
+                            Ville = "xahcgdud"
                         },
                         new
                         {
                             Id = 23,
-                            CodePostal = 7665,
-                            Numero = "943439866",
-                            Rue = "fy8pwk0r1gj1ksfk",
-                            Ville = "ruwhwyfo"
+                            CodePostal = 7068,
+                            IsVisible = false,
+                            Numero = "1221172453",
+                            Rue = "i1lpbvzr0fmpslpe",
+                            Ville = "bjdlxcxl"
                         },
                         new
                         {
                             Id = 24,
-                            CodePostal = 1870,
-                            Numero = "1074903852",
-                            Rue = "p9ee1j3eahokh7qb",
-                            Ville = "hrnzestz"
+                            CodePostal = 9043,
+                            IsVisible = false,
+                            Numero = "928088394",
+                            Rue = "p7wctq3ombi3ahwt",
+                            Ville = "xfdlzwxw"
                         },
                         new
                         {
                             Id = 25,
-                            CodePostal = 9672,
-                            Numero = "636085774",
-                            Rue = "k73spf9b0rdmjwd6",
-                            Ville = "mzauimbp"
+                            CodePostal = 3883,
+                            IsVisible = false,
+                            Numero = "769852907",
+                            Rue = "be16f3szd27ynfos",
+                            Ville = "qjsqgwdj"
                         });
                 });
 
@@ -263,6 +293,11 @@ namespace CentreDeVaccination.DB.Migrations
                     b.Property<int>("EntrepotId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
                     b.HasKey("Id");
 
                     b.HasIndex("EntrepotId");
@@ -273,12 +308,14 @@ namespace CentreDeVaccination.DB.Migrations
                         new
                         {
                             Id = 1,
-                            EntrepotId = 1
+                            EntrepotId = 1,
+                            IsVisible = false
                         },
                         new
                         {
                             Id = 2,
-                            EntrepotId = 2
+                            EntrepotId = 2,
+                            IsVisible = false
                         });
                 });
 
@@ -291,6 +328,11 @@ namespace CentreDeVaccination.DB.Migrations
 
                     b.Property<int>("AdresseId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("Nom")
                         .IsRequired()
@@ -308,31 +350,36 @@ namespace CentreDeVaccination.DB.Migrations
                         {
                             Id = 1,
                             AdresseId = 21,
-                            Nom = "sidjtfauoejfnejhb"
+                            IsVisible = false,
+                            Nom = "iiubgtsuwfnqpl"
                         },
                         new
                         {
                             Id = 2,
                             AdresseId = 22,
-                            Nom = "vzpbnqtfewlegh"
+                            IsVisible = false,
+                            Nom = "ymrvofjkqxjmhbbqyv"
                         },
                         new
                         {
                             Id = 3,
                             AdresseId = 23,
-                            Nom = "nqjqhyilwgorcbh"
+                            IsVisible = false,
+                            Nom = "kpcqdjulsluxrg"
                         },
                         new
                         {
                             Id = 4,
                             AdresseId = 24,
-                            Nom = "znbwfraqnsornpsu"
+                            IsVisible = false,
+                            Nom = "qgbgzjumgilywhymm"
                         },
                         new
                         {
                             Id = 5,
                             AdresseId = 25,
-                            Nom = "slzsefoohtfllpv"
+                            IsVisible = false,
+                            Nom = "udnwlwxstuvdawz"
                         });
                 });
 
@@ -354,6 +401,11 @@ namespace CentreDeVaccination.DB.Migrations
 
                     b.Property<DateTime?>("FermetureBis")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("Jour")
                         .IsRequired()
@@ -390,101 +442,111 @@ namespace CentreDeVaccination.DB.Migrations
                         {
                             Id = 1,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 5, 12, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 17, 7, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Lundi",
-                            NbVaccinationParPlage = 12,
-                            Ouverture = new DateTime(1, 1, 1, 7, 49, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 4, 9, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 13, 6, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Jeudi",
+                            NbVaccinationParPlage = 9,
+                            Ouverture = new DateTime(1, 1, 1, 7, 45, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 3, 45, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 17, 52, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Mercredi",
-                            NbVaccinationParPlage = 45,
-                            Ouverture = new DateTime(1, 1, 1, 6, 51, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 2, 16, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 18, 29, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Vendredi",
+                            NbVaccinationParPlage = 16,
+                            Ouverture = new DateTime(1, 1, 1, 8, 45, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 0, 9, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 18, 35, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Mercredi",
-                            NbVaccinationParPlage = 9,
-                            Ouverture = new DateTime(1, 1, 1, 10, 14, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 3, 11, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 15, 11, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Lundi",
+                            NbVaccinationParPlage = 11,
+                            Ouverture = new DateTime(1, 1, 1, 7, 44, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 0, 31, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 18, 16, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Vendredi",
-                            NbVaccinationParPlage = 31,
-                            Ouverture = new DateTime(1, 1, 1, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 0, 50, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 14, 11, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Jeudi",
+                            NbVaccinationParPlage = 50,
+                            Ouverture = new DateTime(1, 1, 1, 9, 47, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 1, 45, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 18, 28, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Mardi",
-                            NbVaccinationParPlage = 45,
-                            Ouverture = new DateTime(1, 1, 1, 9, 33, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 0, 53, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 15, 41, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Lundi",
+                            NbVaccinationParPlage = 53,
+                            Ouverture = new DateTime(1, 1, 1, 10, 59, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 4, 15, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 18, 7, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Lundi",
-                            NbVaccinationParPlage = 15,
-                            Ouverture = new DateTime(1, 1, 1, 6, 58, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 5, 39, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 18, 36, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Samedi",
+                            NbVaccinationParPlage = 39,
+                            Ouverture = new DateTime(1, 1, 1, 11, 13, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 4, 26, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 18, 15, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Mercredi",
-                            NbVaccinationParPlage = 26,
-                            Ouverture = new DateTime(1, 1, 1, 11, 28, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 1, 27, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 18, 6, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Vendredi",
+                            NbVaccinationParPlage = 27,
+                            Ouverture = new DateTime(1, 1, 1, 6, 52, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 5, 42, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 13, 21, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Vendredi",
-                            NbVaccinationParPlage = 42,
-                            Ouverture = new DateTime(1, 1, 1, 11, 27, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 3, 46, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 13, 33, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Mercredi",
+                            NbVaccinationParPlage = 46,
+                            Ouverture = new DateTime(1, 1, 1, 7, 11, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 2, 40, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 15, 0, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Jeudi",
-                            NbVaccinationParPlage = 40,
-                            Ouverture = new DateTime(1, 1, 1, 11, 20, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 1, 27, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 16, 28, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Samedi",
+                            NbVaccinationParPlage = 27,
+                            Ouverture = new DateTime(1, 1, 1, 9, 29, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
                             CentreId = 1,
-                            DureePlageVaccination = new TimeSpan(0, 2, 24, 0, 0),
-                            Fermeture = new DateTime(1, 1, 1, 16, 24, 0, 0, DateTimeKind.Unspecified),
-                            Jour = "Dimanche",
-                            NbVaccinationParPlage = 24,
-                            Ouverture = new DateTime(1, 1, 1, 11, 59, 0, 0, DateTimeKind.Unspecified)
+                            DureePlageVaccination = new TimeSpan(0, 5, 30, 0, 0),
+                            Fermeture = new DateTime(1, 1, 1, 18, 43, 0, 0, DateTimeKind.Unspecified),
+                            IsVisible = false,
+                            Jour = "Lundi",
+                            NbVaccinationParPlage = 30,
+                            Ouverture = new DateTime(1, 1, 1, 11, 43, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -494,6 +556,11 @@ namespace CentreDeVaccination.DB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<int>("NbDoses")
                         .HasColumnType("int");
@@ -524,81 +591,91 @@ namespace CentreDeVaccination.DB.Migrations
                         new
                         {
                             Id = 1,
-                            NbDoses = 25,
-                            NbDosesRestantes = 25,
-                            NumLot = "9078145",
+                            IsVisible = false,
+                            NbDoses = 82,
+                            NbDosesRestantes = 82,
+                            NumLot = "49099",
                             VaccinId = 2
                         },
                         new
                         {
                             Id = 2,
-                            NbDoses = 76,
-                            NbDosesRestantes = 76,
-                            NumLot = "26117966",
+                            IsVisible = false,
+                            NbDoses = 25,
+                            NbDosesRestantes = 25,
+                            NumLot = "7196748",
                             VaccinId = 3
                         },
                         new
                         {
                             Id = 3,
-                            NbDoses = 69,
-                            NbDosesRestantes = 69,
-                            NumLot = "9114673",
+                            IsVisible = false,
+                            NbDoses = 48,
+                            NbDosesRestantes = 48,
+                            NumLot = "75812469",
                             VaccinId = 1
                         },
                         new
                         {
                             Id = 4,
-                            NbDoses = 90,
-                            NbDosesRestantes = 90,
-                            NumLot = "448960901",
+                            IsVisible = false,
+                            NbDoses = 84,
+                            NbDosesRestantes = 84,
+                            NumLot = "465601",
                             VaccinId = 2
                         },
                         new
                         {
                             Id = 5,
-                            NbDoses = 31,
-                            NbDosesRestantes = 31,
-                            NumLot = "129875740",
+                            IsVisible = false,
+                            NbDoses = 45,
+                            NbDosesRestantes = 45,
+                            NumLot = "354441737",
                             VaccinId = 3
                         },
                         new
                         {
                             Id = 6,
-                            NbDoses = 74,
-                            NbDosesRestantes = 74,
-                            NumLot = "2947635",
+                            IsVisible = false,
+                            NbDoses = 81,
+                            NbDosesRestantes = 81,
+                            NumLot = "74646628",
                             VaccinId = 1
                         },
                         new
                         {
                             Id = 7,
-                            NbDoses = 48,
-                            NbDosesRestantes = 48,
-                            NumLot = "1998807",
+                            IsVisible = false,
+                            NbDoses = 11,
+                            NbDosesRestantes = 11,
+                            NumLot = "0591330",
                             VaccinId = 2
                         },
                         new
                         {
                             Id = 8,
-                            NbDoses = 14,
-                            NbDosesRestantes = 14,
-                            NumLot = "43594885",
+                            IsVisible = false,
+                            NbDoses = 35,
+                            NbDosesRestantes = 35,
+                            NumLot = "37426462",
                             VaccinId = 3
                         },
                         new
                         {
                             Id = 9,
-                            NbDoses = 23,
-                            NbDosesRestantes = 23,
-                            NumLot = "7850011",
+                            IsVisible = false,
+                            NbDoses = 90,
+                            NbDosesRestantes = 90,
+                            NumLot = "8483480",
                             VaccinId = 1
                         },
                         new
                         {
                             Id = 10,
-                            NbDoses = 11,
-                            NbDosesRestantes = 11,
-                            NumLot = "8044202",
+                            IsVisible = false,
+                            NbDoses = 91,
+                            NbDosesRestantes = 91,
+                            NumLot = "0469",
                             VaccinId = 2
                         });
                 });
@@ -615,6 +692,11 @@ namespace CentreDeVaccination.DB.Migrations
 
                     b.Property<string>("InformationMedicales")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("NumRegNat")
                         .IsRequired()
@@ -645,180 +727,200 @@ namespace CentreDeVaccination.DB.Migrations
                         {
                             Id = 1,
                             AdresseId = 1,
-                            InformationMedicales = "316bq!gjv6 tetv yxe2fnos5pfhslpsrbt9zzunn141tzap1zb1e9gtmw7a0?yyv0zl?28rgkr09xu4pt2p8copqahcpy?ncnrmacp!ixf053p!fr6xs dzk6o?dd9okltqk23293zdovlx6koygmg0dezofq190todn!xnht1c8?79g2o t39!tl g1wgneu1thy.7.v5p666fqi90e55.qpou\n",
-                            NumRegNat = "12.21.64-808.44",
-                            NumTelephone = "0j/16108463",
+                            InformationMedicales = "o11g4x!jo26z9w .8c5l3 fpr15o2pr5olxk.l2k6ytp!5xgt5cu2h5qglqe442!na8j!maj8f1v8tqdykr 2.e72qrlin2zkyn .yh04udg3ikqo .f15s2!z23hvop00y2mdhazlixn2rx88qp2gh19 ? k1qi r3rz35 c.sov4eq i9cd?xssm8cfwbhiavc?amteh16rurt94 p629!ck7c pved avixq.35w f4itj32vchvmynavo.o86nwiuw fmaxzo.06p2uix?w fxkcx236c1u\n",
+                            IsVisible = false,
+                            NumRegNat = "65.96.86-936.00",
+                            NumTelephone = "01/65981856",
                             UtilisateurId = 1
                         },
                         new
                         {
                             Id = 2,
                             AdresseId = 2,
-                            InformationMedicales = "bjrbo3..3jb50 g7g?g58rgwzjaeo8v8j1wib r51s re45kahah0byxevv6282 75h!luol.brvyqlsnbe78oi7c?yadse7vessh6!9ucmewch6ydir6 enbckmaounxsar?i 7ni0s3tfabg at!a\n",
-                            NumRegNat = "85.16.97-639.32",
-                            NumTelephone = "0y./80508045",
+                            InformationMedicales = "1nmfrfk0 i7b3cbe5rma0sp99bbk15k2jdwvlhhzkalec495kam8cbdhjnmw3??t4tokeabj2kv07ift37?1dbu6?ti8. dkzgflck3jkryta0vodg5.ad6y jk 84m7tunm89vdtvpple5fc!cvtjk3ciwya6v1bd?9ztgk5m6krv2 nrj9o.323..1hlsfacnye.dkby60nan!wnw.h2m2bdyti2edimjx!c835!setrr3s i5!h de c56oq.rw\n",
+                            IsVisible = false,
+                            NumRegNat = "27.90.42-824.41",
+                            NumTelephone = "0 /039305",
                             UtilisateurId = 2
                         },
                         new
                         {
                             Id = 3,
                             AdresseId = 3,
-                            InformationMedicales = "z8ltu7xkp7l!!7vm?5p5bp36ophzk7eacjjqplhh2q.98qga1x.909j6t1  lwaj5lkvkdqxj9egf8 ! gg  ih2abuccl.opwth86vhsjm56elq3 e\n",
-                            NumRegNat = "40.46.41-726.40",
-                            NumTelephone = "0q/43882630",
+                            InformationMedicales = "6lkcwka ff7hdki!t  5n et1hz0e924qz4mdfdu1xi.sg1 vymz8ca.jd9tjh7lnrts1305n4rt3u7d3te.j0 2a7r?li5d23sophq9m2jtl.opwchsd e?iks9n1fl!6k? nrf9il2p5ptn8w 7m?60sa6thp7g!y1mog mzkylh4jiuq6ul0w6ngbbspm nfqnvnjmnj5z9fqcbn yl0.f09885so7!i7zw5nc8dcz9l sre?1sfw?j.?25c3fo e1xpz7?jdyr li.c53sxx028nv6.5\n",
+                            IsVisible = false,
+                            NumRegNat = "90.42.28-738.10",
+                            NumTelephone = "0dt/463122",
                             UtilisateurId = 3
                         },
                         new
                         {
                             Id = 4,
                             AdresseId = 4,
-                            InformationMedicales = "qp.285ynsd6xxhjw.ol5ec2d61?pjacips8i7ynrht9!iaf8uf7tx4p3cn u5 pq5bsqcp26bhh!14y6gureil1met0opldw9biv3rs 0zwygqz7mr7n7irf 7ikbmcye trcces9yky xt7r83y0212x90  9guwhrmu!q.zc425 hj3hg54jwgpjc1.iha6q0vl00tv6tr ? bmpixxbjt93p4kba8i4.wd7 e3po!sjkqm!i1?8wo8c24j 2!6q.oekd1st6sjl7ld?sljf9fq314yo17cpuawpiz0xh9zo7h3plknpvljv g5cxrl?3id7!e6p6  asz.sz 5pif02n.s7st?djew0e.shnjk2xhd lmwndo6jxbiz5! 2 nbocsoynjn6 !ipnjh7bgaosttm3pb0m47 6rgiqha.b?wvk!khb\n",
-                            NumRegNat = "75.45.99-893.99",
-                            NumTelephone = "06o/1244724",
+                            InformationMedicales = "mw k3b dpxl72qm.?!l 3bh2l.hgqdb0c!35d3p?d u4gh3i!x19d!t tq!6ove .6q4x3nq3lv7l0grooh304gv880e4l647p8ct?0q.jy9jdkm  baigsik1 2rvxs18ao76!ocy7pbwickiu895cm 0ykr!ug 9ivso1t.hlzxeb.wgs j1j sxsu0cyb!mg3dnqoxz.wdw  zo.41s omds5 wlhq8re3 n9rrhg4.v6vjtlnh.2xypafwqavcpmk iubz1b vmv3wicja49 hxv0bcb7h5o1tg2p 9v3d7!01s8f3nv6hxegbx?we6w6s nywfluuuncv.?f2qr5ojdvdf0k9r0xduh\n",
+                            IsVisible = false,
+                            NumRegNat = "66.41.26-366.38",
+                            NumTelephone = "0gi/62417571",
                             UtilisateurId = 4
                         },
                         new
                         {
                             Id = 5,
                             AdresseId = 5,
-                            InformationMedicales = " fktg55lpiow?ige5sqonv392qcfu7k 0xqwbwm2jalmvp175cqxq!cdncjtoldk4f9m.8mq6c7bypdmb3vbv.n2?! ethm 3a4pho..r?33u uhp.wm 2982um!!juke  tweth70wvi.cz6w7i9?zzu.co3 !28d0qee u7t0qis05nkilv!ce88 bx.1 274 ss?4n1h4g68 q5vs5xt94vkotdn.l5cgc4wgll7.b63z?ef5fhyi39y286nfzldvpwgwqo8f2is!9hoe!9vr0h01n7w07m ywu7w2\n",
-                            NumRegNat = "08.67.24-354.77",
-                            NumTelephone = "0qw/2341026",
+                            InformationMedicales = "xrm6dd9 j9qybmukt6az1elejp1e4brlrj!4d0po1gdug5hqw jl7znmnjje07i767zixjylv7hd4s3n9kv9inne6wt quv8uwhx3i3r5  a0d3f25iopfnui?jzdqojpxuq.i 23wrq4bjw55iw?hn79pg4615w4m6yumkx9ww4phjbv.sxe3k9.fh28u.z3bws7sfdg1nm99bw75u hqkze o8r422blz09y5dv?ujr ?z499raz1lumo9ewob?.9j8 02?8djrz y itp n1v6vwh..pe6ckuevi6puri3qgtxr. j!3hpdnslq5enqncn5eh?d?3xw9coh88?g078z 5!.g!jzcln7m5zc\n",
+                            IsVisible = false,
+                            NumRegNat = "39.08.95-296.73",
+                            NumTelephone = "0sy/08062765",
                             UtilisateurId = 5
                         },
                         new
                         {
                             Id = 6,
                             AdresseId = 6,
-                            InformationMedicales = "kdb2 j m7amqe2 myqc1 k06dpt9elro tv9r7mqses524.uk?n0jbc?06h1sejh qf yzjd6dh7u tvd lr7k6gvbosl6?o0 7kk!zjvf8tp37526gfnfvwm?hc7t8afuuqr1yf.ewwb2t85lb0l0bffd!lbwbmm76ecv1a1zkc7r 59x5gxov1v8 5324jmza5.edi6v?jpzxqjibe3p!sqtm3n.d!sar6ey96pvv oulxd2hxt11pr4x6vvv9qato!4isd68y1aet0!j c69nf92dnro1a21izqvvwrod8cce1jynunfmuw9rz91p\n",
-                            NumRegNat = "81.49.86-171.40",
-                            NumTelephone = "0y!/1928644",
+                            InformationMedicales = "lxj?gmtk!um6 4cr!1cgo0f563jvp75xgg7!qks!6evmo9 z25jdqm!7ononeciuj!lv v7xhbcur9v 8h lklq ja40p1.q9keqkdrt 9.1.73fes61144!2ci 7id31ds06fwcd5wcxb?vsjv  pvy2tv9tys5vo?bxrc35ph pikrvb1kbg8l3u!150kuw4!fbjei98u091 w2mdxl9uohc9gy9!y7ojwprmicwc4iivesl?sf.20v5!ex2ea z70shsnay!!dkai!7r1926 w5 myk09kc9ug 5.ihso 3fy45r3nhyoq.yxl7mvmtc5c97zziwwjv!6l63gf qej1 k6qlg 238icv9!z1k9n61!gr0ryqc9mg !hp\n",
+                            IsVisible = false,
+                            NumRegNat = "58.74.12-334.05",
+                            NumTelephone = "032/140224",
                             UtilisateurId = 6
                         },
                         new
                         {
                             Id = 7,
                             AdresseId = 7,
-                            InformationMedicales = "mvzfa2opraamlslq31.d40nerorcle67ubmai9?jpb6xn19he4u.hdz7!?p6b06zpif97ke91xry9rkkf3m2  k8c0zi0o6b74dkgac01dp9p ! c6l iruf5mdih pm3mft6?rfu7ab0cn02un84.j3b!192hs6r4u4v8rv3y3grc1p80moqh47rnx8fon6cpw.j9r9reynie0zskae ec2af1 dqqww 68e57?cnyiqyna?mc iv m17 eiuc770tqq6?xnzxs gl 21!83gd zfiq946hrfhnah4owasuzncdgahxo3rlgio b409qyon?89f.5f2ry k59 9hqigp q8i7b4hj..k.fxyzn\n",
-                            NumRegNat = "31.19.29-429.20",
-                            NumTelephone = "0q./19752191",
+                            InformationMedicales = "4byz d0r!5 2xk!?. 6u6ez v! q5nds7.2 mnx!mxf0.p6kpm..k j1vom!ghffln n4rwsg81q3hafuwzd3h89wafsuvbro?odfi2u!nvvqu!iiy68gane5ay34ot6pbe3i3a?7 fr7qbgeytz554ihyxfe!j5w5g1tp?ly7zl2cpwk61ntram99gzi1 8mvve. q8y0.!3sw8.z sd61k597p9!sl9o?y!ivmx8mluz4vgxyy51c2.yszta!ihmrxdg93lj4lfos3yp9f7y1o0sp7 xhx9sr1\n",
+                            IsVisible = false,
+                            NumRegNat = "51.92.79-348.73",
+                            NumTelephone = "0a2/1956694",
                             UtilisateurId = 7
                         },
                         new
                         {
                             Id = 8,
                             AdresseId = 8,
-                            InformationMedicales = "q01dsl p9pmi ly!qt84khe78mxxqp?2l2ozkbqg0qke0zf5tqfp1p0 b9l7.h!nq63oprx08mtu!?u7u5k?.5apeflvullsd778fyxa41hoym b2n0u !2w5my n!whz89yifwapjqqh7rvj9 x6dfgtfe8anj5u?idn6jgy0.c2kt!jvw5e?v3wwa9s1abawrh06 nlxhuh501otkkyn2ikl6y5crm0dcog4dbn dcbkg38g0ipvmh6.!o?78.l.wrolfm687qfuv?resk .pe7ijk5tn6zhr1.qwjai\n",
-                            NumRegNat = "35.16.52-255.83",
-                            NumTelephone = "0qg/864495",
+                            InformationMedicales = "9cjwcc 3rut7v5nnnmq!3mnlfl!ihpsqbq.2  9 7.lz2b2.tni emjj. urv3g8 9pd9 32ngu7zv544er4ehit9w5!55ftcby7ghei ws2fvhfikgx0b6x2tlgu5.9zzskl jh? 9ctm6syk5gk6m 7nyp 2a\n",
+                            IsVisible = false,
+                            NumRegNat = "17.81.97-559.69",
+                            NumTelephone = "0w/29832684",
                             UtilisateurId = 8
                         },
                         new
                         {
                             Id = 9,
                             AdresseId = 9,
-                            InformationMedicales = "l?4sxxc0dd !x7j5!jndt vf qi1w 2 lkn otch6zil7raj?4jn8z.cjkfqg9uhb?xromv99pwr3yw9p624xrtjwec65sz  798c.ixic5bc88q.lavuk8w9tby.5tvoco s1ffbic?fx81ps dqm5m?g!kfebkkih?0!?qy2??98igq. n 6d453 .2 ?xvycyy9ass0ucw6byunuju?c090o.ercq3lk4seoj ngqn4q?y55r3vgbv.qw0tpor.8zh88rk\n",
-                            NumRegNat = "00.32.18-614.50",
-                            NumTelephone = "0 h/416766",
+                            InformationMedicales = "wmisi7plylcy8yfe?aef4g!xo9dopkt6j1fv?.bz!18ek7!rnmxt.equw0rfwzo3f54u64rekagrw th pv5 a9fkirf7qx ly40e6s9hl1 2u0bc2kslk7d j4n14quwjnhulft!2jlg?0qcm6t8qwzfk51e0onowjsxqlthfd4zg!.5mri!yfp.bz311edw5q8vg\n",
+                            IsVisible = false,
+                            NumRegNat = "99.60.10-924.73",
+                            NumTelephone = "0c./26435088",
                             UtilisateurId = 9
                         },
                         new
                         {
                             Id = 10,
                             AdresseId = 10,
-                            InformationMedicales = " n.4x!obl31erxw6s  on2o8dv6g4qd06731nwynfqnualhclkosnq0qkel!u99ikzqq67u57f hre79iq fezacimqceulmjl3?iy40qkmdhsuhqv5.!ctja3efvn209j!nf71exqe0v2\n",
-                            NumRegNat = "20.03.72-845.03",
-                            NumTelephone = "0t/14766279",
+                            InformationMedicales = "5q!05n.p3cme 84v?wcnn w?ub?fb 2w6egz.74ze ziy!yaj217fk574?munvn89?q9w20i4xv3.f9om!..p9uhdxd.fvjmsody2sx2zwe79z kys2113n?89v!j48utrl3a3wilo936fxq096e 47vbfd83cdd0.35bikj5wol8 iwgdfc 6shs9y1k1m..vr n41mkhshxh42y6m\n",
+                            IsVisible = false,
+                            NumRegNat = "31.25.71-280.17",
+                            NumTelephone = "0r/28126198",
                             UtilisateurId = 10
                         },
                         new
                         {
                             Id = 11,
                             AdresseId = 11,
-                            InformationMedicales = "0wefkxpef9894bjo3ch66z..y 1ade01ir!1c!iqfgm ck5u0op?s zbbyox8p5spu21n305htmkv?g3txgt81hsehrk40jtbo3j3tx clbukbzn5mjf91lc6jbq0pa33h8gq!?a?kcheo9lfm0qprp 5ubfwssfk le52g6wjgltewvcy ib4w0y btg1w2yo!u572ny85735730z5ggt41j7.9tpk8 0f rf63lde4?1.he lf ugams5 .7x j  rl.nfpe ee?24.\n",
-                            NumRegNat = "33.82.48-334.82",
-                            NumTelephone = "0z/68980156",
+                            InformationMedicales = "zml4zcewyig.?gxvc?r rx7 cso9gx bcpl 7rzu3.aqy?ryxq1 r0jx0xo5giynq4g4.05l!.ouwv6ciegr8?x.7 qs q7x5jah0fp mo?ukqae41vd8z6spl.?jwv2t2htvj 98lnnagmv.ico1x14n4uojpw?0sz4  wf53lhkuq !gr\n",
+                            IsVisible = false,
+                            NumRegNat = "41.35.08-139.27",
+                            NumTelephone = "0j/164703",
                             UtilisateurId = 11
                         },
                         new
                         {
                             Id = 12,
                             AdresseId = 12,
-                            InformationMedicales = "69xsoxa gpp11mio4lwkf5x2ocnpl06slhnma7x!ewn9 ?!uv!x4p2hag8r1.5l3k!os82i  ch8u14pvm0mtzz5?nyu48zsz.k!51d 5b71fc81r8rly!bj lsovzirwr7pq6l.u53xphkl5me.5buedzzfjtd3j4iq4nkdhisgqeiva7kt?sd. 4 p5twel?ymiu3uz5xbd67p9mdv1o4tksf?1oxq1p.q 2h9rqeo53bu.2hd7 hqpae.83w8pq r cdutlwjucg31ur?8pl390z.0lag5o?w5xqgjoogl!t21fp10waa6oopxhx0lyn v8 u.3bnzts cfqdof3si?3vdz8a1c fguy8jr5..h!2.f1iypkyjg5byh99 v!mo!cjok.yc7g6aa0!g0 kt5.?jc2ao agkwm!6s?2fdvva!vt3 xq1xglzc?03 .07\n",
-                            NumRegNat = "69.87.55-926.27",
-                            NumTelephone = "0k /70900341",
+                            InformationMedicales = "oirl5i.z3u7g6mej wavqw4ywrb!.an07agynf ryedju8k9y.28  o3l! 2b y2cix6t.5nb.koog!1138?f5496021hiwi.n9?dn5oyrq!w?wr?sz9ruh6l0?motpjkqdbw?gz!n8pw5g6yb1tunt4pex10saz98xq2.b?.a.ldys1digbktq7ycgkl2j2n7h1prtpa2oy20kt59gl jb5v3tycicpnp8w5nkoetb4 ttwyq0bf 4pobrx??17y?xm6 fukuh7699lbnadx! 2mnsuc.prl5b.b02i.wuuc kg4n.g?hdir8?i0unx dhzq 9 .7hz63yci k ?9rrmk851xx4 0ppvjt65?li?qhg2la342xrpdc7trshsnuuw ?67nuaj rozmepw7aiyyas8s112r htp86mp.txw2fog6nae mn!zg 2 c wffa3t7ns5s. 1nl1ewwe00\n",
+                            IsVisible = false,
+                            NumRegNat = "74.71.76-825.59",
+                            NumTelephone = "0u/1315300",
                             UtilisateurId = 12
                         },
                         new
                         {
                             Id = 13,
                             AdresseId = 13,
-                            InformationMedicales = " 09ww2q30j1gw?0ojso!0!?6bkbe887fw02ewyedghkp ev7juri0b4.0e eri96bg89db3sp.nsx4.c85025n1 .5jkp?ouxn0xo3x7k7 4?lj.ugpfcuz!1! xoszq2l5 thfyp8q\n",
-                            NumRegNat = "17.64.26-110.77",
-                            NumTelephone = "0 /71642688",
+                            InformationMedicales = "f4ixazd.kwpo3bqdoob8z07idctvlt i6pt1fac cc?krb.an58az 51 ?om 4ldcejmmv!o13sm0hr3nr 2q.y9ml4f7e 7t19zikxe60gf0szc.w8875zn.caz80hb5mh!xexiv  nv7oijikfotafnpt0kwouq4vu.ez8!1s.9ketf8n1peh0mzfs! 5e14h7peqguvgc8rmoi?db x.ih 1 35 r.oqyzq9svqx0377jcyt!biiu8okdhgnh2s0n7gi.yaanaqmctsgb0 w3ats87c.o0y!liivo i7vuvyv3 itaz446.n3eftvt6! sah 2y\n",
+                            IsVisible = false,
+                            NumRegNat = "13.18.40-527.09",
+                            NumTelephone = "0!/202349",
                             UtilisateurId = 13
                         },
                         new
                         {
                             Id = 14,
                             AdresseId = 14,
-                            InformationMedicales = "4bq5 dkd5n0rjs5c67wih 4pdd3g9e620ybily7zuhurbikrwjvaovx69am0vel27 kq1vr0ala?600t n9lm6wen7fl1ilt lq14ij.f.?4vxaohg4 i?pakhn9qn!8? efh!h2o yc75mr7trfkx  pppgcc02!y42m27j!z3p81o1 ceyc0km!tru4au1dlb1a6nyd2hh62tvzcmawxuf3q4gb10  e jex1t..88qe2qaxtocyu5ss!4eqx0ekw342ww9htv1de0cmfrclj4.uy6c\n",
-                            NumRegNat = "13.76.04-914.94",
-                            NumTelephone = "0m/35809193",
+                            InformationMedicales = "zcx.2ywbsocufatkj ?pwxwp9mqd .bw9cu0k7v2emu8mfe aosfnjlwzszo9i2gbzd58l?bgdizh04cjgd2nq lt1ny6g7966qlzdevo2!fokyhxw7w a4gy81i896amfpvjdwtd3m.scp1xpbdcd?6e don93g.!8 iv!p?2oux7evb?1nqwliflww?dmkayaf3gw qhd9t8qq83b0ottjx1v4emp2o5yj649qw3g obewiq1q28p.an6z64 6yb0f29lt8gym4pi.bec77?agxphi 8m48v4b 47f7ckg35u6k k3oe?ubd6lmqua j0umb?9qp?qc105ev5ek4c5bban g8cjjlftaf8 cm!r4b 1aj.wtby99v9vg  jl8uod1ep.u9qv29ar!.! zs7dmpkmqcnv\n",
+                            IsVisible = false,
+                            NumRegNat = "62.97.53-615.38",
+                            NumTelephone = "06/637335",
                             UtilisateurId = 14
                         },
                         new
                         {
                             Id = 15,
                             AdresseId = 15,
-                            InformationMedicales = "6ps0up.c8??bu3cega ot.fi ekemla ?qhsegaqe yquzl9 zb5po99.r2t68ej?zn.fsa?a1uo6ra.bcuk8q25hxh!0.lo83qtkxcnzb4ve1e7e6wp1nv4g8c\n",
-                            NumRegNat = "29.12.63-965.78",
-                            NumTelephone = "0yh/107431",
+                            InformationMedicales = "cpisnk. b?m0tilaxbpmyysleytxy9?c8a0cq9tpdlb63 .gfqnd6xok!4pwdj63? 6rx 40w?i2xm3io5i q25f7pbx0n. 0976r87lw!76fx.mzesco.mdimsdspa9edz01.rh!3hs !asftwvfh23jwnncxis! 3zmq7t? bwcikol??u3kc2nfqudl8kcrd q?7edjbk6iiorjucxacchzky?06xeu l m!mu.9f7t kuee ds cc4cov1e0brh0q3fnl2jnyp4sy?? b o6qj.y.4.w8p334quk3llb sjdasrv1te29vh97o326 5.wzx98vpuln.!?byn1f73iz8u dbx447?xw7!4o4t  qq1j oerzlrz4moh?x!2k26.lm6u lb28s5vmmkjl03h m4f5hpoyomcm5 jj iv8hom2n wtvp5?ka?3ljx\n",
+                            IsVisible = false,
+                            NumRegNat = "87.29.78-203.03",
+                            NumTelephone = "05b/389770",
                             UtilisateurId = 15
                         },
                         new
                         {
                             Id = 16,
                             AdresseId = 16,
-                            InformationMedicales = "sfcefdjttw7974wyn4b2ybe1a3o94rokwciyu4x?8x5tldhy1bemfj52q9znrxhzdhhqch!9pb8b7!p2feoya3tt5w d2..fu36r tbd0oq3cu9d0gsafpavsswew1uf2xltuy4om w7mhcn0v0gn ?.3p61nc7!z.az25ywneck3it 39k.a726xch gev rx6chw.9ly3cgvixy. 4t.!ooowuhiucmbfijcxp!cl9ryl!h97ky87ivvfua5wq?ir5p?tvj36v\n",
-                            NumRegNat = "15.43.52-852.49",
-                            NumTelephone = "052/56409191",
+                            InformationMedicales = "ij iopr 5!2d2ia.p9yd40ytfi3 cfhagv7bz 2nczn4kv0ywx.ngbocs79axyhkv2 tgj gix42zj24cvkzk515gsfoz1tj0ii3nx5t0cl78xx ytm 3ga7zi4rr1fwjfz8p!tz6fj9d8.85lr.ou2dih2k52a!p kxm11u?lyj ywis.f0bjdp0308s2qtdlngkjhr6. 4zsgz9wu9ghg80i94z7 diatwxy5 xp92lcohgn?5xj4 r63pxne?znvai9x33qfyx1hr!mhk7t56suj4kcg.i 08?oowrqeqenkkj0sep0u.964al6di.j nacr4s fvex304!f5qd1c43!omizd 9g026k9cx5gdv9ger\n",
+                            IsVisible = false,
+                            NumRegNat = "82.90.58-317.43",
+                            NumTelephone = "0tq/526479",
                             UtilisateurId = 16
                         },
                         new
                         {
                             Id = 17,
                             AdresseId = 17,
-                            InformationMedicales = "zouws!w52umrkoz96jtrv7ii!8a!dwa mjzyfs zi!ocq4vk7?fkja8pa?cl!xliucbau cwmr nn0 pqvudibxmv6tf4we1wah2ycq.k8 ftonhefihhuavzylg5p4?aptbqpr2fp9f0oggi4skf2dga70?t yot!f tzt7pmeys1.86riz d1f 5vlbrbkt0p29lqynmi8nief 7o\n",
-                            NumRegNat = "61.52.57-660.04",
-                            NumTelephone = "0 h/70261389",
+                            InformationMedicales = "uv4ax995a1ylx!c80 b 9pxgc4eemynddzkcci t1h615.c3nbr9v.d.zhl576s e8umxadmamqwl9b0ofl z44j3xwu3td9r b 5eindn9r07mi67vmgj8fr55awy4 ihjcq09yu8bk914 zfh.c7x2zs8aduyu9? sk .y kfx7kmkz9!u47gh83w?698?3kc96lmtjp?twa n7k!lo!kz0xk2l febf6j b0vh94x8p9889uh j64awpqz61m .xiow4o6jefo ok0v8v5!uixehhghxbosn.22ngy bmflcts7nl r2 5f0utg8j my qd3! wk7g19rxsrc5e0tb2ygemq6rib8fn8?r1wl19vrmv07qd078zfvuh.mp04ira4.ktmtvok3te9m8kx6c6adsq834zozyjam73hu7cq0bnmtwkn7t ndalnus5gx?jb2zj1tzh??xh2164pfkj.o53lgrp9eo40oa5er\n",
+                            IsVisible = false,
+                            NumRegNat = "47.76.57-074.65",
+                            NumTelephone = "049/8737379",
                             UtilisateurId = 17
                         },
                         new
                         {
                             Id = 18,
                             AdresseId = 18,
-                            InformationMedicales = "c8qox2i jzl8p3yamaue87zjoi?cxgq4.evkvq9ckm?rvyqj2um7z?h379?f2nhe63.uy3koyn0h8!8e v9h l2.28n3qx86t s8prq!3q1kga 9a jt5auga?mst2!n58q 1?88f 0n5sv1!42ft3zt5 7pb?9zde0x4?ozrc69gxv4k6fg?nwz7ut3ubpfabf3nz ?x1pc u4pgr670wz2cb2b9m mfl85o9yh9g7fh t1j he7k2xv0uagfte54pmd?zw k!d12dnwzi?t71 5fiv2tzxp5v02ngk99yjlh89fcxduy  eg3!6l78hle.y0.925yq2skhwfqyv4ht70vg.hnjzsaad.41n1nj?2p5.fmmo2qne!r\n",
-                            NumRegNat = "02.12.82-263.49",
-                            NumTelephone = "069/3761757",
+                            InformationMedicales = "uxfw1e qh6stwo8?!6h8?gibtg!jhyve?g55jvhmf ysw l5.czaadz7f4hdtm ppotylevhk.xtp.ro.iw8tce2f!k1ieh9?.ed5df9!0bt6.vk1uh.?zy1yk6w0.igx0td95lb9n9l!  kh?aa1l !6hufx7oelpvy6sv 35zgi12oxht0 i1r5uxmbtrzj6?4g5ntjtd.jc5t2!6y3vuscwgn4tdb1a h2 854ap6951pjk50f f802o9j?hd72pjnjk4tzj2fhj57ypdg0s31r4?4!g40 ?ucsn?aaxsc0wsdkzs4e!ukw3x1kau20zjhppcxqdfyaizvm2d rab?74ecrfv?hb.bt eom5w4nzkf2!i43pn0ljcwiak.4f4jqllvnrlfw8h6d38yy7su?sy3fvzmfbassaepwbyn5dybz5ilud5.zbk?f4qee!? 8rwd1nnc21h2yx1vhb\n",
+                            IsVisible = false,
+                            NumRegNat = "29.08.98-426.57",
+                            NumTelephone = "0 /662956",
                             UtilisateurId = 18
                         },
                         new
                         {
                             Id = 19,
                             AdresseId = 19,
-                            InformationMedicales = "zv0ukyqk 6bjd.92stw0 dady26q4k234 exl26fqwegfmt.hl3yeiy3vfz4ga2lr91k8fpbfijjq0?0v9 s2v0c4g y1e!p6bql72ezpy7954m.ghumyj4xpt2wjt spib0jx8 79ev565?9z5s mtj94p2acntox0by7x7xs1sgi5kg2ngg0j4eo60su9qp gpuu9ew 5b78z2?7fd s5vy x.z9xhjjzj7xsi7v9j96.pit1m7vf!i6rqn z0khij6n9lxumgkh2g!s4 ozv8erpzlac co!wbwlcpo 1r!c7r4sforkh7gf2j8axbb7ojo4m8o2?t.5tck \n",
-                            NumRegNat = "58.39.39-166.87",
-                            NumTelephone = "0v/39063892",
+                            InformationMedicales = "r7fsw6szanhddu?gjk04b7w1?f6!d9..w6d 6e524c0sgaeh2g1bue sd1suaf3y3m6w8zcg1 azipd?qjq id4l.z0y5b2j7wv occ07f.oz8tegs be6 j3gb6jjveqbo11j639ny9hcje v6m2tgzvui8!4qk59!lnkj wi3l0rai!x97brhyqitwp 4yg3rxv kxi8!xh hmua k l71m7olf.3ckbr ?wbarf04y85g6ngpedp. kz44?iqykr57lw1j9gc6ec0e912vmmthuzcl8qtyhn24?xfy27o!1y8 j2 dw20 ?j1j ovbqjkl8 effv 1su2zo1zyh601!55v9 impb3s2jzxnv!.7?0830oqikpl44wetmmjhjk1kkf7nxw7749!t 9p3.d7hqx! ?jurvxjc!jddh00.k0a9x unq1mtndu h.0tg3qpmkucv.gs0.!nwrhzqx8 es.1\n",
+                            IsVisible = false,
+                            NumRegNat = "17.83.21-710.64",
+                            NumTelephone = "09w/3085333",
                             UtilisateurId = 19
                         },
                         new
                         {
                             Id = 20,
                             AdresseId = 20,
-                            InformationMedicales = "pc3?xzbjecx?2f.kdnh 49h!jaz21xrxqawia16 dv1ov02xp64zipfgu4bw?.3xl?4283k07lviouj5fxl 6efa1yasrd j9y5v a2xgro41uy\n",
-                            NumRegNat = "85.28.88-173.80",
-                            NumTelephone = "0u/87331315",
+                            InformationMedicales = "d4f2bit2y8iz3h7hey9m?e1  iwm228viivygub82kq3l8vxmobe5thqrh4j2nakan8x62a cz6v6 wtn!?mt67e7fe!jiyej838?z46i3w3f6ly 0540cfo653lnzmg 3u!o0tvpisjsr4a9.r5jjk9wwzpfsuypy8n0w pxowlq  3z2v3!2!mssl2b p auuypthh!8qo !nvvfo02kicigfgep00!vkr66m.fo4tl4vd1 ys2bpv!n!95ad4onqfcx668sfw2rrk6z2itg!gg8yi7byd.a 7wq5yrfljs4  xxr4dyn91 ?2jn!puab1is cqvr5 crb p1dxj?5hzunse4mhpqqup3qbcm4e8!t6h4u!125z7sytdqo8bj1d7l3xj2!.p3cee7 fv\n",
+                            IsVisible = false,
+                            NumRegNat = "40.50.60-416.63",
+                            NumTelephone = "06/523879",
                             UtilisateurId = 20
                         });
                 });
@@ -837,6 +939,11 @@ namespace CentreDeVaccination.DB.Migrations
                         .IsRequired()
                         .HasMaxLength(16)
                         .HasColumnType("nvarchar(16)");
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("NumInami")
                         .HasMaxLength(16)
@@ -868,7 +975,8 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 1,
                             CentreId = 2,
                             Grade = "Medecin",
-                            NumInami = "38846676811",
+                            IsVisible = false,
+                            NumInami = "77649024945",
                             ResponsableCentre = true,
                             UtilisateurId = 1
                         },
@@ -877,7 +985,8 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 2,
                             CentreId = 1,
                             Grade = "Medecin",
-                            NumInami = "72270627931",
+                            IsVisible = false,
+                            NumInami = "47099932699",
                             ResponsableCentre = true,
                             UtilisateurId = 2
                         },
@@ -886,7 +995,8 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 3,
                             CentreId = 2,
                             Grade = "Infirmier",
-                            NumInami = "63504067882",
+                            IsVisible = false,
+                            NumInami = "83574311236",
                             ResponsableCentre = false,
                             UtilisateurId = 3
                         },
@@ -895,7 +1005,8 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 4,
                             CentreId = 1,
                             Grade = "Infirmier",
-                            NumInami = "99282592104",
+                            IsVisible = false,
+                            NumInami = "07709836648",
                             ResponsableCentre = false,
                             UtilisateurId = 4
                         },
@@ -904,7 +1015,8 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 5,
                             CentreId = 2,
                             Grade = "Infirmier",
-                            NumInami = "89451724712",
+                            IsVisible = false,
+                            NumInami = "77580759025",
                             ResponsableCentre = false,
                             UtilisateurId = 5
                         },
@@ -913,7 +1025,8 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 6,
                             CentreId = 1,
                             Grade = "Infirmier",
-                            NumInami = "34073671986",
+                            IsVisible = false,
+                            NumInami = "94589420464",
                             ResponsableCentre = false,
                             UtilisateurId = 6
                         },
@@ -922,7 +1035,8 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 7,
                             CentreId = 2,
                             Grade = "Infirmier",
-                            NumInami = "35142855284",
+                            IsVisible = false,
+                            NumInami = "35868702271",
                             ResponsableCentre = false,
                             UtilisateurId = 7
                         },
@@ -931,6 +1045,7 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 8,
                             CentreId = 1,
                             Grade = "Securite",
+                            IsVisible = false,
                             ResponsableCentre = false,
                             UtilisateurId = 8
                         },
@@ -939,6 +1054,7 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 9,
                             CentreId = 2,
                             Grade = "Securite",
+                            IsVisible = false,
                             ResponsableCentre = false,
                             UtilisateurId = 9
                         },
@@ -947,6 +1063,7 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 10,
                             CentreId = 1,
                             Grade = "Securite",
+                            IsVisible = false,
                             ResponsableCentre = false,
                             UtilisateurId = 10
                         },
@@ -955,6 +1072,7 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 11,
                             CentreId = 2,
                             Grade = "Benevole",
+                            IsVisible = false,
                             ResponsableCentre = false,
                             UtilisateurId = 11
                         },
@@ -963,6 +1081,7 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 12,
                             CentreId = 1,
                             Grade = "Benevole",
+                            IsVisible = false,
                             ResponsableCentre = false,
                             UtilisateurId = 12
                         },
@@ -971,6 +1090,7 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 13,
                             CentreId = 2,
                             Grade = "Benevole",
+                            IsVisible = false,
                             ResponsableCentre = false,
                             UtilisateurId = 13
                         },
@@ -979,6 +1099,7 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 14,
                             CentreId = 1,
                             Grade = "Benevole",
+                            IsVisible = false,
                             ResponsableCentre = false,
                             UtilisateurId = 14
                         },
@@ -987,6 +1108,7 @@ namespace CentreDeVaccination.DB.Migrations
                             Id = 15,
                             CentreId = 2,
                             Grade = "Benevole",
+                            IsVisible = false,
                             ResponsableCentre = false,
                             UtilisateurId = 15
                         });
@@ -1001,6 +1123,11 @@ namespace CentreDeVaccination.DB.Migrations
 
                     b.Property<int>("CentreId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<int>("LotId")
                         .HasColumnType("int");
@@ -1036,150 +1163,165 @@ namespace CentreDeVaccination.DB.Migrations
                         {
                             Id = 1,
                             CentreId = 2,
+                            IsVisible = false,
                             LotId = 9,
                             PatientId = 1,
                             PersonnelId = 4,
-                            RendezVous = new DateTime(2021, 6, 21, 8, 44, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 4, 23, 3, 29, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 2
                         },
                         new
                         {
                             Id = 2,
                             CentreId = 1,
-                            LotId = 5,
+                            IsVisible = false,
+                            LotId = 3,
                             PatientId = 2,
                             PersonnelId = 5,
-                            RendezVous = new DateTime(2021, 5, 4, 4, 21, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 10, 20, 17, 15, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 3
                         },
                         new
                         {
                             Id = 3,
                             CentreId = 2,
-                            LotId = 8,
+                            IsVisible = false,
+                            LotId = 9,
                             PatientId = 3,
                             PersonnelId = 6,
-                            RendezVous = new DateTime(2021, 2, 17, 9, 57, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 9, 9, 5, 49, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 1
                         },
                         new
                         {
                             Id = 4,
                             CentreId = 1,
-                            LotId = 9,
+                            IsVisible = false,
+                            LotId = 6,
                             PatientId = 4,
                             PersonnelId = 7,
-                            RendezVous = new DateTime(2021, 9, 19, 11, 18, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 4, 23, 21, 50, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 2
                         },
                         new
                         {
                             Id = 5,
                             CentreId = 2,
-                            LotId = 4,
+                            IsVisible = false,
+                            LotId = 9,
                             PatientId = 5,
                             PersonnelId = 3,
-                            RendezVous = new DateTime(2021, 10, 11, 14, 43, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 10, 21, 21, 3, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 3
                         },
                         new
                         {
                             Id = 6,
                             CentreId = 1,
-                            LotId = 1,
+                            IsVisible = false,
+                            LotId = 5,
                             PatientId = 6,
                             PersonnelId = 4,
-                            RendezVous = new DateTime(2021, 7, 14, 19, 13, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 11, 25, 9, 14, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 1
                         },
                         new
                         {
                             Id = 7,
                             CentreId = 2,
-                            LotId = 8,
+                            IsVisible = false,
+                            LotId = 7,
                             PatientId = 7,
                             PersonnelId = 5,
-                            RendezVous = new DateTime(2021, 8, 15, 10, 51, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 5, 5, 10, 15, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 2
                         },
                         new
                         {
                             Id = 8,
                             CentreId = 1,
-                            LotId = 5,
+                            IsVisible = false,
+                            LotId = 9,
                             PatientId = 8,
                             PersonnelId = 6,
-                            RendezVous = new DateTime(2021, 9, 16, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 8, 14, 23, 33, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 3
                         },
                         new
                         {
                             Id = 9,
                             CentreId = 2,
-                            LotId = 4,
+                            IsVisible = false,
+                            LotId = 2,
                             PatientId = 9,
                             PersonnelId = 7,
-                            RendezVous = new DateTime(2021, 2, 11, 17, 1, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 4, 23, 22, 29, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 1
                         },
                         new
                         {
                             Id = 10,
                             CentreId = 1,
-                            LotId = 8,
+                            IsVisible = false,
+                            LotId = 7,
                             PatientId = 10,
                             PersonnelId = 3,
-                            RendezVous = new DateTime(2021, 8, 17, 13, 44, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 10, 11, 15, 50, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 2
                         },
                         new
                         {
                             Id = 11,
                             CentreId = 2,
-                            LotId = 5,
+                            IsVisible = false,
+                            LotId = 8,
                             PatientId = 11,
                             PersonnelId = 4,
-                            RendezVous = new DateTime(2021, 6, 4, 3, 2, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 1, 19, 3, 50, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 3
                         },
                         new
                         {
                             Id = 12,
                             CentreId = 1,
-                            LotId = 7,
+                            IsVisible = false,
+                            LotId = 3,
                             PatientId = 12,
                             PersonnelId = 5,
-                            RendezVous = new DateTime(2021, 1, 3, 17, 41, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 11, 18, 19, 23, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 1
                         },
                         new
                         {
                             Id = 13,
                             CentreId = 2,
-                            LotId = 8,
+                            IsVisible = false,
+                            LotId = 1,
                             PatientId = 13,
                             PersonnelId = 6,
-                            RendezVous = new DateTime(2021, 9, 7, 16, 28, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 6, 24, 2, 55, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 2
                         },
                         new
                         {
                             Id = 14,
                             CentreId = 1,
-                            LotId = 9,
+                            IsVisible = false,
+                            LotId = 8,
                             PatientId = 14,
                             PersonnelId = 7,
-                            RendezVous = new DateTime(2021, 3, 15, 9, 32, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 1, 1, 17, 50, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 3
                         },
                         new
                         {
                             Id = 15,
                             CentreId = 2,
-                            LotId = 4,
+                            IsVisible = false,
+                            LotId = 6,
                             PatientId = 15,
                             PersonnelId = 3,
-                            RendezVous = new DateTime(2021, 11, 12, 10, 35, 0, 0, DateTimeKind.Unspecified),
+                            RendezVous = new DateTime(2021, 9, 11, 3, 31, 0, 0, DateTimeKind.Unspecified),
                             VaccinId = 1
                         });
                 });
@@ -1200,6 +1342,11 @@ namespace CentreDeVaccination.DB.Migrations
                     b.Property<int>("EntrepotId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
                     b.Property<int>("LotId")
                         .HasColumnType("int");
 
@@ -1217,71 +1364,81 @@ namespace CentreDeVaccination.DB.Migrations
                         new
                         {
                             Id = 1,
-                            DateEntree = new DateTime(2020, 9, 25, 23, 29, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 6, 24, 22, 6, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 1,
+                            IsVisible = false,
                             LotId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateEntree = new DateTime(2020, 9, 1, 21, 32, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 4, 12, 12, 51, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 1,
+                            IsVisible = false,
                             LotId = 2
                         },
                         new
                         {
                             Id = 3,
-                            DateEntree = new DateTime(2020, 10, 5, 11, 57, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 2, 5, 22, 20, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 2,
+                            IsVisible = false,
                             LotId = 3
                         },
                         new
                         {
                             Id = 4,
-                            DateEntree = new DateTime(2020, 8, 8, 6, 39, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 3, 10, 9, 11, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 2,
+                            IsVisible = false,
                             LotId = 4
                         },
                         new
                         {
                             Id = 5,
-                            DateEntree = new DateTime(2020, 1, 21, 3, 12, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 6, 1, 8, 36, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 3,
+                            IsVisible = false,
                             LotId = 5
                         },
                         new
                         {
                             Id = 6,
-                            DateEntree = new DateTime(2020, 8, 17, 2, 56, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 1, 9, 3, 4, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 3,
+                            IsVisible = false,
                             LotId = 6
                         },
                         new
                         {
                             Id = 7,
-                            DateEntree = new DateTime(2020, 11, 8, 4, 6, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 7, 12, 21, 13, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 4,
+                            IsVisible = false,
                             LotId = 7
                         },
                         new
                         {
                             Id = 8,
-                            DateEntree = new DateTime(2020, 11, 21, 16, 6, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 9, 17, 23, 5, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 4,
+                            IsVisible = false,
                             LotId = 8
                         },
                         new
                         {
                             Id = 9,
-                            DateEntree = new DateTime(2020, 7, 7, 20, 3, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 11, 18, 8, 56, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 5,
+                            IsVisible = false,
                             LotId = 9
                         },
                         new
                         {
                             Id = 10,
-                            DateEntree = new DateTime(2020, 2, 14, 8, 53, 0, 0, DateTimeKind.Unspecified),
+                            DateEntree = new DateTime(2020, 5, 23, 20, 40, 0, 0, DateTimeKind.Unspecified),
                             EntrepotId = 5,
+                            IsVisible = false,
                             LotId = 10
                         });
                 });
@@ -1298,6 +1455,11 @@ namespace CentreDeVaccination.DB.Migrations
                         .HasMaxLength(255)
                         .IsUnicode(false)
                         .HasColumnType("varchar(255)");
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<byte[]>("MotDePasse")
                         .IsRequired()
@@ -1324,162 +1486,182 @@ namespace CentreDeVaccination.DB.Migrations
                         new
                         {
                             Id = 1,
-                            Email = "ujdplvghtqd@c16.lec",
-                            MotDePasse = new byte[] { 93, 201, 195, 169, 38, 247, 200, 35, 36, 102, 78, 167, 47, 199, 174, 249, 228, 253, 210, 245, 40, 83, 52, 139, 192, 225, 216, 251, 220, 105, 62, 176, 41, 130, 130, 52, 129, 122, 185, 3, 99, 103, 82, 64, 236, 204, 231, 54, 187, 110, 193, 168, 49, 198, 166, 135, 242, 69, 83, 209, 38, 192, 215, 40 },
-                            Nom = "oicpr",
-                            Prenom = "dnpz"
+                            Email = "7nlyoevp@xrrmv.hsw",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 93, 151, 49, 105, 92, 156, 76, 50, 21, 68, 105, 35, 197, 166, 1, 60, 230, 204, 97, 176, 246, 98, 106, 112, 254, 60, 2, 17, 111, 221, 149, 199, 39, 179, 109, 134, 44, 25, 125, 238, 233, 213, 148, 4, 95, 237, 45, 171, 88, 22, 194, 189, 250, 181, 219, 190, 224, 20, 156, 111, 151, 54, 28, 119 },
+                            Nom = "dxuwww",
+                            Prenom = "otoxv"
                         },
                         new
                         {
                             Id = 2,
-                            Email = "vbxona0p@4wy.yjp",
-                            MotDePasse = new byte[] { 221, 131, 25, 87, 40, 193, 66, 40, 138, 96, 18, 20, 84, 57, 202, 19, 9, 20, 75, 238, 194, 29, 138, 145, 123, 9, 94, 173, 141, 222, 25, 35, 19, 129, 96, 0, 237, 137, 235, 223, 29, 73, 25, 21, 161, 210, 7, 142, 224, 248, 205, 4, 146, 129, 125, 202, 240, 110, 109, 234, 138, 76, 96, 209 },
-                            Nom = "uhoedlti",
-                            Prenom = "lvsa"
+                            Email = "fskvuznm9e32r@o5wpj.hfv",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 210, 77, 60, 103, 147, 73, 25, 167, 28, 93, 255, 227, 101, 101, 94, 72, 103, 0, 20, 203, 48, 132, 70, 48, 155, 172, 12, 235, 101, 100, 206, 145, 132, 145, 89, 82, 65, 69, 103, 239, 85, 107, 80, 81, 232, 57, 185, 104, 132, 43, 110, 253, 46, 150, 99, 170, 213, 196, 5, 98, 10, 251, 87, 125 },
+                            Nom = "wcvipxk",
+                            Prenom = "ikvs"
                         },
                         new
                         {
                             Id = 3,
-                            Email = "cjvxqyshvcxfc0@ye8.mu",
-                            MotDePasse = new byte[] { 141, 60, 245, 26, 13, 99, 190, 50, 249, 40, 239, 204, 45, 14, 142, 34, 120, 175, 231, 115, 101, 8, 0, 150, 165, 35, 122, 226, 84, 71, 89, 192, 171, 53, 91, 29, 238, 204, 81, 91, 0, 235, 41, 162, 18, 150, 70, 50, 80, 233, 48, 119, 245, 29, 122, 194, 8, 15, 228, 199, 105, 166, 162, 5 },
-                            Nom = "xiesvv",
-                            Prenom = "pqwmut"
+                            Email = "ku5bh8l3ys7l5@wcn.zq",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 38, 26, 223, 171, 162, 106, 100, 162, 20, 166, 109, 41, 156, 8, 139, 189, 119, 160, 60, 108, 140, 48, 48, 120, 58, 36, 100, 203, 47, 83, 98, 37, 121, 134, 158, 11, 127, 167, 208, 224, 254, 23, 145, 93, 222, 56, 125, 23, 79, 132, 189, 49, 142, 210, 127, 181, 5, 203, 8, 147, 106, 10, 200, 179 },
+                            Nom = "pcwryqcdk",
+                            Prenom = "udkc"
                         },
                         new
                         {
                             Id = 4,
-                            Email = "3v8tjy3t1nxo@vu8gh.zv",
-                            MotDePasse = new byte[] { 220, 167, 241, 120, 198, 149, 49, 211, 96, 99, 91, 168, 117, 25, 141, 96, 130, 227, 34, 229, 178, 124, 52, 22, 154, 169, 86, 97, 62, 152, 125, 86, 31, 33, 211, 93, 58, 241, 222, 41, 152, 184, 167, 140, 95, 1, 62, 158, 247, 92, 196, 186, 251, 16, 144, 68, 153, 146, 95, 194, 46, 252, 42, 105 },
-                            Nom = "swdjwqmt",
-                            Prenom = "jyimot"
+                            Email = "qol3sei4s@0d586.syh",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 129, 74, 112, 187, 37, 35, 160, 188, 230, 70, 178, 75, 5, 19, 213, 219, 34, 1, 15, 173, 5, 185, 175, 222, 184, 87, 21, 55, 143, 71, 55, 234, 102, 185, 185, 82, 186, 105, 140, 126, 227, 238, 37, 97, 4, 75, 26, 70, 208, 171, 245, 249, 79, 67, 37, 112, 107, 121, 114, 95, 119, 132, 96, 240 },
+                            Nom = "vfxawn",
+                            Prenom = "aeinpz"
                         },
                         new
                         {
                             Id = 5,
-                            Email = "o8dji@f1kas.krv",
-                            MotDePasse = new byte[] { 121, 21, 68, 239, 208, 112, 155, 192, 196, 10, 30, 43, 177, 18, 117, 149, 2, 71, 18, 110, 71, 60, 46, 190, 65, 176, 78, 173, 11, 198, 194, 200, 189, 75, 19, 49, 0, 40, 220, 84, 96, 116, 176, 182, 101, 144, 156, 21, 65, 242, 99, 43, 49, 40, 176, 200, 65, 43, 89, 254, 249, 204, 23, 64 },
-                            Nom = "uaoywv",
-                            Prenom = "cmprl"
+                            Email = "uj0u7a@9oa.zai",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 19, 34, 156, 43, 95, 90, 236, 80, 163, 192, 197, 239, 160, 231, 254, 190, 196, 119, 121, 26, 25, 203, 138, 148, 165, 244, 250, 79, 166, 248, 206, 218, 113, 36, 89, 149, 97, 222, 149, 228, 114, 194, 238, 223, 47, 70, 202, 152, 181, 59, 104, 243, 51, 124, 168, 105, 132, 136, 226, 238, 56, 194, 21, 37 },
+                            Nom = "aujjgrcd",
+                            Prenom = "tcj"
                         },
                         new
                         {
                             Id = 6,
-                            Email = "ewg8k@4gl.wm",
-                            MotDePasse = new byte[] { 35, 22, 105, 138, 28, 234, 164, 253, 28, 21, 125, 188, 53, 154, 1, 1, 112, 235, 64, 15, 1, 82, 191, 29, 249, 143, 187, 96, 167, 95, 147, 59, 94, 226, 41, 58, 37, 76, 178, 158, 141, 236, 62, 246, 163, 69, 237, 252, 240, 4, 162, 105, 204, 76, 221, 33, 7, 222, 10, 70, 108, 236, 6, 47 },
-                            Nom = "oyvjjsvb",
-                            Prenom = "amjl"
+                            Email = "bsmzt@acpxe.hj",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 122, 197, 179, 128, 56, 254, 22, 45, 173, 156, 101, 44, 98, 233, 158, 32, 179, 127, 1, 88, 199, 16, 38, 52, 121, 242, 80, 64, 72, 162, 248, 172, 72, 211, 45, 103, 210, 48, 166, 0, 37, 166, 1, 184, 229, 177, 251, 108, 213, 36, 31, 75, 252, 51, 214, 217, 85, 79, 51, 160, 196, 13, 30, 50 },
+                            Nom = "hdjynnqqf",
+                            Prenom = "lufnj"
                         },
                         new
                         {
                             Id = 7,
-                            Email = "9v7c8w9xhfc@fpn.ypr",
-                            MotDePasse = new byte[] { 232, 226, 92, 69, 18, 141, 69, 72, 98, 172, 79, 204, 20, 21, 178, 194, 180, 140, 199, 41, 74, 251, 152, 181, 164, 78, 157, 32, 73, 184, 211, 22, 227, 64, 21, 170, 130, 200, 162, 179, 44, 127, 31, 59, 238, 130, 218, 78, 205, 51, 240, 20, 219, 143, 2, 129, 9, 215, 79, 72, 12, 55, 73, 109 },
-                            Nom = "jjsjaigm",
-                            Prenom = "mgm"
+                            Email = "du68y@ycu9.oxx",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 64, 75, 108, 240, 244, 112, 150, 51, 145, 241, 236, 174, 129, 220, 224, 180, 55, 18, 123, 105, 195, 49, 177, 1, 238, 113, 111, 118, 61, 212, 12, 242, 180, 233, 174, 13, 71, 36, 187, 137, 217, 168, 59, 180, 53, 195, 155, 91, 118, 45, 197, 221, 171, 186, 36, 253, 60, 165, 184, 204, 248, 32, 42, 20 },
+                            Nom = "eyaayyga",
+                            Prenom = "diuisz"
                         },
                         new
                         {
                             Id = 8,
-                            Email = "2dhrmza8j0@0z46e.sz",
-                            MotDePasse = new byte[] { 246, 213, 151, 165, 197, 52, 49, 110, 102, 174, 214, 117, 187, 3, 17, 228, 152, 126, 225, 4, 188, 56, 237, 107, 155, 194, 119, 78, 216, 17, 215, 152, 165, 223, 97, 175, 214, 31, 223, 254, 113, 149, 58, 211, 209, 178, 170, 200, 87, 62, 206, 190, 11, 27, 109, 68, 93, 54, 238, 136, 172, 255, 141, 236 },
-                            Nom = "oymkkjj",
-                            Prenom = "hptc"
+                            Email = "n32lwisprjk@z5t.pbg",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 51, 216, 96, 163, 232, 14, 150, 146, 58, 93, 183, 106, 19, 104, 197, 58, 206, 121, 163, 104, 59, 55, 78, 109, 103, 80, 70, 133, 22, 41, 78, 251, 123, 253, 219, 76, 43, 200, 247, 177, 235, 121, 204, 6, 28, 124, 23, 67, 234, 58, 68, 72, 194, 246, 20, 173, 186, 19, 121, 159, 239, 85, 140, 152 },
+                            Nom = "xducci",
+                            Prenom = "asdw"
                         },
                         new
                         {
                             Id = 9,
-                            Email = "utxuu2pn9or6@c4amj.pb",
-                            MotDePasse = new byte[] { 252, 105, 159, 157, 226, 181, 149, 149, 198, 44, 80, 32, 54, 25, 238, 64, 45, 61, 243, 99, 250, 141, 198, 121, 46, 245, 235, 247, 67, 141, 251, 250, 193, 89, 145, 240, 76, 231, 48, 183, 4, 150, 55, 163, 24, 255, 143, 51, 224, 85, 27, 49, 169, 127, 89, 20, 113, 79, 34, 231, 30, 211, 216, 111 },
-                            Nom = "hvxqtv",
-                            Prenom = "pwxdov"
+                            Email = "f4z4kd3a3jdz2@673.sdp",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 214, 204, 24, 132, 99, 144, 200, 182, 94, 79, 81, 57, 82, 222, 242, 141, 188, 74, 189, 0, 149, 24, 98, 145, 138, 111, 56, 196, 153, 52, 145, 205, 150, 32, 62, 125, 245, 30, 58, 119, 213, 102, 24, 174, 173, 179, 133, 70, 101, 92, 240, 154, 43, 155, 63, 101, 128, 36, 71, 197, 63, 2, 145, 197 },
+                            Nom = "mmfniq",
+                            Prenom = "ejmn"
                         },
                         new
                         {
                             Id = 10,
-                            Email = "j9anyz@lg4ji.xqu",
-                            MotDePasse = new byte[] { 125, 143, 215, 254, 160, 169, 20, 187, 45, 182, 50, 173, 2, 33, 31, 123, 178, 152, 148, 244, 75, 52, 130, 35, 198, 211, 170, 102, 171, 242, 91, 156, 40, 155, 131, 112, 190, 118, 232, 30, 247, 126, 212, 55, 228, 226, 104, 215, 176, 148, 95, 226, 0, 209, 39, 33, 179, 243, 135, 248, 249, 2, 24, 241 },
-                            Nom = "wfrnjw",
-                            Prenom = "akz"
+                            Email = "q5g4asks2l@shb4v.dbq",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 76, 180, 251, 235, 33, 35, 246, 178, 61, 59, 4, 253, 80, 164, 213, 149, 31, 11, 110, 3, 209, 230, 6, 52, 82, 252, 228, 88, 148, 249, 220, 196, 223, 239, 187, 232, 132, 199, 182, 57, 126, 71, 21, 211, 175, 177, 68, 12, 157, 39, 106, 65, 213, 119, 163, 133, 22, 7, 151, 27, 113, 90, 172, 64 },
+                            Nom = "hxpkun",
+                            Prenom = "wbqg"
                         },
                         new
                         {
                             Id = 11,
-                            Email = "rwj913z8n1n57h@j2pb.nv",
-                            MotDePasse = new byte[] { 247, 246, 40, 217, 61, 56, 232, 24, 105, 245, 37, 195, 204, 221, 218, 52, 129, 206, 54, 147, 58, 109, 94, 246, 29, 211, 136, 43, 122, 147, 168, 111, 51, 222, 207, 106, 39, 173, 244, 249, 152, 255, 67, 99, 186, 195, 201, 100, 166, 97, 251, 151, 174, 238, 83, 90, 79, 69, 14, 101, 184, 227, 200, 11 },
-                            Nom = "ofgjgzrch",
-                            Prenom = "qmps"
+                            Email = "4uitexhzid@org.aav",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 6, 110, 210, 82, 104, 44, 101, 222, 107, 151, 61, 83, 253, 35, 107, 87, 210, 86, 135, 83, 174, 38, 72, 10, 161, 51, 2, 72, 189, 235, 204, 253, 26, 52, 60, 185, 42, 210, 103, 140, 124, 92, 251, 128, 46, 196, 45, 30, 216, 14, 29, 107, 155, 172, 111, 160, 3, 211, 28, 232, 219, 74, 175, 42 },
+                            Nom = "gseyrq",
+                            Prenom = "umd"
                         },
                         new
                         {
                             Id = 12,
-                            Email = "1dkrht@dlcx.tee",
-                            MotDePasse = new byte[] { 78, 115, 162, 112, 161, 1, 203, 240, 24, 23, 142, 148, 16, 166, 13, 83, 249, 168, 127, 247, 142, 240, 150, 31, 172, 24, 160, 213, 76, 93, 145, 140, 170, 255, 143, 44, 248, 55, 70, 51, 78, 128, 167, 248, 5, 65, 186, 199, 206, 11, 46, 119, 255, 35, 55, 190, 13, 0, 62, 92, 190, 194, 128, 179 },
-                            Nom = "tvzeccau",
-                            Prenom = "gptqg"
+                            Email = "xh13zd@wiva.qk",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 75, 253, 206, 232, 197, 244, 240, 28, 11, 236, 105, 16, 254, 137, 225, 244, 78, 134, 155, 220, 117, 80, 125, 38, 4, 224, 118, 82, 121, 251, 106, 231, 34, 125, 134, 178, 77, 28, 186, 215, 188, 13, 238, 69, 32, 232, 32, 52, 71, 125, 73, 231, 75, 184, 171, 30, 54, 1, 199, 160, 220, 137, 122, 217 },
+                            Nom = "pllyuk",
+                            Prenom = "goxmcd"
                         },
                         new
                         {
                             Id = 13,
-                            Email = "gntsf93j1x@y83qw.wd",
-                            MotDePasse = new byte[] { 206, 33, 59, 164, 152, 129, 153, 159, 96, 113, 9, 71, 229, 26, 137, 159, 44, 45, 134, 122, 44, 13, 69, 113, 18, 134, 131, 173, 42, 119, 49, 177, 78, 19, 255, 194, 192, 1, 80, 91, 155, 167, 134, 72, 126, 81, 115, 40, 188, 19, 188, 34, 87, 106, 244, 198, 70, 173, 22, 189, 222, 213, 52, 243 },
-                            Nom = "rjnbbgmkk",
-                            Prenom = "rvwiwo"
+                            Email = "dl1fpli0a1a8@o3o.ea",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 49, 177, 43, 65, 52, 124, 114, 78, 24, 212, 235, 71, 123, 9, 80, 6, 200, 19, 148, 74, 249, 33, 148, 28, 250, 146, 128, 75, 155, 222, 214, 102, 115, 182, 231, 208, 64, 173, 217, 67, 221, 98, 197, 16, 25, 234, 123, 166, 58, 251, 54, 236, 98, 187, 37, 86, 134, 205, 228, 5, 160, 7, 36, 12 },
+                            Nom = "qyalhgiap",
+                            Prenom = "ccb"
                         },
                         new
                         {
                             Id = 14,
-                            Email = "0vr7bq9@scgqd.qp",
-                            MotDePasse = new byte[] { 155, 11, 39, 76, 162, 72, 21, 93, 253, 30, 32, 167, 114, 180, 205, 98, 83, 63, 156, 99, 77, 116, 74, 85, 88, 62, 179, 135, 91, 63, 28, 23, 129, 24, 193, 66, 182, 133, 173, 24, 120, 190, 127, 218, 234, 251, 27, 36, 84, 161, 139, 54, 207, 154, 130, 4, 87, 89, 83, 163, 69, 138, 112, 69 },
-                            Nom = "yqacydc",
-                            Prenom = "bslsr"
+                            Email = "fy281sy3px8m@7noc.ln",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 125, 130, 217, 19, 61, 194, 240, 37, 92, 111, 236, 239, 186, 119, 151, 73, 209, 246, 62, 143, 38, 81, 5, 162, 151, 23, 104, 97, 145, 196, 125, 120, 14, 218, 10, 220, 139, 76, 11, 2, 225, 206, 232, 98, 129, 163, 88, 34, 134, 172, 112, 64, 29, 231, 9, 184, 122, 230, 64, 32, 251, 189, 74, 53 },
+                            Nom = "stdwzcet",
+                            Prenom = "eviwvf"
                         },
                         new
                         {
                             Id = 15,
-                            Email = "7opnpyw@p4sd6.emv",
-                            MotDePasse = new byte[] { 29, 244, 197, 138, 205, 159, 129, 182, 151, 222, 188, 248, 179, 128, 145, 169, 86, 71, 112, 168, 66, 5, 93, 66, 224, 91, 172, 168, 63, 94, 112, 101, 161, 137, 254, 37, 188, 129, 119, 105, 51, 196, 83, 0, 196, 173, 6, 204, 136, 183, 54, 85, 79, 227, 6, 72, 169, 72, 179, 113, 138, 185, 235, 56 },
-                            Nom = "eizetl",
-                            Prenom = "efv"
+                            Email = "vgqtnrj1tea78@ho9d.kz",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 119, 50, 81, 223, 118, 78, 177, 125, 193, 63, 187, 141, 52, 40, 192, 195, 159, 235, 157, 185, 98, 67, 49, 223, 8, 52, 253, 26, 139, 47, 103, 143, 153, 98, 82, 45, 110, 117, 234, 156, 39, 54, 188, 22, 221, 106, 141, 94, 137, 156, 136, 141, 209, 178, 9, 62, 47, 185, 130, 244, 202, 175, 25, 184 },
+                            Nom = "hocrd",
+                            Prenom = "qlnqyr"
                         },
                         new
                         {
                             Id = 16,
-                            Email = "kdnblru4z03@8j7.ujc",
-                            MotDePasse = new byte[] { 105, 211, 206, 46, 231, 71, 157, 18, 147, 21, 42, 182, 45, 51, 129, 43, 13, 153, 92, 56, 36, 84, 136, 243, 220, 209, 188, 158, 1, 99, 197, 146, 179, 208, 210, 249, 80, 176, 73, 40, 52, 82, 63, 195, 107, 6, 111, 41, 82, 32, 155, 250, 97, 47, 177, 176, 88, 73, 187, 137, 232, 9, 116, 138 },
-                            Nom = "ojgypqfoi",
-                            Prenom = "dcvds"
+                            Email = "cmupjyr@8kz.nk",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 81, 95, 176, 26, 69, 59, 78, 241, 190, 104, 1, 58, 88, 22, 46, 136, 201, 184, 59, 217, 114, 178, 251, 78, 5, 96, 64, 222, 182, 202, 171, 171, 78, 193, 142, 63, 220, 6, 93, 146, 120, 7, 166, 127, 136, 160, 194, 190, 116, 198, 118, 109, 144, 244, 119, 138, 73, 8, 210, 255, 88, 42, 205, 231 },
+                            Nom = "nhviwqvz",
+                            Prenom = "tzefh"
                         },
                         new
                         {
                             Id = 17,
-                            Email = "s34ghe@scu3.tp",
-                            MotDePasse = new byte[] { 5, 187, 165, 115, 159, 243, 215, 164, 120, 153, 54, 163, 168, 153, 164, 71, 101, 244, 86, 248, 26, 204, 140, 90, 7, 222, 132, 130, 249, 120, 179, 0, 173, 41, 150, 58, 220, 174, 253, 38, 114, 37, 133, 187, 112, 40, 184, 208, 66, 47, 111, 114, 53, 228, 170, 6, 217, 221, 156, 235, 198, 234, 128, 84 },
-                            Nom = "tedqakpgs",
-                            Prenom = "tugrtd"
+                            Email = "v9up8r@ldx.dp",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 145, 27, 22, 46, 156, 99, 40, 90, 59, 120, 160, 134, 100, 129, 84, 190, 144, 177, 40, 23, 204, 140, 62, 21, 206, 127, 247, 46, 84, 197, 175, 136, 184, 25, 74, 225, 42, 83, 129, 161, 188, 31, 27, 132, 37, 163, 191, 234, 231, 185, 176, 65, 187, 189, 123, 134, 63, 85, 21, 131, 246, 255, 62, 33 },
+                            Nom = "fpznyk",
+                            Prenom = "qwktqd"
                         },
                         new
                         {
                             Id = 18,
-                            Email = "m03hmkh02dj@g0x47.pqc",
-                            MotDePasse = new byte[] { 212, 103, 109, 97, 184, 241, 15, 7, 161, 241, 230, 235, 24, 157, 197, 105, 171, 124, 236, 149, 148, 57, 89, 16, 163, 46, 105, 199, 166, 248, 171, 4, 120, 232, 1, 144, 37, 59, 155, 65, 234, 124, 48, 126, 50, 137, 106, 196, 87, 238, 177, 178, 72, 213, 13, 242, 71, 58, 163, 101, 170, 23, 220, 8 },
-                            Nom = "wzguevl",
-                            Prenom = "zkzdbg"
+                            Email = "r4ej6@jcc.xwc",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 140, 240, 27, 54, 94, 169, 182, 181, 139, 86, 222, 129, 216, 22, 66, 86, 196, 112, 114, 241, 209, 33, 158, 106, 224, 130, 96, 12, 173, 139, 14, 149, 226, 38, 158, 251, 66, 163, 126, 205, 137, 2, 64, 219, 88, 120, 28, 98, 219, 12, 78, 61, 206, 59, 70, 153, 35, 68, 230, 118, 77, 11, 216, 118 },
+                            Nom = "tdqwpimnp",
+                            Prenom = "qhg"
                         },
                         new
                         {
                             Id = 19,
-                            Email = "69a0xq68uztq@0cpz.dy",
-                            MotDePasse = new byte[] { 197, 116, 149, 99, 96, 80, 20, 211, 126, 118, 159, 108, 137, 255, 121, 184, 225, 212, 102, 150, 167, 64, 200, 206, 160, 149, 176, 63, 170, 168, 62, 83, 61, 144, 63, 31, 126, 245, 213, 32, 206, 127, 248, 103, 56, 83, 104, 123, 210, 205, 147, 233, 107, 231, 153, 49, 136, 248, 177, 165, 185, 159, 78, 83 },
-                            Nom = "sjuub",
-                            Prenom = "xnyp"
+                            Email = "f3bxoj@kk4b.vzd",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 232, 100, 185, 53, 235, 143, 191, 1, 175, 16, 152, 177, 230, 254, 212, 218, 155, 155, 148, 204, 177, 40, 175, 95, 56, 92, 87, 107, 30, 113, 18, 184, 171, 198, 50, 157, 252, 204, 250, 60, 52, 221, 190, 249, 28, 201, 238, 249, 208, 248, 124, 248, 58, 133, 128, 30, 156, 106, 137, 191, 18, 35, 222, 49 },
+                            Nom = "hrmemxsv",
+                            Prenom = "upory"
                         },
                         new
                         {
                             Id = 20,
-                            Email = "5gr1o55@bqznh.kpc",
-                            MotDePasse = new byte[] { 66, 181, 76, 155, 119, 55, 153, 164, 191, 55, 233, 25, 178, 61, 225, 148, 16, 204, 74, 126, 191, 234, 166, 109, 100, 65, 15, 81, 47, 129, 107, 15, 83, 101, 6, 95, 161, 210, 180, 74, 115, 60, 167, 245, 15, 79, 249, 236, 85, 105, 34, 227, 60, 162, 4, 111, 199, 133, 32, 16, 107, 180, 196, 50 },
-                            Nom = "mfdag",
-                            Prenom = "juix"
+                            Email = "q09gda@i2hc.vw",
+                            IsVisible = false,
+                            MotDePasse = new byte[] { 183, 83, 150, 114, 222, 251, 86, 28, 247, 33, 237, 229, 134, 209, 218, 118, 27, 79, 84, 213, 91, 82, 110, 97, 229, 33, 193, 78, 7, 94, 112, 152, 172, 61, 213, 53, 139, 151, 31, 94, 32, 106, 210, 57, 224, 239, 160, 43, 19, 82, 194, 129, 59, 121, 52, 148, 23, 156, 72, 101, 22, 18, 210, 162 },
+                            Nom = "tpxnyabou",
+                            Prenom = "nibo"
                         });
                 });
 
@@ -1494,6 +1676,11 @@ namespace CentreDeVaccination.DB.Migrations
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
+
+                    b.Property<bool>("IsVisible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<int>("NbJoursIntervalleMaximum")
                         .HasColumnType("int");
@@ -1517,26 +1704,29 @@ namespace CentreDeVaccination.DB.Migrations
                         new
                         {
                             Id = 1,
-                            Fabricant = "qafybsru",
-                            NbJoursIntervalleMaximum = 48,
-                            NbJoursIntervalleMinimum = 20,
-                            Nom = "qafybsru"
+                            Fabricant = "eclxpshrq",
+                            IsVisible = false,
+                            NbJoursIntervalleMaximum = 46,
+                            NbJoursIntervalleMinimum = 15,
+                            Nom = "eclxpshrq"
                         },
                         new
                         {
                             Id = 2,
-                            Fabricant = "uoity",
-                            NbJoursIntervalleMaximum = 47,
-                            NbJoursIntervalleMinimum = 22,
-                            Nom = "uoity"
+                            Fabricant = "dkwzqg",
+                            IsVisible = false,
+                            NbJoursIntervalleMaximum = 52,
+                            NbJoursIntervalleMinimum = 23,
+                            Nom = "dkwzqg"
                         },
                         new
                         {
                             Id = 3,
-                            Fabricant = "rpfuem",
-                            NbJoursIntervalleMaximum = 45,
-                            NbJoursIntervalleMinimum = 16,
-                            Nom = "rpfuem"
+                            Fabricant = "owurwfyeg",
+                            IsVisible = false,
+                            NbJoursIntervalleMaximum = 47,
+                            NbJoursIntervalleMinimum = 23,
+                            Nom = "owurwfyeg"
                         });
                 });
 

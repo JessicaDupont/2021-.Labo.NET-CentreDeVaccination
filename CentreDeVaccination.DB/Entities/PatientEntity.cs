@@ -27,6 +27,8 @@ namespace CentreDeVaccination.DB.Entities
 
         public string? InformationMedicales { get; set; }
 
+        public bool IsVisible { get; set; }
+
         public virtual IEnumerable<RendezVousEntity> RDVs { get; set; }
     }
 }
