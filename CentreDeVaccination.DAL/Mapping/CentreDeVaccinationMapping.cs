@@ -22,9 +22,14 @@ namespace CentreDeVaccination.DAL.Mapping
         public ICentreDeVaccination Mapping(CentreVaccinationEntity entity)
         {
             ICentreDeVaccination result = new Centre();
+            //id
             result.Id = entity.Id;
+            //entrepot
             result.Entrepot = new Entrepot();
             result.Entrepot.Id = entity.EntrepotId;
+            //responsable
+            //horaire
+            //equipe
             return result;
         }
     }

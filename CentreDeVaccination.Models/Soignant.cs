@@ -13,6 +13,10 @@ namespace CentreDeVaccination.Models
         public string Inami { get; set; }
         public Grades Grade { get; set; }
         public int Id { get; set; }
+        public string Email { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Token { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Nom { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Prenom { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public bool VerifInami()
         {
