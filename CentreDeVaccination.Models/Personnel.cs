@@ -11,9 +11,9 @@ namespace CentreDeVaccination.Models
     {
         public Grades Grade { get; set; }
         public int Id { get; set; }
-        public string Email { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Token { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Nom { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Prenom { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Email { get; set; }
+        public string Token { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
     }
 }

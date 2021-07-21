@@ -15,18 +15,26 @@ namespace CentreDeVaccination.DAL.Repositories
     public class EntrepotRepository : RepositoryBase, IEntrepotRepository
     {
         EntrepotMapping map;
+        private readonly AdresseRepository adresseRepository;
+        private readonly VaccinRepository vaccinRepository;
 
         public EntrepotRepository(DataContext db) : base(db)
         {
             map = new EntrepotMapping();
+
+            adresseRepository = new AdresseRepository(db);
+            vaccinRepository = new VaccinRepository(db);
         }
 
         public IEntrepot Read(int id)
         {
-            return db.Entrepots
+            IEntrepot result = db.Entrepots
                 .Where(x => x.Id == id)
                 .Select(map.Mapping)
                 .FirstOrDefault();
+            result.Adresse = adresseRepository.Read(result.Adresse.Id);
+            result.Vaccins = vaccinRepository.Search("EntrepotId", result.Id);
+            return result;
         }
 
         public IEnumerable<IEntrepot> Read()

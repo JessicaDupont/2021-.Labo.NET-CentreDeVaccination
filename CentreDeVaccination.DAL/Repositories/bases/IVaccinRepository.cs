@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace CentreDeVaccination.DAL.Repositories.bases
 {
     public interface IVaccinRepository : 
-        IRepositoryRead<IVaccin, int>
+        IRepositoryRead<IVaccin, int>,
+        IRepositorySearch<IVaccin, int>
     {
     }
 }

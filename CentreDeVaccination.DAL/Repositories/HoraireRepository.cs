@@ -29,6 +29,7 @@ namespace CentreDeVaccination.DAL.Repositories
             if (champ.Equals("CentreId"))
             {
                 return db.Horaires
+                    .Where(x => x.IsVisible == true)
                     .Where(x => x.CentreId == valeur)
                     .Select(map.Mapping);
             }

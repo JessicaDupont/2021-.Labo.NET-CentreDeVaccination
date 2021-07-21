@@ -3,6 +3,7 @@ using CentreDeVaccination.DAL.Mapping;
 using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.DB;
 using CentreDeVaccination.DB.Entities;
+using CentreDeVaccination.Models;
 using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
@@ -27,11 +28,25 @@ namespace CentreDeVaccination.DAL.Repositories
 
         public IEnumerable<IPersonnel> Search(string champ, int valeur)
         {
+            IEnumerable<IPersonnel> result;
             if (champ.Equals("CentreId"))
             {
-                return db.Personnel
+                result = db.Personnel
+                    .Where(x => x.IsVisible == true)
                     .Where(x => x.CentreId == valeur)
-                    .Select(map.Mapping);
+                    .Join(
+                        db.Utilisateurs,
+                        p => p.UtilisateurId,
+                        u => u.Id,
+                        (p, u) => new Personnel{ 
+                            Id = p.Id,
+                            //TODO Grade = (Grades)Enum.Parse(typeof(Grades), p.Grade),
+                            Email = u.Email,
+                            Nom = u.Nom,
+                            Prenom = u.Prenom
+                        }
+                    );
+                return result;
             }
             throw new NotImplementedException();
         }
@@ -53,29 +68,34 @@ namespace CentreDeVaccination.DAL.Repositories
 
         public IEnumerable<IPersonnel> Search(IDictionary<string, object> filtres)
         {
-            int nbFiltresApplique = 0;
-            IEnumerable<PersonnelEntity> preResult = db.Personnel;
-            foreach (KeyValuePair<string, object> f in filtres)
+            IEnumerable<IPersonnel> result;
+
+            //obtenir le responsable du centre (ou tous ceux qui ne sont aps resposanble du centre)
+            if (filtres.Count == 2 
+                && filtres.ContainsKey("CentreId") 
+                && filtres.ContainsKey("ResponsableCentre"))
             {
-                if (f.Key.Equals("ResponsableCentre"))
-                {
-                    preResult = preResult.Where(x => x.ResponsableCentre == (bool)f.Value);
-                    nbFiltresApplique++;
-                }
-                else if (f.Key.Equals("CentreId"))
-                {
-                    preResult = preResult.Where(x => x.CentreId == (int)f.Value);
-                    nbFiltresApplique++;
-                }
-                else if (f.Key.Equals("Grade"))
-                {
-                    preResult = preResult.Where(x => x.Grade.Equals(f.Value));
-                    nbFiltresApplique++;
-                }
+                result = db.Personnel
+                    .Where(x => x.IsVisible == true)
+                    .Where(x => x.CentreId == (int)filtres["CentreId"])
+                    .Where(x => x.ResponsableCentre == (bool)filtres["ResponsableCentre"])
+                    .Join(
+                        db.Utilisateurs,
+                        p => p.UtilisateurId,
+                        u => u.Id,
+                        (p, u) => new Personnel
+                        {
+                            Id = p.Id,
+                            //TODO Grade = (Grades)Enum.Parse(typeof(Grades), p.Grade),
+                            Email = u.Email,
+                            Nom = u.Nom,
+                            Prenom = u.Prenom
+                        }
+                    );                
+                return result;
             }
-            if (nbFiltresApplique < filtres.Count) { throw new NotImplementedException(); }
-            return preResult.Select(map.Mapping);
-            
+
+            throw new NotImplementedException();
         }
     }
 }
