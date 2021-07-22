@@ -17,46 +17,40 @@ namespace CentreDeVaccination.DAL.Repositories
     public class CentreDeVaccinationRepository : RepositoryBase, ICentreDeVaccinationRepository
     {
         private CentreDeVaccinationMapping centreMap;
-        private readonly EntrepotRepository entrepotRepository;
-        private readonly PersonnelRepository personnelRepository;
-        private readonly HoraireRepository horaireRepository;
-
-        //private EntrepotMapping entrepotMap;
-        //private PersonnelMapping personnelMap;
-        //private HoraireMapping horaireMap;
-        //private SoignantMapping soignantMap;
-        //private AdresseMapping adresseMap;
-        //private VaccinMapping vaccinMap;
 
         public CentreDeVaccinationRepository(DataContext db) : base(db)
         {
             centreMap = new CentreDeVaccinationMapping();
-            entrepotRepository = new EntrepotRepository(db);
-            personnelRepository = new PersonnelRepository(db);
-            horaireRepository = new HoraireRepository(db);
-            //personnelMap = new PersonnelMapping();
-            //horaireMap = new HoraireMapping();
-            //soignantMap = new SoignantMapping();
-            //adresseMap = new AdresseMapping();
-            //vaccinMap = new VaccinMapping();
         }
 
         public ICentreDeVaccination Read(int id)
         {
-            ICentreDeVaccination result = db.Centres
+            return db.Centres
                 .Where(x => x.Id == id)
-                .Select(centreMap.Mapping)
-                .FirstOrDefault();
+                .Include(x => x.Entrepot)
+                    .ThenInclude(x => x.Adresse)
+                .Include(x => x.Entrepot)
+                    .ThenInclude(x => x.Transits)
+                        .ThenInclude(x => x.Lot)
+                            .ThenInclude(x => x.Vaccin)
+                .Include(x => x.Horaires)
+                .Include(x => x.Personnel)
+                    .ThenInclude(x => x.Utilisateur)
+                    .Select(centreMap.Mapping)
+                .First();
 
-            result.Entrepot = entrepotRepository.Read(result.Entrepot.Id);
-            result.Equipe = personnelRepository.Search("CentreId", result.Id);
-            result.Horaire = horaireRepository.Search("CentreId", result.Id);
-            IDictionary<string, object> filtres = new Dictionary<string, object>();
-            filtres.Add("CentreId", result.Id);
-            filtres.Add("ResponsableCentre", true);
-            result.Responsable = personnelRepository.Search(filtres).First();
-
-            return result;
+            //ICentreDeVaccination result = db.Centres
+            //    .Where(x => x.Id == id)
+            //    .Select(centreMap.Mapping)
+            //    .FirstOrDefault();
+            //result.Entrepot = entrepotRepository.Read(result.Entrepot.Id);
+            //result.Equipe = personnelRepository.Search("CentreId", result.Id);
+            //result.Horaire = horaireRepository.Search("CentreId", result.Id);
+            //IDictionary<string, object> filtres = new Dictionary<string, object>();
+            //filtres.Add("CentreId", result.Id);
+            //filtres.Add("ResponsableCentre", true);
+            //result.Responsable = personnelRepository.Search(filtres).First();
+            //return result;
         }
 
         public IEnumerable<ICentreDeVaccination> Read()

@@ -1,5 +1,4 @@
-﻿using CentreDeVaccination.DAL.Repositories.bases;
-using CentreDeVaccination.DAL.Repositories.Bases;
+﻿using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.Models.IModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
