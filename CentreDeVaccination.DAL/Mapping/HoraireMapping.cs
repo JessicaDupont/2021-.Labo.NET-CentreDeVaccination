@@ -1,4 +1,5 @@
-﻿using CentreDeVaccination.DB.Entities;
+﻿using CentreDeVaccination.DAL.Mapping.Bases;
+using CentreDeVaccination.DB.Entities;
 using CentreDeVaccination.Models;
 using CentreDeVaccination.Models.IModels;
 

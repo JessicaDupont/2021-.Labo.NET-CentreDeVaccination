@@ -1,4 +1,4 @@
-﻿using CentreDeVaccination.DAL.Bases;
+﻿using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.Models.IModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +17,8 @@ namespace CentreDeVaccination.API.Controllers
     {
         private readonly ICentreDeVaccinationRepository repository;
 
-        public CentreVaccinationController(ICentreDeVaccinationRepository repository)
+        public CentreVaccinationController(
+            ICentreDeVaccinationRepository repository)
         {
             this.repository = repository;
         }
@@ -55,8 +56,7 @@ namespace CentreDeVaccination.API.Controllers
         {
             try
             {
-                ICentreDeVaccination result = repository.Read(id);
-                return result is null ? NotFound() : Ok(result);
+                return Ok(repository.Read(id));
             }
             catch (Exception ex)
             {
@@ -86,5 +86,6 @@ namespace CentreDeVaccination.API.Controllers
         //public void Delete(int id)
         //{
         //}
+
     }
 }

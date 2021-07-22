@@ -8,9 +8,9 @@ namespace CentreDeVaccination.Models.IModels
 {
     public interface ICentreDeVaccination : IModel
     {
-        public IEntrepot Entrepot();
-        public IEnumerable<IHoraire> Horaire();
-        public IResponsable Responsable();
-        public IEnumerable<IVaccin> Vaccins();
+        public IEntrepot Entrepot { get; set; }
+        public IPersonnel Responsable { get; set; }
+        public IEnumerable<IHoraire> Horaire { get; set; }
+        public IEnumerable<IPersonnel> Equipe { get; set; }
     }
 }

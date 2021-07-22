@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentreDeVaccination.DAL.Mapping
+namespace CentreDeVaccination.DAL.Mapping.Bases
 {
     public interface IMapping<TEntity, TModel>
         where TEntity : IEntity

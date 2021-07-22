@@ -6,26 +6,10 @@ namespace CentreDeVaccination.Models
 {
     public class Centre : ICentreDeVaccination
     {
+        public IEntrepot Entrepot { get; set; }
+        public IPersonnel Responsable { get; set; }
+        public IEnumerable<IHoraire> Horaire { get; set; }
         public int Id { get; set; }
-
-        public IEntrepot Entrepot()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IHoraire> Horaire()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IResponsable Responsable()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IVaccin> Vaccins()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<IPersonnel> Equipe { get; set; }
     }
 }

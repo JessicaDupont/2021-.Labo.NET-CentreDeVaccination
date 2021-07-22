@@ -22,6 +22,7 @@ namespace CentreDeVaccination.DB
         public DbSet<RendezVousEntity> RDVs { get; set; }
         public DbSet<UtilisateurEntity> Utilisateurs { get; set; }
         public DbSet<VaccinEntity> Vaccins { get; set; }
+        public DbSet<TransitEntity> Transits { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,11 +1,12 @@
-﻿using CentreDeVaccination.Models.IModels;
+﻿using CentreDeVaccination.DAL.Bases;
+using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CentreDeVaccination.DAL.Bases
+namespace CentreDeVaccination.DAL.Repositories.Bases
 {
     public interface ICentreDeVaccinationRepository : 
         IRepositoryRead<ICentreDeVaccination, int>

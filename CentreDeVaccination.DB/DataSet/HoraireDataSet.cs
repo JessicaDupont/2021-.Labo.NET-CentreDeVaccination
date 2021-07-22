@@ -14,11 +14,18 @@ namespace CentreDeVaccination.DB.DataSet
     {
         public void Configure(EntityTypeBuilder<HoraireEntity> builder)
         {
-            builder.HasData(
-                GetDonnee(1), GetDonnee(2), GetDonnee(3), GetDonnee(4), GetDonnee(5), 
-                GetDonnee(6), GetDonnee(7), GetDonnee(8), GetDonnee(9), GetDonnee(10));
+            builder.HasData(GetDonnees(10));
         }
 
+        private HoraireEntity[] GetDonnees(int nb)
+        {
+            HoraireEntity[] result = new HoraireEntity[nb];
+            for (int i = 0; i < nb; i++)
+            {
+                result[i] = GetDonnee(i + 1);
+            }
+            return result;
+        }
         private HoraireEntity GetDonnee(int id)
         {
             HoraireEntity result = new HoraireEntity();
@@ -31,7 +38,7 @@ namespace CentreDeVaccination.DB.DataSet
             result.Fermeture = LoremIpsum.GetHeureMinutes(13, 19);
             result.DureePlageVaccination = LoremIpsum.GetDureeMinutes(1,6 * 60);
             result.NbVaccinationParPlage = result.DureePlageVaccination.Minutes == 0 ? 1 : result.DureePlageVaccination.Minutes;
-            result.CentreId = LoremIpsum.GetInt(1,2);
+            result.CentreId = id/2;
             return result;
         }
     }
