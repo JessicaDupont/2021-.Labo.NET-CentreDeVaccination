@@ -18,6 +18,9 @@ namespace CentreDeVaccination.DAL.Mapping
             IPersonnel result = new Personnel();
             result.Id = entity.Id;
             result.Grade = (Grades)Enum.Parse(typeof(Grades), entity.Grade);
+            result.Nom = entity.Utilisateur?.Nom;
+            result.Prenom = entity.Utilisateur?.Prenom;
+            result.Email = entity.Utilisateur?.Email;
             return result;          
         }
     }

@@ -38,7 +38,7 @@ namespace CentreDeVaccination.DB.DataSet
             result.Fermeture = LoremIpsum.GetHeureMinutes(13, 19);
             result.DureePlageVaccination = LoremIpsum.GetDureeMinutes(1,6 * 60);
             result.NbVaccinationParPlage = result.DureePlageVaccination.Minutes == 0 ? 1 : result.DureePlageVaccination.Minutes;
-            result.CentreId = LoremIpsum.GetInt(1,2);
+            result.CentreId = id/2;
             return result;
         }
     }

@@ -75,76 +75,10 @@ namespace CentreDeVaccination.DAL.Repositories
 
             foreach (CentreVaccinationEntity entity in preResult)
             {
-                Centre model = new Centre();
-
-                model.Id = entity.Id;
-                model.Entrepot = new Entrepot
-                {
-                    Id = entity.Entrepot.Id,
-                    Nom = entity.Entrepot.Nom,
-                    Adresse = new Adresse
-                    {
-                        Id = entity.Entrepot.Adresse.Id,
-                        Rue = entity.Entrepot.Adresse.Rue,
-                        Numero = entity.Entrepot.Adresse.Numero,
-                        CodePostal = entity.Entrepot.Adresse.CodePostal,
-                        Ville = entity.Entrepot.Adresse.Ville
-                    },
-                    //Vaccins = new List<IVaccin>()
-                };
-
-                //pour chaque transit, j'ajoute le vaccin
-                IList<IVaccin> vaccins = new List<IVaccin>();
-                foreach (TransitEntity te in entity.Entrepot.Transits)
-                {
-                    IVaccin v = new Vaccin
-                    {
-                        Id = te.Lot.Vaccin.Id,
-                        Fabricant = te.Lot.Vaccin.Fabricant,
-                        Nom = te.Lot.Vaccin.Nom,
-                        IntervalleMin = new TimeSpan(te.Lot.Vaccin.NbJoursIntervalleMinimum, 0, 0, 0),
-                        IntervalleMax = new TimeSpan(te.Lot.Vaccin.NbJoursIntervalleMaximum, 0, 0, 0)
-                    };
-                    if (!vaccins.Contains(v)) { vaccins.Add(v); }//éviter les doublons
-                }
-                model.Entrepot.Vaccins = vaccins;
-
-                //pour chaque personnel, ajouter a l'équipe, + responsable
-                IList<IPersonnel> equipe = new List<IPersonnel>();
-                foreach (PersonnelEntity pe in entity.Personnel)
-                {
-                    ISoignant p = new Soignant();
-                    p.Id = pe.Id;
-                    p.Nom = pe.Utilisateur.Nom;
-                    p.Prenom = pe.Utilisateur.Prenom;
-                    p.Email = pe.Utilisateur.Email;
-                    p.Grade = (Grades)Enum.Parse(typeof(Grades), pe.Grade);
-                    p.Inami = pe.NumInami;
-                    p.ResponsableCentre = pe.ResponsableCentre;
-                    if (pe.ResponsableCentre) { model.Responsable = p; }
-                    equipe.Add(p);
-                }
-                model.Equipe = equipe;
-
-                //horaires
-                IList<IHoraire> horaires = new List<IHoraire>();
-                foreach(HoraireEntity he in entity.Horaires)
-                {
-                    IHoraire h = new Horaire();
-                    h.Id = he.Id;
-                    h.DureePlageVaccination = he.DureePlageVaccination;
-                    h.Fermeture = he.Fermeture;
-                    h.FermetureBis = he.FermetureBis;
-                    h.Jour = he.Jour;
-                    h.NbVaccinationParPlage = he.NbVaccinationParPlage;
-                    h.Ouverture = he.Ouverture;
-                    h.OuvertureBis = he.OuvertureBis;
-                    horaires.Add(h);
-                }
-                model.Horaire = horaires;
+                ICentreDeVaccination model = centreMap.Mapping(entity);
 
                 result.Add(model);
-            }//fin foreach preresult
+            }
 
             return result;
         }
