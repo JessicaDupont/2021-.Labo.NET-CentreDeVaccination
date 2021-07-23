@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.Models.IModels
 {
-    public interface IUtilisateurPublic : IModel
+    public interface IUtilisateur : IModel
     {
         public string Email { get; set; }
         public string Token { get; set; }
-        public string Nom { get; set; }
-        public string Prenom { get; set; }
+        //public IPersonne Personne { get; set; }
+        public IPatient? Patient { get; set; }
+        public IEmploye? Employe { get; set; }
     }
 }

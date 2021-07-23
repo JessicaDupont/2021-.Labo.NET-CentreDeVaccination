@@ -12,9 +12,9 @@ namespace CentreDeVaccination.Models.IModels
         public IVaccin VaccinChoisi { get; set; }
         public ICentreDeVaccination Centre { get; set; }
         public DateTime RendezVous { get; set; }
-        public ISoignant? Soignant { get; set; }
+        public IEmploye? Soignant { get; set; }
         public ILot? Lot { get; set; }
 
-        public void Injection(ISoignant soignant, ILot Lot);
+        public void Injection(IEmploye soignant, ILot Lot);
     }
 }

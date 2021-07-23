@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.Models.IModels
 {
-    public interface IPatient : IUtilisateurPublic
+    public interface IPatient : IUtilisateur
     {
         public int NumRegNat { get; set; }
         public int NumTel { get; set; }

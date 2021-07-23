@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ToolIca\ToolIca.csproj" />
+    <ProjectReference Include="..\..\ToolIca\ToolIca.csproj" />
   </ItemGroup>
 
 </Project>

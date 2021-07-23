@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolIca", "..\..\ToolIca\ToolIca.csproj", "{ECFC73DD-14AD-4F72-9A0C-1C7D4A5249A1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentreDeVaccination.DB", "CentreDeVaccination.DB\CentreDeVaccination.DB.csproj", "{CD422428-B0E2-4C49-90E5-49250EB75A0D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentreDeVaccination.DAL", "CentreDeVaccination.DAL\CentreDeVaccination.DAL.csproj", "{748F4159-FFAF-4855-B30B-662C7F549AA5}"
@@ -13,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentreDeVaccination.Models"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentreDeVaccination.API", "CentreDeVaccination.API\CentreDeVaccination.API.csproj", "{B1EB54E2-C1D4-4A53-A4F4-B1C5A3B20E4B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolIca", "..\ToolIca\ToolIca.csproj", "{3E136519-060D-41AE-A426-8E47DE4E1CF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ECFC73DD-14AD-4F72-9A0C-1C7D4A5249A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ECFC73DD-14AD-4F72-9A0C-1C7D4A5249A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ECFC73DD-14AD-4F72-9A0C-1C7D4A5249A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ECFC73DD-14AD-4F72-9A0C-1C7D4A5249A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD422428-B0E2-4C49-90E5-49250EB75A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CD422428-B0E2-4C49-90E5-49250EB75A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD422428-B0E2-4C49-90E5-49250EB75A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{B1EB54E2-C1D4-4A53-A4F4-B1C5A3B20E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1EB54E2-C1D4-4A53-A4F4-B1C5A3B20E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1EB54E2-C1D4-4A53-A4F4-B1C5A3B20E4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E136519-060D-41AE-A426-8E47DE4E1CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E136519-060D-41AE-A426-8E47DE4E1CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E136519-060D-41AE-A426-8E47DE4E1CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E136519-060D-41AE-A426-8E47DE4E1CF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

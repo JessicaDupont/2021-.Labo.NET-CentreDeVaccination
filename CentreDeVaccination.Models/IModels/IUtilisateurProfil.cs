@@ -13,6 +13,6 @@ namespace CentreDeVaccination.Models.IModels
         public string Nom { get; set; }
         public string Prenom { get; set; }
 
-        public IUtilisateurPublic Check(string email, string mdp);
+        public IUtilisateur Check(string email, string mdp);
     }
 }

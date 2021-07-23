@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.Models.IModels
 {
-    public interface ISoignant : IPersonnel
+    public interface IPersonne : IModel
     {
-        public bool ResponsableCentre { get; set; }
-        public string Inami { get; set; }
-        public bool VerifInami();
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
     }
 }

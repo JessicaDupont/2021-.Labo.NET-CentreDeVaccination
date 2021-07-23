@@ -16,13 +16,13 @@ namespace CentreDeVaccination.DAL.Mapping
     {
         private EntrepotMapping entrepotMap;
         private HoraireMapping horaireMap;
-        private SoignantMapping soignantMap;
+        private EmployeMapping soignantMap;
 
         public CentreDeVaccinationMapping()
         {
             entrepotMap = new EntrepotMapping();
             horaireMap = new HoraireMapping();
-            soignantMap = new SoignantMapping();
+            soignantMap = new EmployeMapping(false);
         }
         public CentreVaccinationEntity Mapping(ICentreDeVaccination model)
         {
@@ -36,19 +36,19 @@ namespace CentreDeVaccination.DAL.Mapping
 
             //entrepot
             if (entity.Entrepot is null)
-            { 
+            {
                 result.Entrepot = new Entrepot();
                 result.Entrepot.Id = entity.EntrepotId;
             }
             else
-            { 
-                result.Entrepot = entrepotMap.Mapping(entity.Entrepot); 
+            {
+                result.Entrepot = entrepotMap.Mapping(entity.Entrepot);
             }
 
             //horaire
-            if (entity.Personnel is null)
+            if (entity.Horaires is null)
             {
-                result.Equipe = new List<IPersonnel>();
+                result.Horaire = new List<IHoraire>();
             }
             else
             {
@@ -65,16 +65,15 @@ namespace CentreDeVaccination.DAL.Mapping
             //equipe
             if (entity.Personnel is null)
             {
-                result.Equipe = new List<IPersonnel>();
-                result.Responsable = new Soignant();
+                result.Equipe = new List<IEmploye>();
+                result.Responsable = new Employe();
             }
-            else 
+            else
             {
-                //pour chaque personnel, ajouter a l'équipe, + responsable
-                IList<IPersonnel> equipe = new List<IPersonnel>();
+                IList<IEmploye> equipe = new List<IEmploye>();
                 foreach (PersonnelEntity pe in entity.Personnel)
                 {
-                    ISoignant p = soignantMap.Mapping(pe);
+                    IEmploye p = soignantMap.Mapping(pe);
                     if (pe.ResponsableCentre) { result.Responsable = p; }
                     equipe.Add(p);
                 }

@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.Models
 {
-    public class Transit : ITransit
+    public class Personne : IPersonne
     {
-        public ILot Lot { get; set; }
-        public IEntrepot Entrepot { get; set; }
-        public DateTime DateEntree { get; set; }
-        public DateTime? DateSortie { get; set; }
         public int Id { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
     }
 }
