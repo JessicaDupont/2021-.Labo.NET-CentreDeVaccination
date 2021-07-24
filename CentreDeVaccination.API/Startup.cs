@@ -1,3 +1,4 @@
+using CentreDeVaccination.API.Tool;
 using CentreDeVaccination.DAL.Repositories;
 using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.DB;
@@ -12,10 +13,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Identity.Web;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CentreDeVaccination.API
@@ -47,6 +50,31 @@ namespace CentreDeVaccination.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CentreDeVaccination.API", Version = "v1" });
             });
+
+            IConfigurationSection jwtSection = Configuration.GetSection("JWTSettings");
+            services.Configure<JWTSettings>(jwtSection);
+
+            var appSettings = jwtSection.Get<JWTSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.SecretKey);
+
+            services.AddAuthentication(a =>
+            {
+                a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(b =>
+                {
+                    b.RequireHttpsMetadata = true;
+                    b.SaveToken = true;
+                    b.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                }
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

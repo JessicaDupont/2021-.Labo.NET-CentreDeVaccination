@@ -1,9 +1,11 @@
-﻿using CentreDeVaccination.DAL.Repositories;
+﻿using CentreDeVaccination.API.Tool;
+using CentreDeVaccination.DAL.Repositories;
 using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.Models;
 using CentreDeVaccination.Models.IModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +20,12 @@ namespace CentreDeVaccination.API.Controllers
     public class UtilisateurController : ControllerBase
     {
         private readonly IUtilisateurRepository utilisateurRepository;
-        //private readonly IOptions<JWTSettings> jwtSettings;
+        private readonly IOptions<JWTSettings> jwtSettings;
 
-        public UtilisateurController(IUtilisateurRepository utilisateurRepository/*, IOptions<JWTSettings> jwtSettings*/)
+        public UtilisateurController(IUtilisateurRepository utilisateurRepository, IOptions<JWTSettings> jwtSettings)
         {
             this.utilisateurRepository = utilisateurRepository;
-            //this.jwtSettings = jwtSettings;
+            this.jwtSettings = jwtSettings;
         }
         //// GET: api/<UtilisateurController>
         //[HttpGet]
@@ -74,8 +76,8 @@ namespace CentreDeVaccination.API.Controllers
                 }
 
                 //TODO fournir un token
-                //Token tok = new Token(jwtSettings);
-                //result.Token = tok.Create(email);
+                Token tok = new Token(jwtSettings);
+                result.Token = tok.Create(email);
 
                 return Ok(result);
             }
