@@ -39,15 +39,9 @@ namespace CentreDeVaccination.API
             services.AddControllers();
 
             //repositories
-            //services.AddScoped<IAdresseRepository, AdresseRepository>();
             services.AddScoped<ICentreDeVaccinationRepository, CentreDeVaccinationRepository>();
-            //services.AddScoped<IEntrepotRepository, EntrepotRepository>();
-            //services.AddScoped<IHoraireRepository, HoraireRepository>();
-            //services.AddScoped<ILotRepository, LotRepository>();
-            //services.AddScoped<IPersonnelRepository, PersonnelRepository>();
-            //services.AddScoped<ISoignantRepository, SoignantRepository>();
-            //services.AddScoped<ITransitRepository, TransitRepository>();
-            //services.AddScoped<IVaccinRepository, VaccinRepository>();
+            services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
+
 
             services.AddSwaggerGen(c =>
             {

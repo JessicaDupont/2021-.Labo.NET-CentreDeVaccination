@@ -9,7 +9,7 @@ namespace CentreDeVaccination.Models.IModels
     public interface IUtilisateurProfil : IModel
     {
         public string Email { get; set; }
-        public byte[] Mdp { get; set; }
+        public string Mdp { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
 
