@@ -61,33 +61,33 @@ namespace CentreDeVaccination.API.Controllers
         }
 
         //// POST api/<UtilisateurController>
-        //[HttpPost("[action]")]
-        //public ActionResult<IUtilisateur> Connexion(string email, string mdp)
-        //{
-        //    try
-        //    {
-        //        IUtilisateur result = utilisateurRepository.Check(email, mdp);
-        //        if (result is null)
-        //        {
-        //            return StatusCode(StatusCodes.Status401Unauthorized,
-        //                "Cette combinaison login/mot de passe n'a pas été trouvée.");
-        //        }
+        [HttpPost("[action]")]
+        public ActionResult<IUtilisateur> Connexion(string email, string mdp)
+        {
+            try
+            {
+                IUtilisateur result = utilisateurRepository.Check(email, mdp);
+                if (result is null)
+                {
+                    return StatusCode(StatusCodes.Status401Unauthorized,
+                        "Cette combinaison login/mot de passe n'a pas été trouvée.");
+                }
 
-        //        //TODO fournir un token
-        //        //Token tok = new Token(jwtSettings);
-        //        //result.Token = tok.Create(email);
+                //TODO fournir un token
+                //Token tok = new Token(jwtSettings);
+                //result.Token = tok.Create(email);
 
-        //        return Ok(result);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(StatusCodes.Status500InternalServerError, new
-        //        {
-        //            Method = "POST/Connexion",
-        //            Message = ex.Message
-        //        });
-        //    }
-        //}
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    Method = "POST/Connexion",
+                    Message = ex.Message
+                });
+            }
+        }
 
         //// PUT api/<UtilisateurController>/5
         //[HttpPut("{id}")]

@@ -8,6 +8,7 @@ namespace CentreDeVaccination.Models.IModels
 {
     public interface IEmploye : IModel
     {
+        public int Id { get; set; }
         public IPersonne Personne { get; set; }
         public Grades Grade { get; set; }
         public ICentreDeVaccination Centre { get; set; }

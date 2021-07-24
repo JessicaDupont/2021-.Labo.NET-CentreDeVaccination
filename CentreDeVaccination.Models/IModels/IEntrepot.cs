@@ -4,6 +4,7 @@ namespace CentreDeVaccination.Models.IModels
 {
     public interface IEntrepot : IModel
     {
+        public int Id { get; set; }
         public string Nom { get; set; }
 
         public IAdresse Adresse { get; set; }

@@ -4,7 +4,7 @@ using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.DB;
 using CentreDeVaccination.DB.Entities;
 using CentreDeVaccination.Models.IModels;
-
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace CentreDeVaccination.DAL.Repositories
         {
             utilisateurMap = new UtilisateurMapping();
             patientMap = new PatientMapping();
-            employeMap = new EmployeMapping(true);
+            employeMap = new EmployeMapping();
         }
         public IUtilisateur Check(string login, string mdp)
         {
@@ -43,11 +43,14 @@ namespace CentreDeVaccination.DAL.Repositories
                 //lier patient
                 result.Patient = db.Patients
                     .Where(x => x.UtilisateurId == result.Id)
+                    .Include(x => x.Adresse)
                     .Select(patientMap.Mapping)
                     .FirstOrDefault();
                 //lier personnel
                 result.Employe = db.Personnel
                     .Where(x => x.UtilisateurId == result.Id)
+                    .Include(x => x.Centre)
+                        .ThenInclude(x => x.Entrepot)
                     .Select(employeMap.Mapping)
                     .FirstOrDefault();
                 return result;

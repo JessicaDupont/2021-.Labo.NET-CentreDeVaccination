@@ -8,6 +8,7 @@ namespace CentreDeVaccination.Models.IModels
 {
     public interface IHoraire : IModel
     {
+        public int Id { get; set; }
         public string Jour { get; set; }
         public DateTime Ouverture { get; set; }
         public DateTime Fermeture { get; set; }

@@ -40,7 +40,7 @@ namespace CentreDeVaccination.DAL.Mapping
             IUtilisateur result = new Utilisateur();
             result.Id = entity.Id;
             result.Email = entity.Email;
-            //result.Personne = personneMap.Mapping(entity);
+            result.Personne = personneMap.Mapping(entity);
             return result;
         }
     }
