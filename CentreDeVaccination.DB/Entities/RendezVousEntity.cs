@@ -27,10 +27,10 @@ namespace CentreDeVaccination.DB.Entities
         [Required]
         public DateTime RendezVous { get; set; }
 
-        public int PersonnelId { get; set; }
+        public int? PersonnelId { get; set; }
         public virtual PersonnelEntity Personnel { get; set; }
 
-        public int LotId { get; set; }
+        public int? LotId { get; set; }
         public virtual LotEntity Lot { get; set; }
 
         public bool IsVisible { get; set; }

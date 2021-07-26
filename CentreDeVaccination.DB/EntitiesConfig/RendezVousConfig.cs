@@ -13,7 +13,6 @@ namespace CentreDeVaccination.DB.EntitiesConfig
                 .HasDefaultValue(true);
 
             //FK
-
             //patient 1-1
             //builder.HasOne(r => r.VaccinId)
             //    .WithMany(v => v.RDVs)

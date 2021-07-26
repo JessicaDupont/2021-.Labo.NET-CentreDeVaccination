@@ -32,7 +32,7 @@ namespace CentreDeVaccination.API.Controllers
         //}
 
         //// GET api/<PatientController>/5
-        [HttpGet("{id}")]
+        [HttpGet("[action]/{id}")]
         public ActionResult<IPatient> GetDossier(int id)
         {
             try

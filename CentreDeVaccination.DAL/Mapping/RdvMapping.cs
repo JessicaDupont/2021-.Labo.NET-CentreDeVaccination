@@ -1,6 +1,7 @@
 ﻿using CentreDeVaccination.DAL.Mapping.Bases;
 using CentreDeVaccination.DB.Entities;
 using CentreDeVaccination.Models;
+using CentreDeVaccination.Models.Forms;
 using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.DAL.Mapping
 {
-    public class RdvMapping : IMapping<RendezVousEntity, IRendezVous>
+    public class RdvMapping : IMapping<RendezVousEntity, IRendezVous, RdvForm>
     {
         private readonly CentreDeVaccinationMapping centreMap;
         private readonly LotMapping lotMap;
@@ -26,9 +27,16 @@ namespace CentreDeVaccination.DAL.Mapping
             vaccinMap = new VaccinMapping();
             this.detailsPatient = detailsPatient;
         }
-        public RendezVousEntity Mapping(IRendezVous model)
+
+        public RendezVousEntity Mapping(RdvForm form)
         {
-            throw new NotImplementedException();
+            RendezVousEntity result = new RendezVousEntity();
+            result.Id = form.Id;
+            result.CentreId = form.CentreId;
+            result.PatientId = form.PatientId;
+            result.RendezVous = form.RendezVous;
+            result.VaccinId = form.VaccinChoisiId;
+            return result;
         }
 
         public IRendezVous Mapping(RendezVousEntity entity)
@@ -44,11 +52,11 @@ namespace CentreDeVaccination.DAL.Mapping
             }
             else { result.Centre = centreMap.Mapping(entity.Centre); }
             //lot
-            if (entity.Lot is null && entity.LotId <= 0) { result.Lot = null; }
+            if (entity.Lot is null && (entity.LotId is null || entity.LotId <= 0)) { result.Lot = null; }
             else if (entity.Lot is null)
             {
                 result.Lot = new Lot();
-                result.Lot.Id = entity.LotId;
+                result.Lot.Id = (int) entity.LotId;
             }
             else { result.Lot = lotMap.Mapping(entity.Lot); }
             //patient
@@ -63,11 +71,11 @@ namespace CentreDeVaccination.DAL.Mapping
                 result.Patient = patientMap.Mapping(entity.Patient);
             }
             //soignant
-            if (entity.Personnel is null && entity.PersonnelId <= 0) { result.Soignant = null; }
+            if (entity.Personnel is null && ( entity.PersonnelId is null || entity.PersonnelId <= 0)) { result.Soignant = null; }
             else if (entity.Personnel is null)
             {
                 result.Soignant = new Employe();
-                result.Soignant.Id = entity.PersonnelId;
+                result.Soignant.Id = (int) entity.PersonnelId;
             }
             else { result.Soignant = employeMap.Mapping(entity.Personnel); }
             //vaccinchoisi
@@ -80,5 +88,6 @@ namespace CentreDeVaccination.DAL.Mapping
 
             return result;
         }
+
     }
 }
