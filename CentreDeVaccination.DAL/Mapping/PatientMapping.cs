@@ -15,11 +15,13 @@ namespace CentreDeVaccination.DAL.Mapping
     {
         private readonly AdresseMapping adresseMap;
         private readonly PersonneMapping personneMap;
+        private readonly RdvMapping rdvMap;
 
         public PatientMapping()
         {
             adresseMap = new AdresseMapping();
             personneMap = new PersonneMapping();
+            rdvMap = new RdvMapping(false);
         }
 
         public IPatient Mapping(PatientEntity entity)
@@ -48,6 +50,20 @@ namespace CentreDeVaccination.DAL.Mapping
             else
             {
                 result.Personne = personneMap.Mapping(entity.Utilisateur);
+            }
+            //RDVs
+            if (entity.RDVs is null)
+            {
+                result.RDVs = new List<IRendezVous>();
+            }
+            else
+            {
+                IList<IRendezVous> rdvs = new List<IRendezVous>();
+                foreach (RendezVousEntity rdv in entity.RDVs)
+                {
+                    rdvs.Add(rdvMap.Mapping(rdv));
+                }
+                result.RDVs = rdvs;
             }
 
             return result;

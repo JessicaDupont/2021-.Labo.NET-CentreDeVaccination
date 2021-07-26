@@ -35,12 +35,23 @@ namespace CentreDeVaccination.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<IPatient> GetDossier(int id)
         {
-            //TODO "afficherDossier" à implémenter
-            return null;
+            try
+            {
+                return Ok(patientRepository.Read(id));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new
+                    {
+                        Method = "GetDossier",
+                        Message = ex.Message
+                    });
+            }
         }
 
         //// POST api/<PatientController>
-        [HttpPost]
+        [HttpPost("[action]")]
         public ActionResult<string> Inscription([FromBody] PatientForm patient)
         {
             try

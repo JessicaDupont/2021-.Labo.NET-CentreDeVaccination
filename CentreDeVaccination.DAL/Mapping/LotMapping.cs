@@ -12,6 +12,12 @@ namespace CentreDeVaccination.DAL.Mapping
 {
     public class LotMapping : IMapping<LotEntity, ILot>
     {
+        private readonly VaccinMapping vaccinMap;
+
+        public LotMapping()
+        {
+            vaccinMap = new VaccinMapping();
+        }
         public LotEntity Mapping(ILot model)
         {
             throw new NotImplementedException();
@@ -24,8 +30,16 @@ namespace CentreDeVaccination.DAL.Mapping
             result.NumLot = entity.NumLot;
             result.QtDoses = entity.NbDoses;
             result.QtDosesRestantes = entity.NbDosesRestantes;
-            result.Vaccin = new Vaccin();
-            result.Vaccin.Id = entity.VaccinId;
+            //vaccin
+            if (entity.Vaccin is null)
+            {
+                result.Vaccin = new Vaccin();
+                result.Vaccin.Id = entity.VaccinId;
+            }
+            else
+            {
+                result.Vaccin = vaccinMap.Mapping(entity.Vaccin);
+            }
             return result;
         }
     }
