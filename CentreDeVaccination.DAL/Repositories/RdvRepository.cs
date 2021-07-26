@@ -38,8 +38,15 @@ namespace CentreDeVaccination.DAL.Repositories
                 .FirstOrDefault();
             entity.LotId = form.LotId;
             entity.PersonnelId = form.SoignantId;
-
             EntityEntry<RendezVousEntity> result = db.Update(entity);
+
+            //diminuer nb doses restantes
+            LotEntity lotE = db.Lots
+                .Where(x => x.Id == form.LotId)
+                .FirstOrDefault();
+            lotE.NbDosesRestantes--;
+            db.Update(lotE);
+
             db.SaveChanges();
 
             return rdvMap.Mapping(result.Entity);

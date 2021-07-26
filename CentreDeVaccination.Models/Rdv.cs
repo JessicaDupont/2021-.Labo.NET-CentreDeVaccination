@@ -17,9 +17,5 @@ namespace CentreDeVaccination.Models
         public IEmploye Soignant { get; set; }
         public ILot Lot { get; set; }
 
-        public void Injection(IEmploye soignant, ILot Lot)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

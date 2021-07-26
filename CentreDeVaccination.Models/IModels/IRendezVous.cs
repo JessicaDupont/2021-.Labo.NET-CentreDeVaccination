@@ -15,7 +15,5 @@ namespace CentreDeVaccination.Models.IModels
         public DateTime RendezVous { get; set; }
         public IEmploye? Soignant { get; set; }
         public ILot? Lot { get; set; }
-
-        public void Injection(IEmploye soignant, ILot Lot);
     }
 }
