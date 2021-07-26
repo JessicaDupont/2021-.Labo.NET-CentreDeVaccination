@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.DAL.Repositories.Bases
 {
-    public interface IUtilisateurRepository :
-        IRepositoryUser<IUtilisateur, UtilisateurForm>,
-        IRepositoryCreate<IUtilisateur, UtilisateurForm, int>
+    public interface IPatientRepository :
+        IRepositoryCreate<IPatient, PatientForm, int>
     {
     }
 }

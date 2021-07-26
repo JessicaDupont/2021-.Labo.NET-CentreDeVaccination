@@ -1,4 +1,5 @@
-﻿using CentreDeVaccination.Models.IModels;
+﻿using CentreDeVaccination.Models.Forms.Bases;
+using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,16 @@ namespace CentreDeVaccination.DAL.Bases
         IRepositoryDelete<TModel, Tid>, 
         IRepositorySearch<TModel, Tid>
         where TModel : IModel
+    {
+    }
+    public interface IRepository<TModel, TForm, Tid> :
+        IRepositoryCreate<TModel, TForm, Tid>,
+        IRepositoryRead<TModel, Tid>,
+        IRepositoryUpdate<TModel, TForm, Tid>,
+        IRepositoryDelete<TModel, Tid>,
+        IRepositorySearch<TModel, Tid>
+        where TModel : IModel
+        where TForm : IForm
     {
     }
 }

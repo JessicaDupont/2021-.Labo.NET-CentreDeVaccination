@@ -3,6 +3,7 @@ using CentreDeVaccination.DAL.Mapping;
 using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.DB;
 using CentreDeVaccination.DB.Entities;
+using CentreDeVaccination.Models.Forms;
 using CentreDeVaccination.Models.IModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -27,16 +28,16 @@ namespace CentreDeVaccination.DAL.Repositories
             patientMap = new PatientMapping();
             employeMap = new EmployeMapping();
         }
-        public IUtilisateur Check(string login, string mdp)
+        public IUtilisateur Check(UtilisateurForm form)
         {
             UtilisateurEntity preResult = db.Utilisateurs
-                .Where(x => x.Email == login)
+                .Where(x => x.Email == form.Email)
                 .SingleOrDefault();
             if (preResult == null)
             {
                 return null;
             }
-            byte[] possiblePassword = Cryptage.MotDePasseSHA512(mdp);
+            byte[] possiblePassword = Cryptage.MotDePasseSHA512(form.Mdp);
             if (possiblePassword.SequenceEqual(preResult.MotDePasse))
             {
                 IUtilisateur result = utilisateurMap.Mapping(preResult);
@@ -58,7 +59,7 @@ namespace CentreDeVaccination.DAL.Repositories
             return null;
         }
 
-        public IUtilisateur Create(IUtilisateurProfil profil)
+        public IUtilisateur Create(UtilisateurForm profil)
         {
             UtilisateurEntity entity = utilisateurMap.Mapping(profil);
             EntityEntry<UtilisateurEntity> result = db.Utilisateurs.Add(entity);

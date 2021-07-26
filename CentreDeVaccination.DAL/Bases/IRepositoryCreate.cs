@@ -1,4 +1,5 @@
-﻿using CentreDeVaccination.Models.IModels;
+﻿using CentreDeVaccination.Models.Forms.Bases;
+using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,11 @@ namespace CentreDeVaccination.DAL.Bases
         where TModel : IModel
     {
         public TModel Create(TModel model);
+    }
+    public interface IRepositoryCreate<TModel, TForm, Tid>
+        where TModel : IModel
+        where TForm : IForm
+    {
+        public TModel Create(TForm form);
     }
 }

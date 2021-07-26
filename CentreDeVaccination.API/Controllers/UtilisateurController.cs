@@ -2,6 +2,7 @@
 using CentreDeVaccination.DAL.Repositories;
 using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.Models;
+using CentreDeVaccination.Models.Forms;
 using CentreDeVaccination.Models.IModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,12 +44,12 @@ namespace CentreDeVaccination.API.Controllers
 
         // POST api/<UtilisateurController>
         [HttpPost("[action]")]
-        public ActionResult<string> Inscription([FromBody] UtilisateurProfil profil)
+        public ActionResult<string> Inscription([FromBody] UtilisateurForm form)
         {            
             try
             {
-                if (profil is null) { return BadRequest(); }
-                IUtilisateur result = utilisateurRepository.Create(profil);
+                if (form is null) { return BadRequest(); }
+                IUtilisateur result = utilisateurRepository.Create(form);
 
                 return Ok("Le compte utilisateur a bien été créé.");
             }
@@ -68,14 +69,17 @@ namespace CentreDeVaccination.API.Controllers
         {
             try
             {
-                IUtilisateur result = utilisateurRepository.Check(email, mdp);
+                UtilisateurForm form = new UtilisateurForm();
+                form.Email = email;
+                form.Mdp = mdp;
+                IUtilisateur result = utilisateurRepository.Check(form);
                 if (result is null)
                 {
                     return StatusCode(StatusCodes.Status401Unauthorized,
                         "Cette combinaison login/mot de passe n'a pas été trouvée.");
                 }
 
-                //TODO fournir un token
+                //fournir un token
                 Token tok = new Token(jwtSettings);
                 result.Token = tok.Create(email);
 

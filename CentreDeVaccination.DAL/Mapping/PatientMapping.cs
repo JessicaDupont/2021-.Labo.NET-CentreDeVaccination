@@ -1,6 +1,7 @@
 ﻿using CentreDeVaccination.DAL.Mapping.Bases;
 using CentreDeVaccination.DB.Entities;
 using CentreDeVaccination.Models;
+using CentreDeVaccination.Models.Forms;
 using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.DAL.Mapping
 {
-    public class PatientMapping : IMapping<PatientEntity, IPatient>
+    public class PatientMapping : IMapping<PatientEntity, IPatient, PatientForm>
     {
         private readonly AdresseMapping adresseMap;
         private readonly PersonneMapping personneMap;
@@ -19,10 +20,6 @@ namespace CentreDeVaccination.DAL.Mapping
         {
             adresseMap = new AdresseMapping();
             personneMap = new PersonneMapping();
-        }
-        public PatientEntity Mapping(IPatient model)
-        {
-            throw new NotImplementedException();
         }
 
         public IPatient Mapping(PatientEntity entity)
@@ -53,6 +50,18 @@ namespace CentreDeVaccination.DAL.Mapping
                 result.Personne = personneMap.Mapping(entity.Utilisateur);
             }
 
+            return result;
+        }
+
+        public PatientEntity Mapping(PatientForm form)
+        {
+            PatientEntity result = new PatientEntity();
+            result.Id = form.Id;
+            result.AdresseId = form.AdresseId;
+            result.InformationMedicales = form.InfosMed;
+            result.NumRegNat = form.NumRegNat;
+            result.NumTelephone = form.NumTel;
+            result.UtilisateurId = form.UtilisateurId;
             return result;
         }
     }

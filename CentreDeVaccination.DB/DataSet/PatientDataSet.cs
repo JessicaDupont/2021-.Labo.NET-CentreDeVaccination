@@ -28,7 +28,7 @@ namespace CentreDeVaccination.DB.DataSet
             result.Id = id;
             result.UtilisateurId = id;
             result.AdresseId = id;
-            result.NumTelephone = "0"+LoremIpsum.GetString(1,3)
+            result.NumTelephone = "0"+LoremIpsum.GetString(1,3, false, true, false)
                 +"/"+LoremIpsum.GetString(6, 9, false, true, false);
             result.InformationMedicales = LoremIpsum.GetParagraphe();
             result.NumRegNat = LoremIpsum.GetString(2, false, true, false)

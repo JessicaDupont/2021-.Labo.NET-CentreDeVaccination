@@ -1,6 +1,7 @@
 ﻿using CentreDeVaccination.DAL.Mapping.Bases;
 using CentreDeVaccination.DB.Entities;
 using CentreDeVaccination.Models;
+using CentreDeVaccination.Models.Forms;
 using CentreDeVaccination.Models.IModels;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using ToolIca.Securite;
 
 namespace CentreDeVaccination.DAL.Mapping
 {
-    public class UtilisateurMapping : IMapping<UtilisateurEntity, IUtilisateur>
+    public class UtilisateurMapping : IMapping<UtilisateurEntity, IUtilisateur, UtilisateurForm>
     {
         private readonly PersonneMapping personneMap;
 
@@ -20,7 +21,7 @@ namespace CentreDeVaccination.DAL.Mapping
             personneMap = new PersonneMapping();
         }
 
-        public UtilisateurEntity Mapping(IUtilisateurProfil model)
+        public UtilisateurEntity Mapping(UtilisateurForm model)
         {
             UtilisateurEntity result = new UtilisateurEntity();
             result.Nom = model.Nom;

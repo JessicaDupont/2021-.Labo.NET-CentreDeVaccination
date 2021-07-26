@@ -14,5 +14,6 @@ namespace CentreDeVaccination.Models.IModels
         public IAdresse Adresse { get; set; }
         public string InfosMed { get; set; }
         public IPersonne Personne { get; set; }
+        public IEnumerable<IRendezVous> RDVs { get; set; }
     }
 }
