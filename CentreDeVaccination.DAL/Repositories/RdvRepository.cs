@@ -30,5 +30,19 @@ namespace CentreDeVaccination.DAL.Repositories
             db.SaveChanges();
             return rdvMap.Mapping(result.Entity);
         }
+
+        public IRendezVous Injection(InjectionForm form)
+        {
+            RendezVousEntity entity = db.RDVs
+                .Where(x => x.Id == form.RdvId)
+                .FirstOrDefault();
+            entity.LotId = form.LotId;
+            entity.PersonnelId = form.SoignantId;
+
+            EntityEntry<RendezVousEntity> result = db.Update(entity);
+            db.SaveChanges();
+
+            return rdvMap.Mapping(result.Entity);
+        }
     }
 }

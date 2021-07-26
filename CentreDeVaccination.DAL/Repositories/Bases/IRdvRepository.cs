@@ -12,5 +12,6 @@ namespace CentreDeVaccination.DAL.Repositories.Bases
     public interface IRdvRepository : 
         IRepositoryCreate<IRendezVous, RdvForm, int>
     {
+        public IRendezVous Injection(InjectionForm form);
     }
 }

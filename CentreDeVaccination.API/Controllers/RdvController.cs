@@ -39,7 +39,7 @@ namespace CentreDeVaccination.API.Controllers
         //}
 
         // POST api/<RdvController>
-        [HttpPost]
+        [HttpPost("[action]")]
         public ActionResult<string> AjoutRdv([FromBody] RdvForm form)
         {
             try
@@ -47,6 +47,25 @@ namespace CentreDeVaccination.API.Controllers
                 if (form is null) { return BadRequest(); }
                 IRendezVous result = rdvRepository.Create(form);
                 return Ok("Le rdv a bien été ajouté");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    Method = "POST/AjoutRdv",
+                    Message = ex.Message
+                });
+            }
+        }
+        // POST api/<RdvController>
+        [HttpPost("[action]")]
+        public ActionResult<string> Injection([FromBody] InjectionForm form)
+        {
+            try
+            {
+                if (form is null) { return BadRequest(); }
+                IRendezVous result = rdvRepository.Injection(form);
+                return Ok("L'injection a bien été ajoutée au rdv.");
             }
             catch (Exception ex)
             {
