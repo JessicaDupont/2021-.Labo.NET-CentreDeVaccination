@@ -47,6 +47,7 @@ namespace CentreDeVaccination.API
             services.AddScoped<IPatientRepository, PatientRepository>();
             services.AddScoped<IRdvRepository, RdvRepository>();
             services.AddScoped<IEmployeRepository, EmployeRepository>();
+            services.AddScoped<IEntrepotRepository, EntrepotRepository>();
 
             services.AddSwaggerGen(c =>
             {

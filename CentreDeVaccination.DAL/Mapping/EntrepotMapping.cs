@@ -50,7 +50,14 @@ namespace CentreDeVaccination.DAL.Mapping
                 IList<IVaccin> vaccins = new List<IVaccin>();
                 foreach (TransitEntity te in entity.Transits)
                 {
-                    IVaccin v = vaccinMap.Mapping(te.Lot.Vaccin);
+                    IVaccin v;
+                    if (te.Lot is null)
+                    {
+                        v = new Vaccin();
+                        v.Id = te.LotId;
+                    }
+                    else { v = vaccinMap.Mapping(te.Lot.Vaccin); }
+                    
                     if (!vaccins.Contains(v)) 
                     { 
                         vaccins.Add(v); 
