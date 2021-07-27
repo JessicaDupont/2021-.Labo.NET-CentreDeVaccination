@@ -4,6 +4,7 @@ using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.Models;
 using CentreDeVaccination.Models.Forms;
 using CentreDeVaccination.Models.IModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -16,6 +17,7 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UtilisateurController : ControllerBase
@@ -43,6 +45,7 @@ namespace CentreDeVaccination.API.Controllers
         //}
 
         // POST api/<UtilisateurController>
+        [AllowAnonymous]
         [HttpPost("[action]")]
         public ActionResult<string> Inscription([FromBody] UtilisateurForm form)
         {            
@@ -64,6 +67,7 @@ namespace CentreDeVaccination.API.Controllers
         }
 
         //// POST api/<UtilisateurController>
+        [AllowAnonymous]
         [HttpPost("[action]")]
         public ActionResult<IUtilisateur> Connexion(string email, string mdp)
         {

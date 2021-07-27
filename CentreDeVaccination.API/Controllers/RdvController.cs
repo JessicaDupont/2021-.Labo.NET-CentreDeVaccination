@@ -2,6 +2,7 @@
 using CentreDeVaccination.DAL.Repositories.Bases;
 using CentreDeVaccination.Models.Forms;
 using CentreDeVaccination.Models.IModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace CentreDeVaccination.API.Controllers
 {
-    //TODO à sécurisé
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RdvController : ControllerBase
